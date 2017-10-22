@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+.campaign_create {
+	input, textarea, select {
+		border: 1px solid #4E97A6 !important;
+	}
+}
+
+.carousel {
+	.carousel-indicators, .carousel-control {
+		display: none;
+	}
+}

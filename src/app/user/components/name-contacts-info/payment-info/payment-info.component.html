@@ -1,0 +1,19 @@
+<div class="col-md-4 payment_info">
+  <article>
+    <div class="head-info">
+      <h6>{{ 'USER_DASHBOARD.PAYMENT_INFO' | translate }}</h6>
+    </div>
+    <div class="payment_img">
+      <a><img src="assets/img/stripe_logo.png" class="img-responsive" alt="img"></a>
+    </div>
+    <div *ngIf="!user?.is_stripe_connected">
+      <p>{{ 'USER_DASHBOARD.STRIPE_MSG' | translate }}</p>
+      <div class="connect_img">
+        <a><img (click)="connectWithStripe()" src="assets/img/stripe_connect.png" class="img-responsive" alt="img"></a>
+      </div>
+    </div>
+    <div>
+      <p>Your account is connected with stripe</p>
+    </div>
+  </article>
+</div>

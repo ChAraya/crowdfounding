@@ -1,0 +1,42 @@
+.project {
+	margin-bottom: 50px;
+	.no-image {
+		height: 245px;
+		width: 100%;
+		background: #29acbf;
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+		}
+	}
+	.icons {
+		.pouch-info {
+			padding-left: 0;
+			.icon {
+				overflow: hidden;
+			}
+			.percent {
+				margin-top: 6px;
+			}
+		}
+		li {
+			width: 25%;
+			text-align: center;
+			.fi {
+				margin-top: -4px;
+			}
+			i {
+				margin: auto;
+				float: none;
+				font-size: 30px;
+				display: block;
+			}
+		}
+		// .backers-info	{
+			// background: #e7e7e7;
+		// }
+	}
+
+}

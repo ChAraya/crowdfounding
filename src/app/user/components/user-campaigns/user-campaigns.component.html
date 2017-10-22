@@ -1,0 +1,56 @@
+<div class="tab-pane">
+  <h2>{{ 'USER_DASHBOARD.CAMPAIGNS' | translate }}</h2>
+  <div class="comp_table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Start Date</th>
+          <th class="center">End Date</th>
+          <th class="center">Name</th>
+          <th class="center">Target</th>
+          <th class="center">Funded</th>
+          <th class="center"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let project of user.projects">
+          <td>23-04-2017</td>
+          <td class="center">28-04-2018</td>
+          <td class="center">{{project.title}}</td>
+          <td class="center">{{ project?.currency | currencySymbol }}{{project.pledged_amount}}</td>
+          <td class="center">{{ project?.currency | currencySymbol }}{{project.funded_amount}}</td>
+          <td class="center">
+            <button class="btn edit-btn" [routerLink]="['/projects', 'edit', project.id]">{{ 'USER_DASHBOARD.EDIT' | translate }}</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <span class=""> <a class="btn" (click)="lgModal.show()">Send Notification</a> </span>
+    <span *ngIf="isAuthUser()" style="float: right;"> <a [routerLink]="['/projects','new']" class="btn">{{ 'USER_DASHBOARD.ADD_CAMPAIGN' | translate }}</a> </span>
+  </div>
+</div>
+
+<div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Send Notification</h4>
+        <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="notification">
+          <div class="camp_select slate">
+            <select class="options" [(ngModel)]="projectId">
+              <option *ngFor="let project of user.projects" [value]="project.id">{{project.title}}</option>
+            </select>
+          </div>
+          <textarea rows="10" class="description" [(ngModel)]="description" placeholder="Add message"></textarea>
+          <p *ngIf="!projectId || !description" style="text-align: center;">Please select project and add some message to send notification to all project backers</p>
+          <button *ngIf="projectId && description" class="btn send"(click)="sendNotification()">send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div *ngIf="authStatus$ | async" class="new-comment">
+  <form class="add-comment" [formGroup]="commentForm">
+    <label for="comment">
+      <span>
+        <img [src]="(authUser$ | async).image_url">
+      </span>
+      <textarea formControlName="body" id="comment" rows="1" placeholder="what do you think of this project"></textarea>
+    </label>
+    <button (click)="addComment()" class="save-button">{{ 'PROJ_DETAIL.SAVE' | translate }}</button>
+  </form>
+</div>
+
+<div class="comments">
+  <div *ngFor="let comment of comments$ | async">
+    <div class="comment">
+      <div class="heading">
+        <a class="avatar">
+          <img [src]="comment.author_image" alt="">
+        </a>
+        <div class="name">
+          <a class="bold-text">{{comment.author_name}}</a>
+          <div class="text" >@{{comment.author_name}}</div>
+        </div>
+      </div>
+      <div class="body">
+        <div *ngIf="!edited || comment.id != editedCommentId" class="comment-body">{{comment.body}}</div>
+        <div *ngIf="edited && comment.id == editedCommentId" class="edit-comment">
+          <form  [formGroup]="commentEditForm">
+            <textarea formControlName="body" id="comment" rows="1"></textarea>
+            <button (click)="saveEditedComment()" class="edit-button">Save</button>
+          </form>
+        </div>
+      </div>
+      <div class="user-actions">
+        <span>
+          <i (click)="replyToComment(comment.id)" class="fa fa-reply" aria-hidden="true"></i>
+        </span>
+        <span *ngIf="comment.user_id == (authUser$ | async).id">
+          <i (click)="deleteComment(comment.id)" class="fa fa-trash-o" aria-hidden="true"></i>
+          <i (click)="editComment(comment)" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </span>
+      </div>
+    </div>
+    <div *ngIf="reply && comment.id == replyCommentId" class="new-comment">
+      <form class="add-comment" [formGroup]="commentReplyForm">
+        <label for="comment">
+          <span>
+            <img [src]="(authUser$ | async).image_url">
+          </span>
+          <textarea formControlName="body" id="comment" rows="1" placeholder=""></textarea>
+        </label>
+        <button (click)="addReplyComment()" class="save-button">Save</button>
+      </form>
+    </div>
+    <div *ngIf="comment.child_comments" class="child-comments">
+      <div *ngFor="let comment of comment.child_comments">
+        <div class="comment">
+          <div class="heading">
+            <a class="avatar">
+              <img [src]="comment.author_image" alt="">
+            </a>
+            <div class="name">
+              <a class="bold-text">{{comment.author_name}}</a>
+              <div class="text" >@{{comment.author_name}}</div>
+            </div>
+          </div>
+          <div class="body">
+            <div *ngIf="!edited || comment.id != editedCommentId" class="comment-body">{{comment.body}}</div>
+            <div *ngIf="edited && comment.id == editedCommentId" class="edit-comment">
+              <form  [formGroup]="commentEditForm">
+                <textarea formControlName="body" id="comment" rows="1"></textarea>
+                <button (click)="saveEditedComment()" class="edit-button">Save</button>
+              </form>
+            </div>
+          </div>
+          <div class="user-actions">
+            <span *ngIf="comment.user_id == (authUser$ | async).id">
+              <i (click)="deleteComment(comment.id)" class="fa fa-trash-o" aria-hidden="true"></i>
+              <i (click)="editComment(comment)" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+            </span>
+          </div>
+        </div>        
+      </div>
+    </div>
+  </div>
+</div>

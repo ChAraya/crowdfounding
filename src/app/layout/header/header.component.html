@@ -1,0 +1,42 @@
+<header id="myheader" class="main-header head-f-ot">
+  <div class="sticky">
+    <div class="container-fluid">
+      <div class="mylogo"> <a [routerLink]="['/']"> <img src="assets/img/logo.png" class="img-responsive" alt="Logo"> </a> </div>
+      <nav class="navbar navbar-default">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <i class="fa fa-navicon"></i> </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul *ngIf="!authStatus" class="nav navbar-nav navbar-right">
+            <li><a [routerLink]="['/about-us']">{{'HEADER.ABOUT_US' | translate}}</a></li>
+            <li><a>{{'HEADER.BLOG' | translate}}</a></li>
+            <li><a [routerLink]="['/categories', 'Art']">{{'HEADER.EXPLORE' | translate}}</a></li>
+            <li><a (click)="showModal('login')" class="btn" data-toggle="modal" data-target="#myModal1"><i class="flaticon-login"></i> {{'HEADER.LOGIN' | translate}}</a></li>
+            <li><a (click)="showModal('signup')" class="btn btn-up" data-toggle="modal" data-target="#myModal"><i class="flaticon-note-1"></i> {{'HEADER.SIGNUP' | translate}}</a></li>
+            <li><a class="btn zoom"><i class="flaticon-search"></i></a></li>
+          </ul>
+          <ul *ngIf="authStatus" class="nav navbar-nav navbar-right">
+            <li>
+              <a [routerLink]="['users', authUser.id]" fragment='notifications' class="btn notifi"><i class="flaticon-notification"></i> 
+                <span *ngIf="authUser.notifications_count > 0">{{authUser.notifications_count}}</span>
+              </a>
+            </li>
+            <li class="dropdown active">
+              <a href="#" class="dropdown-toggle btn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                <i class="flaticon-user"></i>
+                <!--<img class="image" [src]="authUser.image_url" alt="">-->
+                {{(authUser.name).split(' ')[0]}}
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a [routerLink]="['users', authUser.id]" fragment='quick-view'>{{'HEADER.DASHBOARD' | translate}}</a></li>
+                <li><a [routerLink]="['users', authUser.id]">{{'HEADER.SETTINGS' | translate}}</a></li>
+              </ul>
+            </li>            
+            <li><a (click)="onLogout()" class="btn btn-up">{{'HEADER.LOGOUT' | translate}}</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

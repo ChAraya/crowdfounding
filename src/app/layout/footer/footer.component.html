@@ -1,0 +1,173 @@
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="sub-c">
+          <h4>{{ 'FOOTER.SUBSRCIBE_NOW' | translate }}</h4>
+          <span>{{ 'FOOTER.PROMISE_MSG' | translate }}</span>
+          <form>
+            <input type="email" placeholder="Email Address">
+            <button type="submit">{{ 'FOOTER.EMAIL_SEND' | translate }}</button>
+          </form>
+          <h4>{{ 'FOOTER.FOLLOW_US' | translate }}</h4>
+          <div class="social"> <a href="#."><i class="fa fa-facebook"></i></a> <a href="#."><i class="fa fa-twitter"></i></a> <a href="#."><i class="fa fa-youtube"></i></a> <a href="#."><i class="fa fa-linkedin"></i></a> </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="links">
+          <ul>
+            <li><a [routerLink]="['/about-us']">{{'FOOTER.ABOUT_US' | translate}}</a></li>
+            <li><a [routerLink]="['/jobs']">{{'FOOTER.JOBS' | translate}}</a></li>
+            <li><a [routerLink]="['/press']">{{'FOOTER.PRESS' | translate}}</a></li>
+            <li><a [routerLink]="['/statistics']">{{'FOOTER.STATISTICS' | translate}}</a></li>
+            <li><a [routerLink]="['/newsletter']">{{'FOOTER.NEWSLETTER' | translate}}</a></li>
+            <li><a [routerLink]="['/support']">{{'FOOTER.SUPPORT' | translate}}</a></li>
+            <li><a [routerLink]="['/partners']">{{'FOOTER.PARTNERS' | translate}}</a></li>
+            <li><a [routerLink]="['/tutorials']">{{'FOOTER.TUTORIAL' | translate}}</a></li>
+          </ul>
+          <ul>
+            <li><a>Blog</a></li>
+            <li><a [routerLink]="['/faqs']">{{'FOOTER.FAQ' | translate}}</a></li>
+            <li><a [routerLink]="['/rulebook']">{{'FOOTER.RULEBOOK' | translate}}</a></li>
+            <li><a [routerLink]="['/events']">{{'FOOTER.EVENTS' | translate}}</a></li>
+            <li><a [routerLink]="['/trust']">{{'FOOTER.TRUST' | translate}}</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-md-4 about-foot"> <img src="assets/img/logo=footer.jpg" alt="" > <br>
+        <!--<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation..</p>-->
+      </div>
+    </div>
+  </div>
+  <div class="rights">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <p>Copyright 2017 Crowd Pouch</p>
+          <a [routerLink]="['/privacy']">{{'FOOTER.PRIVACY_POLICY' | translate}}</a>
+					<a [routerLink]="['/terms']">{{'FOOTER.TERMS_AND_CONDITION' | translate}}</a>
+					<a [routerLink]="['/cookies']">{{'FOOTER.COOKIE_POLICY' | translate}}</a>
+				</div>
+        <div class="col-md-4">
+          <div class="row">
+            <div class="col-md-6"> <img class="margin-top-10" src="assets/img/Bitmap.png" alt="icon"> </div>
+            <div class="col-md-6">
+              <select #langSelect class="form-control mydropdown" (change)="translate.use(langSelect.value)">
+                <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ language[lang].longLan }}</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<!--<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-sm-4">
+				<ul>
+					<li>
+						<a href="#">{{'FOOTER.ABOUT_US' | translate}}</a>
+					</li>
+					<li>
+						<a href="#">{{'FOOTER.JOBS' | translate}}</a>
+					</li>
+					<li>
+						<a href="#">{{'FOOTER.PRESS' | translate}}</a>
+					</li>
+					<li>
+						<a href="#">{{'FOOTER.STATISTICS' | translate}}</a>
+					</li>
+					<li>
+						<a href="#">{{'FOOTER.NEWSLETTER' | translate}}</a>
+					</li>
+					<li>
+						<a href="#">{{'FOOTER.SUPPORT' | translate}}</a>
+					</li>
+					<li>
+						<a href="#">{{'FOOTER.PARTNERS' | translate}}</a>
+					</li>
+					<li>
+						<a href="#">{{'FOOTER.TUTORIAL' | translate}}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-6 col-sm-4">
+				<ul class="space20">
+					<li>
+						<a href="#">{{'FOOTER.BLOG' | translate}}</a>
+					</li>
+					<li>
+						<a href="#">{{'FOOTER.FAQ' | translate}}</a>
+					</li>
+					<li>
+						<a href="#">{{'FOOTER.RULEBOOK' | translate}}</a>
+					</li>
+					<li>
+						<a href="#">{{'FOOTER.EVENTS' | translate}}</a>
+					</li>
+					<li>
+						<a href="#">{{'FOOTER.TRUST' | translate}} &amp; {{'FOOTER.SAFETY' | translate}}</a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-2 col-sm-4">
+				<ul class="textleft space20">
+					<li>
+						<a href="#">
+							<img src="assets/img/logo2.png" alt="icon">
+							</a>
+						</li>
+						<li class="space20">
+							<button type="button" class="pricingbtn">{{'FOOTER.PRICING' | translate}}</button>
+						</li>
+						<li class="space20">
+							<p>{{'FOOTER.FOLLOW' | translate}}</p>
+							<a href="https://www.facebook.com/crowdpouch" target="_blank" class="space5">
+								<img src="assets/img/icon3.png" alt="icon">
+								</a>&nbsp;&nbsp;
+
+            
+								<a href="https://twitter.com/crowdpouch" target="_blank">
+									<img src="assets/img/icon4.png" alt="icon">
+									</a>&nbsp;&nbsp;
+
+            
+									<a href="#">
+										<img src="assets/img/icon5.png" alt="icon">
+										</a>&nbsp;&nbsp;
+
+            
+										<a href="#">
+											<img src="assets/img/icon6.png" alt="icon">
+											</a>
+										</li>
+										<li class="space20">
+											<i [ngClass]="['flag', language[translate.currentLang].class]"></i>
+											<select class="form-control mydropdown" #langSelect (change)="translate.use(langSelect.value)">
+												<option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ language[lang].longLan }}</option>
+											</select>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<dir class="row">
+								<div class="col-md-10 col-sm-9 space20">
+									<p>
+										<strong>Copyright 2017 crowdpouch UG</strong>
+										<br>
+											<a href="#">Privacy Policy</a>
+											<a href="#">Term &amp; Condition</a>
+											<a href="#">Cookie Policy</a>
+										</p>
+									</div>
+									<div class="col-md-2 col-sm-3 space20">
+										<img src="assets/img/Bitmap.png" alt="icon">
+										</div>
+									</dir>
+								</div>
+							</footer>-->

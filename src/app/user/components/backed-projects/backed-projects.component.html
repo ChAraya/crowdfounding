@@ -1,0 +1,19 @@
+<div class="tab-pane">
+  <h2> {{ 'USER_DASHBOARD.BACKED_PROJECT' | translate }}</h2>
+  <div class="projects padding-0">
+    <div class="row"> 
+      <div *ngFor="let project of user?.backed_projects" class="col-sm-6">
+        <article>
+          <div class="p-img"> <img [src]="project.image_url" alt="" > </div>
+          <div class="text-part"> <a href="#.">{{project.title}}</a> </div>
+          <ul>
+            <li class="pouch-info"> <i class="pouch"></i> <span>{{project.percent_funded  | number:'1.0-0'}}%</span> </li>
+            <li> <i class="flaticon-target"></i> <span>${{project.pledged_amount}}</span> </li>
+            <li> <i class="flaticon-user"></i> <span>{{project.total_backers}}</span> </li>
+            <li> <i class="flaticon-alarm-clock"></i> <span>{{project.duration}}</span> </li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

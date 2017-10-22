@@ -1,0 +1,110 @@
+<section id="mypro_body">
+  <div class="container">
+    <div class="col-md-12 padding0">
+      <h2>{{project?.title}}</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-12">
+            <carousel interval="false" [(activeSlide)]="carouselIndex">
+              <slide *ngIf="project?.video_url">
+                <iframe marginwidth="0" marginheight="0" align="top" scrolling="No" frameborder="0" hspace="0" vspace="0" class="main-media" id="video" *ngIf="project?.video_url" [src]="safeEmbedUrl">
+                </iframe>
+              </slide>
+              <slide class="big-image" *ngFor="let picture of project?.pictures; let i = index">
+                <img class="main-media" id="image{{i}}" [src]="picture.url" alt="First slide">
+              </slide>
+            </carousel>
+            <div class="thumbnails">
+              <img *ngIf="project?.video_url" class="thumbnail" (click)="showImage(0)" [src]="getVideoThumbnail(project.video_url)" alt="">
+              <span *ngIf="project?.video_url">
+                <img *ngFor="let picture of project?.pictures; let i = index" class="thumbnail" (click)="showImage(i+1)" [src]="picture.url" alt="">
+              </span>
+              <span *ngIf="!project?.video_url">
+                <img *ngFor="let picture of project?.pictures; let i = index" class="thumbnail" (click)="showImage(i)" [src]="picture.url" alt="">
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="row space10">
+          <div class="col-md-12">
+            <div class="project_web">
+              <ul>
+                <li class="active"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp;&nbsp;Project We Love</a></li>
+                <li><a href="#"><i class="fa fa-compass" aria-hidden="true"></i>&nbsp;&nbsp;Web</a></li>
+                <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Riverside, CA</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="row space10">
+          <app-report-project [projectId]="project.id"></app-report-project>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mytabs">
+              <ul class="tab">
+                <li [ngClass]="{'active': selectedTab == 1}"><a class="tablinks" (click)="changeTab(1)">{{ 'PROJ_DETAIL.CAMPAIGN' | translate }}</a></li>
+                <li [ngClass]="{'active': selectedTab == 2}"><a class="tablinks" (click)="changeTab(2)">{{ 'PROJ_DETAIL.UPDATES' | translate }}</a></li>
+                <li [ngClass]="{'active': selectedTab == 3}"><a class="tablinks" (click)="changeTab(3)">{{ 'PROJ_DETAIL.DISSCUSION' | translate }}</a></li>
+                <li [ngClass]="{'active': selectedTab == 4}"><a class="tablinks" (click)="changeTab(4)">{{ 'PROJ_DETAIL.COMMUNITY' | translate }}</a></li>
+              </ul>
+            </div>
+            <div class="" [ngSwitch]="selectedTab">
+						  <ng-template [ngSwitchCase]="'1'" ngSwitchDefault> 
+							  <app-campaign [story]="project?.story"></app-campaign>
+						  </ng-template>
+						  <ng-template [ngSwitchCase]="'2'" ngSwitchDefault> 
+							  <app-updates></app-updates>
+						  </ng-template>
+						  <ng-template [ngSwitchCase]="'3'" ngSwitchDefault> 
+                <app-comments [projectId]="project?.id"></app-comments>
+						  </ng-template>
+						  <ng-template [ngSwitchCase]="'4'" ngSwitchDefault> 
+							  <app-community [projectId]="project?.id"></app-community>
+						  </ng-template>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="right_detail2">
+          <div class="row">
+            <app-already-pledged [project]="project"></app-already-pledged>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <button type="button" class="back_probtn">{{ 'PROJ_DETAIL.BACK_PROJECT' | translate }}</button>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 space30">
+              <button type="button" class="linksbtn bgclr5cc5d3"><i class="fa fa-star" aria-hidden="true"></i>  {{ 'PROJ_DETAIL.REMIND_ME' | translate }}</button>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 space30">
+              <app-social-share></app-social-share>
+            </div>
+            <div class="col-md-12 space20">
+              <p class="clr42a7b3 fsize14">{{ 'PROJ_DETAIL.PROJECT_BACK_MSG1' | translate }} {{project?.end_date | date:'medium'}}.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <h2 class="subtitle3 space30">{{ 'PROJ_DETAIL.PROJECT_BACK_MSG2' | translate }}</h2>
+              <div class="support_reward">
+                <h3>{{ 'PROJ_DETAIL.PROJECT_BACK_MSG3' | translate }}</h3>
+                <input type="text" class="form-control rewardtype" [(ngModel)]="amount" placeholder="10">
+                <button [routerLink]="['/projects', project.id, 'payment']" 
+                        [queryParams]="{amount: amount, shippingAmount: 0, currency: project.currency}"
+                        type="button" class="linksbtn bgclr5cc5d3 space30">{{ 'PROJ_DETAIL.CONTINUE' | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <app-pledge-more [project]="project"></app-pledge-more>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

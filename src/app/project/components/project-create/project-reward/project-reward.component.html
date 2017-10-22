@@ -1,0 +1,124 @@
+<div class="campaign_create">
+	<h1>Pouches</h1>
+	<div class="camp_create_box">
+		<div class="panel-group" id="accordionReward">
+			<form [formGroup]="rewardForm">
+				<div formArrayName="rewards_attributes">
+					<div *ngFor="let reward of getRewards(); let i = index">
+						<div class="panel panel-default" formGroupName="{{i}}">
+							<div class="panel-heading">
+								<span (click)="removeReward(i, reward.get('id').value)" class="fa fa-times pull-right "></span>
+								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionReward" href="#collapseReward">
+									<h4 class="panel-title">
+										Section #{{i+1}}
+									</h4>
+								</a>
+							</div>
+							<div id="collapseReward" class="panel-collapse collapse in">
+								<div class="panel-body">
+									<div class="camp_mrg2"></div>
+									<!-- Reward body -->
+									<div class="form-group">
+										<label for="usr">{{ 'PROJ_CREATE.POUCH_TITLE' | translate }}</label>
+										<input type="text" class="form-control" placeholder="Enter title" formControlName="title">
+										<p *ngIf="reward.get('title').hasError('required') && (reward.get('title').touched || formSubmit)" class="value-err show">This is a mandatory field</p>
+									</div>
+									<div class="form-group">
+										<label for="comment">{{ 'PROJ_CREATE.POUCH_DESCRIPTION' | translate }}</label>
+										<textarea class="form-control" rows="4" placeholder="Enter description" formControlName="description"></textarea>
+										<p *ngIf="reward.get('description').hasError('required') && (reward.get('description').touched || formSubmit)" class="value-err show">This is a mandatory field</p>
+                    					<p *ngIf="reward.get('description').hasError('invalid') && (reward.get('description').touched || formSubmit)" class="value-err show">Pouch description must no exceed 350 characters or 50 words</p>
+									</div>
+									<h2>{{ 'PROJ_CREATE.POUCH_AMOUNT' | translate }}</h2>
+									<p>{{ 'PROJ_CREATE.POUCH_AMOUNT_MSG' | translate }} </p>
+									<div class="row">
+										<div class="col-xs-6">
+											<div class="form-group">
+												<input type="number" class="form-control" placeholder="$ 500" formControlName="amount">
+												<p *ngIf="reward.get('amount').hasError('required') && (reward.get('amount').touched || formSubmit)" class="value-err show">This is a mandatory field</p>
+												<p *ngIf="(reward.get('amount').hasError('invalid') || reward.get('quantity').hasError('invalid')) && (reward.get('amount').touched || reward.get('quantity').touched || formSubmit)" class="value-err show">Pouch amount x Pouch Quantity should be less than goal amount</p>
+											</div>
+										</div>
+										<div class="col-xs-6">
+											<div class="camp_select slate">
+												<select formControlName="currency">
+													<option>USD</option>
+													<option>GBP</option>
+													<option>AUD</option>
+													<option>CAD</option>
+													<option>EUR</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<label for="usr">{{ 'PROJ_CREATE.POUCH_QUANTITY' | translate }}</label>
+										<input type="number" class="form-control" placeholder="Enter quantity" formControlName="quantity">
+									</div>
+									<h2>{{ 'PROJ_CREATE.POUCH_DELIVERY_DATE' | translate }}</h2>
+									<div style="display:inline-block; min-height:290px;">
+										<datepicker [(ngModel)]="selectedDate[i]" [ngModelOptions]="{standalone: true}"></datepicker>
+										<p *ngIf="validateDeliveryDate(i)" class="value-err show">Pouch delivery date should be greater than campaign start date</p>
+									</div>
+									<div class="form-group">
+										<h2>Pouch Shipping Locations</h2>
+										<p>Does this pouch contain items that you need to ship?</p>
+										<div class="col-xs-12 no-locations">
+											<input name="contain_shipping_locations" formControlName="contain_shipping_locations" type="radio" id="no" [value]="false">
+											<label>
+												No, this pouch does not contain items that need to be shipped.
+											</label>
+										</div>
+										<div class="col-xs-12 yes-locations">
+											<input name="contain_shipping_locations" formControlName="contain_shipping_locations" type="radio" id="yes" [value]="true">
+											<label>
+												Yes, this pouch contains items that need to be shipped.
+											</label>
+										</div>
+										<div *ngIf="reward.get('contain_shipping_locations').value">
+											<div class="row">
+												<div class="col-xs-6">
+													Shipping locations this perk ships to
+												</div>
+												<div class="col-xs-6">
+													Shipping fee added during checkout
+												</div>
+											</div>
+											<div formArrayName="shipping_locations_attributes" class="row">
+												<div *ngFor="let location of reward.get('shipping_locations_attributes').value; let li = index">
+													<div formGroupName="{{li}}">
+														<div class="col-xs-6 camp_select slate">
+															<select formControlName="location">
+																<option value="anywhere">Rest of the world</option>
+																<option *ngFor="let country of countries" [value]="country">{{country}}</option>
+															</select>
+														</div>
+														<div class="col-xs-6 form-group">
+															<input type="text" formControlName="shipping_fee" class="form-control">
+														</div>
+													</div>
+												</div>
+											</div>
+											<span (click)="addNewLocation(i)" class="add-location">
+												<i class="fa fa-plus-circle" aria-hidden="true"></i>
+												<span>Add Another Location</span>
+											</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+			<br>
+			<div class="camp_mrg"></div>
+			<div class="camp_link">
+				<a (click)="onSubmit()" class="btnNext pull-right" style="width:48%">{{ 'PROJ_CREATE.NEXT' | translate }}</a>
+				<a (click)="onAddReward()" class="camp_btn btn-default reward-add-panel" style="width:48%">
+					<i class="fa fa-plus"></i> {{ 'PROJ_CREATE.ADD_POUCH' | translate }}
+				</a>
+			</div>
+		</div>
+	</div>
+</div>

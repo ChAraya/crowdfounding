@@ -1,0 +1,128 @@
+<div class="tab-pane">
+  <h2>Quick View Info</h2>
+  <div class="quick-view-info"> 
+    
+    <!-- Fund info -->
+    <div class="fund-info">
+      <ul class="row">
+        <li class="col-sm-3">
+          <article> <span class="main-tit">{{ project?.currency | currencySymbol }}{{project.funded_amount}}</span>
+            <p>{{ 'USER_DASHBOARD.FUNDED' | translate }} </p>
+          </article>
+        </li>
+        <li class="col-sm-3">
+          <article> <span class="main-tit">{{ project?.currency | currencySymbol }}{{project.pledged_amount}}</span>
+            <p>{{ 'USER_DASHBOARD.FUNDED' | translate }} </p>
+          </article>
+        </li>
+        <li class="col-sm-3">
+          <article> <span class="main-tit">{{project.total_backers}}</span>
+            <p>{{ 'USER_DASHBOARD.BACKERS' | translate }}</p>
+          </article>
+        </li>
+        <li class="col-sm-3">
+          <article> <span class="main-tit">35</span>
+            <p>{{project.duration}}</p>
+          </article>
+        </li>
+      </ul>
+    </div>
+    <div class="row"> 
+      <!-- Total Founded -->
+      <div class="col-md-6">
+        <article class="funded-graph">
+          <div class="head-info">
+            <h6>{{ 'USER_DASHBOARD.TOTAL_FUNDED' | translate }}</h6>
+          </div>
+          
+          <!-- Total Funded -->
+          <ul class="row pie-chrt">
+            <li class="col-sm-6">
+              <div class="pie-title-center">
+                <easy-pie-chart [percent]="percent" [options]="options"></easy-pie-chart>
+                <span class="pie-value">{{project.percent_funded | number:'1.0-0'}}%</span>
+              </div>
+              <p>{{ 'USER_DASHBOARD.TOTAL_FUNDED' | translate }} <span>{{ project?.currency | currencySymbol }}{{project.funded_amount}}</span></p>
+            </li>
+            
+            <!-- Tittle -->
+            <li class="col-sm-6">
+              <div class="pie-title-center">
+                <easy-pie-chart [percent]="percent" [options]="options"></easy-pie-chart>
+                <span class="pie-value">20%</span>
+              </div>
+              <p>Tittle  here <span>{{ project?.currency | currencySymbol }}200</span></p>
+            </li>
+          </ul>
+          
+          <!-- Target -->
+          <div class="row text-center margin-top-35">
+            <div class="col-sm-4">
+              <p>Target <span>{{ project?.currency | currencySymbol }}{{project.pledged_amount}}</span></p>
+            </div>
+            <div class="col-sm-4">
+              <p>Tittle  here <span>{{ project?.currency | currencySymbol }}200</span></p>
+            </div>
+            <div class="col-sm-4">
+              <p>Tittle  here <span>{{ project?.currency | currencySymbol }}200</span></p>
+            </div>
+          </div>
+        </article>
+      </div>
+      
+      <!-- Statistics -->
+      <div class="col-md-6">
+        <article class="funded-graph bcakers">
+          <div class="head-info">
+            <h6>{{ 'USER_DASHBOARD.STATISTICS' | translate }}</h6>
+          </div>
+          <div class="row"> 
+            
+            <!-- Backers -->
+            <div class="col-sm-6">
+              <div class="backers-c">
+                <span *ngFor="let dot of totalDots()" class="backer-num"></span>
+              </div>
+              <p>{{ 'USER_DASHBOARD.TOTAL_BACKERS' | translate }} <span>{{project.total_backers}}</span></p>
+            </div>
+            
+            <!-- Backers  Bar -->
+            <div class="col-sm-6">
+              <div class="backers-bar">
+                <p class="fst"><span class="box"></span> Tittle Here</p>
+                <p class="second"><span class="box"></span> Tittle Here</p>
+                <p class="thrd"><span class="box"></span> Tittle Here</p>
+                
+                <!-- Backers  Bar 1 -->
+                <div class="progress fist">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"> </div>
+                </div>
+                <!-- Backers  Bar 1 -->
+                <div class="progress second">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 50%;"> </div>
+                </div>
+                <!-- Backers  Bar 1 -->
+                <div class="progress thrd">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"> </div>
+                </div>
+                <!-- Backers  Bar 1 -->
+                <div class="progress fist">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 20%;"> </div>
+                </div>
+                <!-- Backers  Bar 1 -->
+                <div class="progress second">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 40%;"> </div>
+                </div>
+                <!-- Backers  Bar 1 -->
+                <div class="progress thrd">
+                  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"> </div>
+                </div>
+              </div>
+              <p>Other data <span>135</span> </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div>

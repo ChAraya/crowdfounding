@@ -1,0 +1,27 @@
+<app-header (modal)="setModalType($event)"></app-header>
+
+<ng2-toasty [position]="'top-center'"></ng2-toasty>
+
+<app-modal #customModal>
+  <div *ngIf="modalType === 'login'">
+    <app-login></app-login>
+  </div>
+  <div *ngIf="modalType === 'signup'">
+    <app-signup></app-signup>
+  </div>
+</app-modal>
+
+<section class="main">
+  <router-outlet></router-outlet>
+</section>
+
+
+<!-- Explore  -->
+<section id="explorebtn">
+  <div class="container">
+    <h2>Integer iaculis dolor vel aliquam lobortis. Nulla facilisi. Maecenas hendrerit lacus sit amet molestie interdum. Pellentesque
+      habitant morbi tristique senectus et netus.</h2>
+    <a [routerLink]="['/categories', 'Art']" class="expbtn1">{{ 'FOOTER.EXPLORE_CAMPAIGN' | translate}}</a>
+    <a [routerLink]="['/projects', 'new']" class="expbtn1">{{ 'FOOTER.START_A_CAMPAIGN' | translate}}</a> </div>
+</section>
+<app-footer></app-footer>

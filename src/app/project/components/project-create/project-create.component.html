@@ -1,0 +1,80 @@
+<div class="sub-bnr-flat">
+  <div class="container">
+    <h2>Create a Campaign</h2>
+  </div>
+</div>
+
+<div class="campaign_box">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3 camp_pdng">
+				<div class="campaign_editor">
+					<h2>{{ 'PROJ_CREATE.CAMPAIGN_EDITOR' | translate }}</h2>
+					<div class="campaign_tabs">
+						<ul class="nav nav-tabs responsive" id="campaign_Tabs">
+							<li [ngClass]="{'active': selectedTab == 1}">
+								<a (click)="changeTab(1)">1. {{ 'PROJ_CREATE.TITLE' | translate }} 
+								</a>
+							</li>
+							<li [ngClass]="{'active': selectedTab == 2}">
+								<a (click)="changeTab(2)">2. {{ 'PROJ_CREATE.POUCHES' | translate }} 
+									<span class="category_camp">{{ 'PROJ_CREATE.POUCHES_MSG' | translate }}</span>
+								</a>
+							</li>
+							<li [ngClass]="{'active': selectedTab == 3}">
+								<a (click)="changeTab(3)">3. {{ 'PROJ_CREATE.STORY_BOARD' | translate }} 
+								</a>
+							</li>
+							<li class="faq_boder" [ngClass]="{'active': selectedTab == 4}">
+								<a (click)="changeTab(4)">4. {{ 'PROJ_CREATE.FAQS' | translate }}
+								</a>
+							</li>
+							<li [ngClass]="{'active': selectedTab == 5}">
+								<a (click)="changeTab(5)">5. {{ 'PROJ_CREATE.KYC_INFO' | translate }}
+								</a>
+							</li>
+							<li [ngClass]="{'active': selectedTab == 6}">
+								<a (click)="changeTab(6)">6. {{ 'PROJ_CREATE.REVIEW' | translate }} 
+								</a>
+							</li>
+							<li [ngClass]="{'active': selectedTab == 7}">
+								<a (click)="changeTab(7)">7. {{ 'PROJ_CREATE.EVENTS' | translate }} 
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-9 camp_pdng">
+				<div *ngIf="showLoader" class="loading">
+					<img src="assets/img/loading.svg">
+				</div>
+				<div class="tab-content responsive">
+					<div class="" [ngSwitch]="selectedTab">
+						<ng-template [ngSwitchCase]="'1'" ngSwitchDefault> 
+							<app-project-title [isEditing]="isEditing"></app-project-title>
+						</ng-template>      
+						<ng-template [ngSwitchCase]="'2'">
+							<app-project-reward [isEditing]="isEditing"></app-project-reward> 
+						</ng-template>
+						<ng-template [ngSwitchCase]="'3'">
+							<app-project-story [isEditing]="isEditing"></app-project-story>
+						</ng-template>
+						<ng-template [ngSwitchCase]="'4'">
+							<app-project-faq [isEditing]="isEditing"></app-project-faq>
+						</ng-template>
+						<ng-template [ngSwitchCase]="'5'">
+							<app-project-user-kyc-info></app-project-user-kyc-info>
+						</ng-template>
+						<ng-template [ngSwitchCase]="'6'">
+							<app-project-review [isEditing]="isEditing" (backToEditor)="changeTab(1)"></app-project-review> 
+						</ng-template>
+						<ng-template [ngSwitchCase]="'7'">
+							<app-project-event></app-project-event> 
+						</ng-template>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+<div class="tab-pane">
+  <h2>{{ 'USER_DASHBOARD.NAME_CONTACT_INFO' | translate }}</h2>
+  <div class="row"> 
+    <app-profile-pic [user]="user"></app-profile-pic>
+    <app-basic-info [user]="user"></app-basic-info>
+    <app-payment-info [user]="user"></app-payment-info>
+  </div>
+  <div class="row">
+    <app-email-password [user]="user"></app-email-password>
+    <app-social-media-links [user]="user"></app-social-media-links>
+  </div>
+</div>

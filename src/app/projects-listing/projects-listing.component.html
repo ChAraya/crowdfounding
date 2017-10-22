@@ -1,0 +1,213 @@
+<div id="mymenu1">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+        <ul class="nav navbar-nav">
+          <!--<li><a href="#">Art</a></li>
+          <li class="dropdown active"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Comics<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li class="active"><a href="#">All Comics Projects</a></li>
+              <li><a href="#">Anthologies </a></li>
+              <li><a href="#">Comic Books</a></li>
+              <li><a href="#">Events</a></li>
+              <li><a href="#">Graphic Novels</a></li>
+              <li><a href="#">Web Comics</a></li>
+            </ul>
+          </li>-->
+          <li><a [routerLink]="['/categories', 'Art']">{{ 'PROJ_CATEGORY.ART' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'Crafts']">{{ 'PROJ_CATEGORY.CRAFTS' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'Dance']">{{ 'PROJ_CATEGORY.DANCE' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'Community']">{{ 'PROJ_CATEGORY.COMMUNITY' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'Fashion']">{{ 'PROJ_CATEGORY.FASHION' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'Film']">{{ 'PROJ_CATEGORY.FILM' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'Video']">{{ 'PROJ_CATEGORY.VIDEO' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'Food']">{{ 'PROJ_CATEGORY.FOOD' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'Games']">{{ 'PROJ_CATEGORY.GAMES' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'Music']">{{ 'PROJ_CATEGORY.MUSIC' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'Photography']">{{ 'PROJ_CATEGORY.PHOTOGRAPHY' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'Publishing']">{{ 'PROJ_CATEGORY.PUBLISHING' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'Technology']">{{ 'PROJ_CATEGORY.TECHNOLOGY' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'Theater']">{{ 'PROJ_CATEGORY.THEATER' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'NonProfit']">{{ 'PROJ_CATEGORY.NON_PROFIT' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'PersonalCause']">{{ 'PROJ_CATEGORY.PERSONAL_CAUSE' | translate }}</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<!-- Comics Sec btn -->
+<section id="comicbok12">
+  <div class="comicbok12_div" data-stellar-background-ratio="0.8">
+    <div class="container">
+      <h1>{{category}}</h1>
+      <p>{{category}} can make your <strong>life Excited and Pretty</strong></p>
+      <div class="comicbok12_overlay">
+        <ol class="breadcrumb">
+          <li><a [routerLink]="['/']">{{ 'PROJ_CATEGORY.HOME' | translate }}</a></li>
+          <li><a [routerLink]="['/categories', 'Art']">{{ 'PROJ_CATEGORY.CATEGORIES' | translate }}</a></li>
+          <li><a [routerLink]="['/categories',category]">{{category}}</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Comics Sec btn -->
+<section id="comics_secbtn">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3 col-sm-3 col-xs-6 space15">
+        <h2 class="title11"><strong>{{ 'PROJ_CATEGORY.TRENDING_IN' | translate }}</strong></h2>
+      </div>
+      <div class="col-md-2 col-sm-3 col-xs-6 space15"> <a class="comicsbtn1">{{category}}</a></div>
+      <div class="col-md-7 col-sm-6 col-xs-12 space15">
+        <div id="linedot"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trending -->
+<section *ngIf="trendingProject" id="spinagogue1">
+  <div class="container">
+    <div class="spinagogue_bg1">
+      <div class="row">
+        <div class="col-md-4 padleft50"> 
+          <a [routerLink]="['/projects', trendingProject.id]">
+            <div class="no-image">
+              <img *ngIf="trendingProject.image_url" [src]="trendingProject.image_url" class="img-responsive center-block" alt="image">
+            </div>
+          </a>
+        </div>
+        <div class="col-md-8 padright50">
+          <div class="spacing15">
+            <a [routerLink]="['/projects', trendingProject.id]"><h3>{{trendingProject.title}}</h3></a>
+            <p>by {{trendingProject.user_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="whiteclr"><img src="assets/img/icon2.png" alt="icon">&nbsp; Online</a></p>
+            <p  class="space15">Dreidel is now a tabletop game of skill, played competitively and socially by spinners of all ages. No Gelt, No Glory!</p>
+            <p class="space15"><span><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Newyork, United States of America</span><span class="padleft50"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;&nbsp;{{trendingProject.category_name}}</span></p>
+            <div class="progress space10">
+              <div class="progress-bar" role="progressbar" aria-valuenow="10"
+                aria-valuemin="0" aria-valuemax="100" style="width:10%"> <span class="sr-only"></span> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Details -->
+<section  *ngIf="trendingProject" class="spinagogue_details1">
+  <div class="container">
+    <div class="spinagogue_details1bg">
+      <div class="row">
+        <div class="col-md-8 padleft50">
+          <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-6 space15">
+              <h2>{{trendingProject.percent_funded | number:'1.0-0'}}%<br>
+                funded </h2>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 space15">
+              <h2>{{ project?.currency | currencySymbol }} {{trendingProject.pledged_amount}}<br>
+                plegded</h2>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 space15">
+              <h2>{{trendingProject.total_backers}}<br>
+                backers</h2>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-6 space15">
+              <h2>{{daysToGo(trendingProject.end_date)}}<br>
+                days to go</h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 padright50">
+          <div class="mybutton_div">
+            <button [routerLink]="['/projects', trendingProject.id]" type="button" class="mybtn">PARTICIPATE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Tranding -->
+<section id="tranding_sec11">
+  <div class="container">
+    <div class="heading-bar text-center">
+      <h2>{{category}} Campaigns</h2>
+    </div>
+    <div class="row">
+      <div *ngFor="let project of projects | slice:1 " class="col-md-4 col-sm-4 col-xs-12 space15">
+        <div class="sec_detail"> 
+          <a [routerLink]="['/projects', trendingProject.id]">
+            <div class="no-image">
+              <img *ngIf="project.image_url" [src]="project.image_url" class="img-responsive center-block" alt="image">
+            </div>
+          </a>
+          <div class="details1">
+            <a [routerLink]="['/projects', trendingProject.id]"><h5>{{project.title}}</h5></a>
+            <p>Seth Ickerman <a href="#"><span class="onlinetxt active">Online</span></a></p>
+            <p class="space15">A live action space opera by SETH ICKERMAN &<br class="hidden-xs">
+              CARPENTER BRUT. A female ghost challenges two space hunters into a galactic chase...
+            </p>
+            <div class="row space15">
+              <div class="col-md-9">
+                <div class="row">
+                  <div class="col-md-3 col-sm-6 col-xs-6 space15">
+                    <p class="fsize11">{{project.percent_funded | number:'1.0-0'}}%<br>
+                      funded 
+                    </p>
+                  </div>
+                  <div class="col-md-3 col-sm-6 col-xs-6 space15">
+                    <p class="fsize11">{{ project?.currency | currencySymbol }} {{project.pledged_amount}}<br>
+                      plegded
+                    </p>
+                  </div>
+                  <div class="col-md-3 col-sm-6 col-xs-6 space15">
+                    <p class="fsize11">{{project.total_backers}}<br>
+                      backers
+                    </p>
+                  </div>
+                  <div class="col-md-3 col-sm-6 col-xs-6 space15">
+                    <p class="fsize11">{{daysToGo(project.end_date)}}<br>
+                      days to go
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <a><img src="assets/img/funded.png" alt="icon"></a> 
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Pagination -->
+<!--<section id="mypagin1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            <li> <a href="#" aria-label="Previous"> PREV. <strong>PAGE</strong> </a> </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li> <a href="#" aria-label="Next"> NEXT <strong>PAGE</strong> </a> </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</section>-->

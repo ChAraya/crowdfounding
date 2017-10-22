@@ -1,0 +1,47 @@
+.payment-section {
+	width: 980px;
+	margin: 9px auto;
+	.left {
+		width: 70%;
+		display: inline-block;
+    vertical-align: top;
+    border-right: 1px solid #efefef;
+		padding-right: 30px;
+		.payment-header {
+			background: #fff;
+    	padding: 10px 0;
+    	color: #878b8e;
+			line-height: 50px;
+			.lbl {
+				font-weight: 600;
+    		font-size: 16px;
+    		color: #535766;
+			}
+			.amt.you-pay {
+				float: right;
+				.amt, .you-pay {
+    			font-weight: 600;
+					font-size: 14px;
+
+				}
+				.amt {
+					padding-right: 10px;
+			    color: #696e79;
+				}
+				.you-pay {
+					color: #29303f;
+				}
+			}
+		}
+		.pay-body {
+    	border-top: 2px solid #94969f;
+			position: relative;
+		}
+	}
+	.right {
+		width: 29%;
+		display: inline-block;
+		padding-left: 30px;
+		padding-top: 15px;
+	}
+}

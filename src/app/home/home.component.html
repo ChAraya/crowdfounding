@@ -1,0 +1,137 @@
+<!-- Banner -->
+<section id="banner">
+  <div id="slides"> 
+    <div class="slides-container"> 
+      <div class="bg-img-1" data-stellar-background-ratio="0.5">
+        <div class="position-center-center">
+          <div class="text-bnr">
+            <h1>{{ 'HOME.BANNER_TITLE' | translate}}</h1>
+            <p>{{ 'HOME.BANNER_PARA_1' | translate}}</p>
+            <a [routerLink]="['/projects','new']" class="btn">{{ 'HOME.CREATE_DREAM' | translate}}</a> </div>
+        </div>
+      </div>
+      <div class="bg-img-2" data-stellar-background-ratio="0.5">
+        <div class="position-center-center">
+          <div class="text-bnr">
+            <h1>{{ 'HOME.BANNER_TITLE' | translate}}</h1>
+            <p>{{ 'HOME.BANNER_PARA_1' | translate}}</p>
+            <a [routerLink]="['/projects','new']" class="btn">{{ 'HOME.CREATE_DREAM' | translate}}</a> </div>
+        </div>
+      </div>
+    </div>
+    <nav class="slides-navigation"> <a href="#" class="next"><i class="flaticon-arrows-1"></i></a> <a href="#" class="prev"><i class="flaticon-arrows"></i></a> </nav>
+  </div>
+  <div class="scroll"> <a href="#go-up" class="go-down"><i class="flaticon-down-arrow"></i></a></div>
+</section>
+
+<!-- Categories -->
+<section class="categories" id="go-up">
+  <ul>
+    <li> <a [routerLink]="['/categories','Dance']"><i class="flaticon-men-dancing"></i> <span>{{ 'HOME.DANCE' | translate}}</span></a> </li>
+    <li> <a [routerLink]="['/categories','Technology']"><i class="flaticon-idea"></i> <span>{{ 'HOME.TECHNOLOGY' | translate}}</span></a> </li>
+    <li> <a [routerLink]="['/categories','Music']"><i class="flaticon-headphones"></i> <span>{{ 'HOME.MUSIC' | translate}}</span></a> </li>
+    <li> <a [routerLink]="['/categories','Food']"><i class="flaticon-cutlery"></i> <span>{{ 'HOME.FOOD' | translate}}</span></a> </li>
+    <li> <a [routerLink]="['/categories','Photography']"><i class="flaticon-technology-1"></i> <span>{{ 'HOME.PHOTOGRAPHY' | translate}}</span></a> </li>
+    <li> <a [routerLink]="['/categories','Film']"><i class="flaticon-video-camera"></i> <span>{{ 'HOME.FILMS' | translate}}</span></a> </li>
+    <li> <a [routerLink]="['/categories','Games']"><i class="flaticon-gamepad"></i> <span>{{ 'HOME.GAMES' | translate}}</span></a> </li>
+    <li> <a [routerLink]="['/categories','Fashion']"><i class="flaticon-diamond"></i> <span>{{ 'HOME.FASHION' | translate}}</span></a> </li>
+    <li> <a [routerLink]="['/categories','NonProfit']"><i class="flaticon-charity"></i> <span>{{ 'HOME.NON_PROFIT' | translate}}</span></a> </li>
+    <li> <a [routerLink]="['/categories','Art']" class="all-cat"> {{ 'HOME.BROWSE' | translate}} <br>
+      {{ 'HOME.ALL_CATEGORIES' | translate}}</a> </li>
+  </ul>
+</section>
+
+<!-- Projects -->
+<section class="projects">
+  <div class="container">
+    <div class="heading-block">
+      <h2>{{ 'HOME.TRENDING_PROJECT' | translate}}</h2>
+      <a [routerLink]="['/categories','Art']">{{ 'HOME.VIEW_ALL' | translate}}</a> </div>
+    <div class="row"> 
+      <div *ngFor="let project of projects" class="col-md-4 project">
+        <article>
+          <div class="p-img">
+            <a [routerLink]="['/projects',project.id]">
+              <!--<img src="">-->
+              <div class="no-image">
+                <img *ngIf="project.image_url" [src]="project.image_url" alt="" >
+              </div>
+            </a>
+          </div>
+          <div class="text-part"> <a [routerLink]="['/projects',project.id]">{{project.title}}</a>
+            <p>A live action space opera by SETH ICKERMAN & CARPENTER BRUT. A female ghost challenges two space hunters into a galactic chase...</p>
+          </div>
+          <ul class="icons">
+            <li class="pouch-info">
+              <div class="icon">
+                <i class="pouch"></i>
+              </div>
+              <div class="percent">{{project.percent_funded | number:'1.0-0'}}%</div>
+            </li>
+            <li> <i class="fi flaticon-target"></i> <span>{{ project?.currency | currencySymbol }}{{project.pledged_amount}}</span> </li>
+            <li class="backers-info"> <i class="fi flaticon-user"></i> <span>{{project.total_backers}}</span> </li>
+            <li> <i class="fi flaticon-alarm-clock"></i> <span>{{daysToGo(project.end_date)}}</span> </li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Video Section -->
+<section class="video-bnr" data-stellar-background-ratio="0.8">
+  <div class="container">
+    <div class="video-text"> <a href="#." class="video-icon"><i class="fa fa-play"></i></a>
+      <h2>{{ 'HOME.VIDEO_INTRODUCTION' | translate}}</h2>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonial -->
+<section class="testimonial">
+  <div class="container"> 
+    
+    <!-- Main Heading -->
+    <div class="heading-block text-center">
+      <h2>{{ 'HOME.CUSTOMER_FEEDBACK' | translate}}</h2>
+    </div>
+    <div class="testi"> 
+      <!-- Testi Slides With Image -->
+      <ul class="testi-slide-2">
+        
+        <!-- Slides -->
+        <li> 
+          <!-- Avatar -->
+          <div class="avatar"><img class="img-circle img-responsive" src="assets/img/testimonial-4a.png" alt=" "></div>
+          <div class="text-in">
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat”</p>
+            <hr class="small center">
+            <h6>TIM JONATHAN DOE</h6>
+            <span>CEO Apple corp</span></div>
+        </li>
+        
+        <!-- Slides -->
+        <li> 
+          <!-- Avatar -->
+          <div class="avatar"><img class="img-circle img-responsive" src="assets/img/testimonial-2b.png" alt=" "></div>
+          <div class="text-in">
+            <p>“There are many variations  but the majority have suffered alteration. but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.”</p>
+            <hr class="small center">
+            <h6>M_ADNAN</h6>
+            <span> CEO/FOUNDER DELL</span></div>
+        </li>
+        
+        <!-- Slides 1 -->
+        <li> 
+          <!-- Avatar -->
+          <div class="avatar"><img class="img-circle img-responsive" src="assets/img/testimonial-2c.png" alt=" "></div>
+          <div class="text-in">
+            <p>“There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, Alteration in some form randomised words which don't look even slightly believable.”</p>
+            <hr class="small center">
+            <h6>JONATHAN TIM </h6>
+            <span> CEO Apple corp</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
