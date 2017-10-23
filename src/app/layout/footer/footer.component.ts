@@ -21,22 +21,22 @@ export class FooterComponent implements OnInit {
     },
     'es': {
       'shortLang': 'es',
-      'longLan': 'Spanisch',
+      'longLan': 'Español',
       'class': 'flag-es'
     },
     'it': {
       'shortLang': 'it',
-      'longLan': 'Italienisch',
+      'longLan': 'Italiano',
       'class': 'flag-it'
     },
     'fr': {
       'shortLang': 'fr',
-      'longLan': 'Französisch',
+      'longLan': 'français',
       'class': 'flag-fr'
     },
     'pt': {
       'shortLang': 'pt',
-      'longLan': 'Portugiesisch',
+      'longLan': 'Portugues',
       'class': 'flag-pt'
     }
   };
