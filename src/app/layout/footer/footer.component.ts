@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class FooterComponent implements OnInit {
 
   language = {
-    'en': {
+    /*'en': {
       'shortLang': 'en',
       'longLan': 'English',
       'class': 'flag-en'
@@ -18,12 +18,12 @@ export class FooterComponent implements OnInit {
       'shortLang': 'de',
       'longLan': 'Deutsche',
       'class': 'flag-de'
-    },
+    },*/
     'es': {
       'shortLang': 'es',
       'longLan': 'Español',
       'class': 'flag-es'
-    },
+    }/*,
     'it': {
       'shortLang': 'it',
       'longLan': 'Italiano',
@@ -38,11 +38,12 @@ export class FooterComponent implements OnInit {
       'shortLang': 'pt',
       'longLan': 'Portugues',
       'class': 'flag-pt'
-    }
+    }*/
   };
 
   constructor(public translate: TranslateService) {
-    translate.addLangs(['en', 'fr', 'de', 'it', 'es', 'pt']);
+    //translate.addLangs(['en', 'fr', 'de', 'it', 'es', 'pt']);
+    translate.addLangs(['es']);
     translate.setDefaultLang('es');
 
     const browserLang = translate.getBrowserLang();

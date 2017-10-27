@@ -686,7 +686,8 @@ footer .links ul {
 	background: url(../img/pouch-icon-full.png) no-repeat;
 }
 .video-bnr {
-	background: url(../img/bnr-bg-1.jpg) center center no-repeat;
+	/*background: url(../img/bnr-bg-1.jpg) center center no-repeat;*/
+	background: url(../img/emprende.jpg) center center no-repeat;
 	padding: 150px 0;
 	text-align: center;
 	background-size: cover;
@@ -716,7 +717,7 @@ footer .links ul {
 	margin-bottom: 10px;
 }
 .video-bnr h2 {
-	color: #fff;
+	color: #000;/*#fff;*/
 	font-family: 'Raleway', sans-serif;
 	font-weight: 600;
 	font-size: 40px;
@@ -931,23 +932,25 @@ hr.small {
 	margin-top: 80px;
 }
 #banner .text-bnr h1 {
-	color: #fff;
+	color: #000;/*#fff;*/
 	font-size: 60px;
 	font-family: 'Raleway', sans-serif;
 	line-height: 66px;
-	color: #fff;
+	color: #000;/*#fff;*/
 	font-weight: 400;
 	margin: 0px;
 	margin-bottom: 30px;
 }
 .bg-img-1 {
-	background: url(../img/bnr-bg.jpg) center center no-repeat;
+	/*background: url(../img/bnr-bg.jpg) center center no-repeat;*/
+	background: url(../img/emprende.jpg) center center no-repeat;
 }
 .bg-img-2 {
-	background: url(../img/bnr-bg-1.jpg) center center no-repeat;
+	/*background: url(../img/bnr-bg-1.jpg) center center no-repeat;*/
+	background: url(../img/emprende2.jpg) center center no-repeat;
 }
 #banner .text-bnr p {
-	color: #fff;
+	color: #000;/*#fff;*/
 	font-size: 18px;
 }
 #banner .text-bnr .btn {
@@ -1261,7 +1264,7 @@ footer li a:hover {
 	color: #28acbf;
 }
 .mydropdown {
-	background: #fff url(../img/icon1.png) no-repeat;
+	/*background: #fff url(../img/icon1.png) no-repeat;*/
 	background-position: 10px center;
 	background-size: 25px;
 	padding-left: 40px;
@@ -1289,7 +1292,8 @@ footer li a:hover {
 }
 /*=============================== about us ==========================*/
 #banner_about {
-	background: url(../img/img8.png) no-repeat;
+	/*background: url(../img/img8.png) no-repeat;*/
+	background: url(../img/emprende.jpg) no-repeat;
 	background-position: center;
 	background-size: cover;
 	min-height: 480px;

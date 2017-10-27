@@ -52,22 +52,25 @@
       <div class="row">
         <div class="col-md-8">
           <p>Copyright 2017</p>
-          <a [routerLink]="['/privacy']">{{'FOOTER.PRIVACY_POLICY' | translate}}</a>
+        <!--  <a [routerLink]="['/privacy']">{{'FOOTER.PRIVACY_POLICY' | translate}}</a>
 					<a [routerLink]="['/terms']">{{'FOOTER.TERMS_AND_CONDITION' | translate}}</a>
 					<a [routerLink]="['/cookies']">{{'FOOTER.COOKIE_POLICY' | translate}}</a>
+				-->
 				</div>
-        <div class="col-md-4">
+				<!--
+				<div class="col-md-4">
           <div class="row">
             <!-- Se debe cambiar para logo otara
 						<div class="col-md-6"> <img class="margin-top-10" src="assets/img/Bitmap.png" alt="icon"> </div>
-						-->
+						--
             <div class="col-md-6">
               <select #langSelect class="form-control mydropdown" (change)="translate.use(langSelect.value)">
                 <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ language[lang].longLan }}</option>
               </select>
             </div>
           </div>
-        </div>
+				</div>
+			-->
       </div>
     </div>
   </div>

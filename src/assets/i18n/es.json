@@ -56,7 +56,7 @@
 		"CUSTOMER_FEEDBACK": "Que Dicen Nuestros Clientes"
 	},
 	"LOGIN_DIALOG": {
-		"LOGIN": "Login",
+		"LOGIN": "Ingresar",
 		"SIGNUP_TXT": "¿Eres nuevo?, ¡Registrate!",
 		"EMAIL_PLACEHOLDER": "Correo electrónico",
 		"PASSWORD_PLACEHOLDER": "Contraseña",
@@ -65,7 +65,7 @@
 		"PASSWORD_REQUIRED": "Contraseña requerida",
 		"PASSWORD_FORGET": "¿Olvidaste tu contraseña?",
 		"LOGIN_BUTTON": "INICIAR SESIÓN",
-		"REMEMBER_ME": "Remember me",
+		"REMEMBER_ME": "Recordar",
 		"LOGIN_WITH_MSG": "O Ingresa Con",
 		"DECLARATION_MSG": "Nosotros nunca publicamos en Facebook o Google sin tu permiso."
 	},
