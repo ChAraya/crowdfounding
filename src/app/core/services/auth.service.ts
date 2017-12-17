@@ -33,18 +33,22 @@ export class AuthService {
 
 
   validateToken(): Observable<any> {
+    const headerDict = {
+      'x-access-token': localStorage.getItem('accessToken')
+    }
+
     return this.http.get(
-      `/api/v1/validate_token`
-    ).do(
+      `/api/validate_token`
+    , {params: headerDict}).do(
       (res) => {
-        // console.log('res', res);
         if (res.status === 200) {
           const data: AuthUser = res.json();
+          console.log(data);
           this.store.dispatch(this.authActions.loginSuccess(data));
         }
       },
       (err) => {
-        // console.log('error', err);
+        console.log('error', err);
       });
   }
 
@@ -55,8 +59,9 @@ export class AuthService {
   }
 
   registerUser(signUpData) {
+    console.log(signUpData);
     this.http.post(
-      '/api/v1/users', { user: signUpData }
+      '/api/register', { user: signUpData }
     ).subscribe((res: Response) => {
       const data = res.json();
       if (data.error) {
@@ -72,7 +77,7 @@ export class AuthService {
 
   logInUser(signInData) {
     this.http.post(
-      '/api/v1/authenticate', { credentials: signInData }
+      '/api/login', { credentials: signInData }
     ).subscribe((res: Response) => {
       const data = res.json();
       if (data.error) {
@@ -82,7 +87,7 @@ export class AuthService {
         this.store.dispatch(this.authActions.loginSuccess(data));
         this.modalShow$.next(false);
         this.toastyService.success('Login Success');
-        this.setTokenInLocalStorage(res.headers.toJSON());
+        this.setTokenInLocalStorage(data.authorization);
       }
     });
   }
@@ -97,7 +102,7 @@ export class AuthService {
   }
 
   setTokenInLocalStorage(headers) {
-    const token = headers.Authorization[0];
+    const token = headers;
     localStorage.setItem('accessToken', token);
   }
 

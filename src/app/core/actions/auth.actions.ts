@@ -13,7 +13,7 @@ export class AuthActions {
   loginSuccess(user): Action {
     return {
       type: AuthActions.LOGIN_SUCCESS,
-      payload: user
+      payload: user.user
     };
   }
 

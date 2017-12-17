@@ -102,12 +102,12 @@ export class ProjectTitleComponent implements OnInit, OnDestroy {
 
   private fetchCategories() {
     this.projectHttpService.fetchAllCategories().subscribe((data) => {
-      this.categories = data;
-      (<FormControl>this.projectForm.controls['category_id']).setValue(data[0].id);
+      this.categories = data.categories;
+      (<FormControl>this.projectForm.controls['category_id']).setValue(this.categories[0].id);
     });
   }
 
-  private initProjectForm(project) {
+  private  initProjectForm(project) {
     this.projectForm = this.projectFormService.initProjectForm(project);
     this.selectedDate = new Date(project.start_date);
   }

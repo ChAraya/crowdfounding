@@ -18,7 +18,7 @@ export class ProjectHttpService {
 
   fetchAllCategories() {
     return this.http.get(
-      '/api/v1/category'
+      '/api/category'
     ).map(res => {
       return res.json();
     });
@@ -80,8 +80,9 @@ export class ProjectHttpService {
 
   initDraftProject() {
     return this.http.get(
-      `/api/v1/projects/draft`
+      `/api/projects/draft`
     ).map((res) => {
+      console.log(res.json());
       const project = res.json();
       return project;
     });

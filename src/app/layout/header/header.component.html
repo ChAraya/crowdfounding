@@ -13,7 +13,7 @@
           <!--  <li><a>{{'HEADER.BLOG' | translate}}</a></li> -->
           <!--  <li><a [routerLink]="['/categories', 'Art']">{{'HEADER.EXPLORE' | translate}}</a></li> -->
             <li><a (click)="showModal('login')" class="btn" data-toggle="modal" data-target="#myModal1"><i class="flaticon-login"></i> {{'HEADER.LOGIN' | translate}}</a></li>
-           <!-- <li><a (click)="showModal('signup')" class="btn btn-up" data-toggle="modal" data-target="#myModal"><i class="flaticon-note-1"></i> {{'HEADER.SIGNUP' | translate}}</a></li> -->
+           <li><a (click)="showModal('signup')" class="btn btn-up" data-toggle="modal" data-target="#myModal"><i class="flaticon-note-1"></i> {{'HEADER.SIGNUP' | translate}}</a></li>
             <li><a class="btn zoom"><i class="flaticon-search"></i></a></li>
           </ul>
           <ul *ngIf="authStatus" class="nav navbar-nav navbar-right">

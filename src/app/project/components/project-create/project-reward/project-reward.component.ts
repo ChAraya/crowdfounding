@@ -41,6 +41,7 @@ export class ProjectRewardComponent implements OnInit, OnDestroy {
       });
     } else {
       this.projectSub$ = this.store.select(getDraftProject).subscribe((project) => {
+        console.log(project);
         this.initRewardForm(project);
       });
     }
