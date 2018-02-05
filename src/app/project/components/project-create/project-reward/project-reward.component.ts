@@ -41,7 +41,7 @@ export class ProjectRewardComponent implements OnInit, OnDestroy {
       });
     } else {
       this.projectSub$ = this.store.select(getDraftProject).subscribe((project) => {
-        console.log(project);
+        console.log("reward form:",project);
         this.initRewardForm(project);
       });
     }
@@ -81,12 +81,13 @@ export class ProjectRewardComponent implements OnInit, OnDestroy {
     this.setDeliveryDates();
     this.formSubmit = true;
     const data = this.rewardForm.value;
+    console.log(data)
     if (this.rewardForm.valid && this.validatePouchDates()) {
       if (!this.isEditing) {
         this.store.dispatch(this.actions.saveDraft(data));
       } else {
         this.store.dispatch(this.actions.updateProject(data));
-      }
+      } 
     }
   }
 
@@ -125,7 +126,9 @@ export class ProjectRewardComponent implements OnInit, OnDestroy {
 
   private initRewardForm(project) {
     this.rewardForm = this.rewardFormService.initRewardForm(project);
-    this.setSelectedDates(project);
+    if(project.rewards){
+      this.setSelectedDates(project);
+    }
   }
 
   private setSelectedDates(project) {

@@ -24,9 +24,10 @@ export class UserService {
 
   fetchUser(id: number) {
     return this.http.get(
-      `/api/v1/users/${id}`
+      `/api/users/${id}`
     ).map((res: Response) => {
-      return res.json();
+      let json = res.json();
+      return json.user;
     });
   }
 

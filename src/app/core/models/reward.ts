@@ -20,7 +20,7 @@ export class Reward {
     this.delivery_date = new Date();
     this.quantity = null;
     this.amount = null;
-    this.currency = 'USD';
+    this.currency = 'CLP';
     this.backers_count = null;
     this.contain_shipping_locations = false;
     this.shipping_locations = [new ShippingLocation];

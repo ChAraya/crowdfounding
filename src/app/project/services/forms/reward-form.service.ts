@@ -16,12 +16,17 @@ export class RewardFormService {
   ) { }
 
   initRewardForm(project) {
-    let rewards = project.rewards;
     this.project = project;
-    if (rewards.length === 0) {
+    let rewards;
+    if(!this.project.rewards){
+      console.log("entre aqui =D");
       rewards = [new Reward];
+    }else{
+      console.log("entre aqui D:");
+      rewards = this.project.rewards;
     }
 
+    
     const reward_attributes_array = [];
     rewards.forEach((reward: any) => {
       const fg = this.initFormGroup(reward);
@@ -44,7 +49,7 @@ export class RewardFormService {
       'delivery_date': [],
       'quantity': [reward.quantity, [Validators.required, this.validateRewardQuantity.bind(this)]],
       'amount': [reward.amount, [this.validateRewardAmount.bind(this)]],
-      'currency': [reward.currency || 'USD'],
+      'currency': [reward.currency || 'CLP'],
       'contain_shipping_locations': [reward.contain_shipping_locations || false],
       'shipping_locations_attributes': this.fb.array(this.initShippingLocations(reward)),
       '_destroy': [false]
@@ -53,7 +58,7 @@ export class RewardFormService {
 
   initShippingLocations(reward) {
     let shippingLocations = reward.shipping_locations;
-    if (shippingLocations.length === 0) {
+    if (!shippingLocations) {
       shippingLocations = [new ShippingLocation];
     }
 

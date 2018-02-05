@@ -24,57 +24,65 @@ export class ProjectHttpService {
     });
   }
 
-  createProject(params) {
+    createProject(params) {
     this.savingDraft.next(true);
     return this.http.post(
-      '/api/v1/projects',
+      '/api/projects',
       params
     ).map((res) => {
+      let project = res.json();
+      project = project.project;
       this.savingDraft.next(false);
-      return res.json();
+      return project;
     });
   }
 
   removeFromDraftProject(params) {
     return this.http.post(
-      '/api/v1/projects',
+      '/api/projects',
       params
     ).map((res) => {
-      return res.json();
+      let json = res.json();
+      return json.project;
     });
   }
 
   getProjects() {
     return this.http.get(
-      `/api/v1/projects`
+      `/api/projects`
     ).map((res) => {
-      return res.json();
+      let json = res.json();
+      return json.project;
     });
   }
 
   getProjectsByCategory(category: string) {
     return this.http.get(
-      `/api/v1/projects/categories/${category}`
+      `/api/projects/categories/${category}`
     ).map((res) => {
-      return res.json();
+      let json = res.json();
+      return json.project;
     });
   }
 
   fetchProject(id) {
     return this.http.get(
-      `/api/v1/projects/${id}`
+      `/api/projects/${id}`
     ).map((res) => {
-      return res.json();
+      let json = res.json();
+      return json.project;
     });
   }
 
   updateProject(project: Project) {
     this.savingDraft.next(true);
+    console.log(project);
     return this.http.put(
-      `/api/v1/projects/${project.id}`, project
+      `/api/projects/${project.id}`, project
     ).map((res) => {
+      let json = res.json();
       this.savingDraft.next(false);
-      return res.json();
+      return json.project;
     });
   }
 
@@ -82,15 +90,15 @@ export class ProjectHttpService {
     return this.http.get(
       `/api/projects/draft`
     ).map((res) => {
-      console.log(res.json());
-      const project = res.json();
+      let project = res.json();
+      project = project.project;
       return project;
     });
   }
 
   launchProject(id: string) {
     return this.http.post(
-      `/api/v1/projects/launch`, { id: id }
+      `/api/projects/launch`, { id: id }
     ).map((res) => {
       return res.json();
     });
@@ -129,7 +137,7 @@ export class ProjectHttpService {
 
   fetchProjectBackers(projectId: number) {
      return this.http.get(
-      `/api/v1/projects/get_project_backers?id=${projectId}`
+      `/api/projects/get_project_backers?id=${projectId}`
     ).map((res) => {
       return res.json();
     });
@@ -137,7 +145,7 @@ export class ProjectHttpService {
 
   sendNotification(projectId: number, description: string) {
     return this.http.post(
-      `/api/v1/projects/send_notifications_to_backers`, { description: description, id: projectId }
+      `/api/projects/send_notifications_to_backers`, { description: description, id: projectId }
     ).map((res) => {
       return res.json();
     });

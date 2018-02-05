@@ -47,8 +47,10 @@ export class ProjectTitleComponent implements OnInit, OnDestroy {
       });
     } else {
       this.projectSub$ = this.store.select(getDraftProject).subscribe((project) => {
+        console.log(project);
         this.initProjectForm(project);
         this.project = project;
+        // (this.project.id) ? this.project = project : this.project = project[0].project;
       });
     }
   }
@@ -87,6 +89,7 @@ export class ProjectTitleComponent implements OnInit, OnDestroy {
     this.setStartDate();
     this.formSubmit = true;
     const project = this.projectForm.value;
+    //console.log(project);
     if (this.projectForm.valid) {
       if (!this.isEditing) {
         this.store.dispatch(this.actions.saveDraft(project));

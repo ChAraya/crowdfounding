@@ -33,6 +33,7 @@ export class ProjectActions {
   }
 
   fetchProjectSuccess(project: Project) {
+    console.log(project);
     return {
       type: ProjectActions.FETCH_PROJECT_SUCCESS,
       payload: project
@@ -40,6 +41,7 @@ export class ProjectActions {
   }
 
   saveDraft(project: Project) {
+    console.log("guardando draft",project);
     return {
        type: ProjectActions.SAVE_DRAFT,
        payload: project

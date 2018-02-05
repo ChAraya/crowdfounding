@@ -1,18 +1,24 @@
 import { Faq } from './../../../core/models/faq';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Injectable } from '@angular/core';
+import { Project } from 'app/core/models/project';
 
 @Injectable()
 export class FaqFormService {
-
+  project: Project;
   constructor(
     private fb: FormBuilder
   ) { }
 
   initFaqForm(project) {
-    let faqs = project.faqs;
-    if (faqs.length === 0) {
+    this.project = project;
+    let faqs;
+    if(!this.project.faqs){
+      console.log("entre aqui =D");
       faqs = [new Faq];
+    }else{
+      console.log("entre aqui D:");
+      faqs = this.project.faqs;
     }
 
     const faq_attributes_array = [];
