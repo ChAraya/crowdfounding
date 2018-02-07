@@ -11,11 +11,13 @@ export class ProjectFormService {
     private fb: FormBuilder
   ) {}
 
-  initProjectForm(project: Project) {
+  initProjectForm(project) {
     let pictures = project.pictures;
     if (!pictures) {
       pictures = [new Picture];
     }
+
+    console.log("team id", project.team_id);
 
     const picture_attributes_array = [];
     pictures.forEach((picture) => {
@@ -40,7 +42,8 @@ export class ProjectFormService {
       'start_date': [],
       'currency': [project.currency || 'USD', Validators.required],
       'duration': [project.duration, Validators.compose([Validators.required, this.validateNumber])],
-      'pictures_attributes': this.fb.array(picture_attributes_array)
+      'pictures_attributes': this.fb.array(picture_attributes_array),
+      'team_id': [project.team_id, Validators.required]
     });
   }
 

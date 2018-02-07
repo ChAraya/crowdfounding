@@ -24,6 +24,14 @@ export class ProjectHttpService {
     });
   }
 
+  fetchAllTeams() {
+    return this.http.get(
+      '/api/team'
+    ).map(res => {
+      return res.json();
+    });
+  }
+
     createProject(params) {
     this.savingDraft.next(true);
     return this.http.post(
@@ -76,7 +84,7 @@ export class ProjectHttpService {
 
   updateProject(project: Project) {
     this.savingDraft.next(true);
-    console.log(project);
+    console.log("sasdasd", project);
     return this.http.put(
       `/api/projects/${project.id}`, project
     ).map((res) => {

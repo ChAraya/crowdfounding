@@ -1,5 +1,7 @@
 import { UserActions } from './actions/user.actions';
 import { UserService } from './services/user.service';
+import { TeamFormService } from './services/forms/team-form.service';
+import { TeamHttpService } from './services/https/team-http.service';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './effects/user.effects';
 import { routes } from './user.routes';
@@ -7,7 +9,7 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { EasyPieChartModule } from 'ng2modules-easypiechart';
-
+import { FroalaEditorModule, FroalaViewModule } from 'angular2-froala-wysiwyg';
 import { UserComponent } from './user.component';
 import { NameContactsInfoComponent } from './components/name-contacts-info/name-contacts-info.component';
 import { QuickViewComponent } from './components/quick-view/quick-view.component';
@@ -15,6 +17,7 @@ import { BackedProjectsComponent } from './components/backed-projects/backed-pro
 import { ProjectBackersComponent } from './components/project-backers/project-backers.component';
 import { UserCampaignsComponent } from './components/user-campaigns/user-campaigns.component';
 import { ComingSoonComponent } from './components/coming-soon/coming-soon.component';
+import { CreateTeamsComponent } from './components/create-team/create-team.component';
 import { BasicInfoComponent } from './components/name-contacts-info/basic-info/basic-info.component';
 import { PaymentInfoComponent } from './components/name-contacts-info/payment-info/payment-info.component';
 import { EmailPasswordComponent } from './components/name-contacts-info/email-password/email-password.component';
@@ -28,7 +31,9 @@ import { TruncatePipe } from './../core/pipes/truncate';
     RouterModule.forChild(routes),
     EffectsModule.run(UserEffects),
     SharedModule,
-    EasyPieChartModule
+    EasyPieChartModule,
+    FroalaEditorModule.forRoot(),
+    FroalaViewModule.forRoot(),
   ],
   declarations: [
     UserComponent,
@@ -38,6 +43,7 @@ import { TruncatePipe } from './../core/pipes/truncate';
     ProjectBackersComponent,
     UserCampaignsComponent,
     ComingSoonComponent,
+    CreateTeamsComponent,
     BasicInfoComponent,
     PaymentInfoComponent,
     EmailPasswordComponent,
@@ -48,7 +54,9 @@ import { TruncatePipe } from './../core/pipes/truncate';
   ],
   providers: [
     UserService,
-    UserActions
+    UserActions,
+    TeamFormService,
+    TeamHttpService
   ]
 })
 export class UserModule { }

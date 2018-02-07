@@ -54,6 +54,10 @@ export class UserComponent implements OnInit {
     return this.userService.isLoggedInUser(this.user) && this.user.role_name === 'creator';
   }
 
+  isAdmin() {
+    return this.userService.isLoggedInUser(this.user) && this.user.role_name === 'admin';
+  }
+
   isAuthUser() {
     return this.userService.isLoggedInUser(this.user);
   }

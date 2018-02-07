@@ -9,8 +9,14 @@ import { Observable } from 'rxjs/Observable';
 import { Project } from './../../../../core/models/project';
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { UserService } from '../../../../user/services/user.service';
+import { getAuthUser } from './../../../../core/reducers/auth.selector';
+import { ActivatedRoute } from '@angular/router';
+import { UserActions } from '../../../../user/actions/user.actions';
+import { getUser } from '../../../../user/reducers/user.selectors';
+import { User } from '../../../../core/models/user';
 import { Subscription } from 'rxjs/Subscription';
-
+import { AuthUser } from '../../../../core/models/auth-user';
 @Component({
   selector: 'app-project-title',
   templateUrl: './project-title.component.html',
@@ -26,16 +32,32 @@ export class ProjectTitleComponent implements OnInit, OnDestroy {
   formSubmit = false;
   projectForm: FormGroup;
   categories = [];
+  teams = [];
   project: any;
-
+  user: User;
+  authUser: AuthUser;
+  role_id: any;
   constructor(
     private actions: ProjectActions,
     private store: Store<AppState>,
     private fb: FormBuilder,
     private projectHttpService: ProjectHttpService,
-    private projectFormService: ProjectFormService
+    private projectFormService: ProjectFormService,
+    private userActions: UserActions,
+    private userService: UserService
   ) {
     this.fetchCategories();
+    
+    this.store.select(getAuthUser).subscribe((user) => {
+      this.authUser = user;
+      this.role_id = user.role_id;
+      
+    });
+
+    if(this.isAdmin()){
+      this.fetchTeams();
+    }
+    
   }
 
   ngOnInit() {
@@ -47,7 +69,7 @@ export class ProjectTitleComponent implements OnInit, OnDestroy {
       });
     } else {
       this.projectSub$ = this.store.select(getDraftProject).subscribe((project) => {
-        console.log(project);
+          
         this.initProjectForm(project);
         this.project = project;
         // (this.project.id) ? this.project = project : this.project = project[0].project;
@@ -57,7 +79,7 @@ export class ProjectTitleComponent implements OnInit, OnDestroy {
 
   getPictures() {
     return (<FormArray>this.projectForm.get('pictures_attributes')).value;
-  }
+  } 
 
   setImageData(image) {
     (<FormArray>this.projectForm.get('images_data')).push(
@@ -110,9 +132,21 @@ export class ProjectTitleComponent implements OnInit, OnDestroy {
     });
   }
 
+  private fetchTeams() {
+    this.projectHttpService.fetchAllTeams().subscribe((data) => {
+      this.teams = data.teams;
+      (<FormControl>this.projectForm.controls['team_id']).setValue(this.teams[0].id);
+    });
+  }
+
   private  initProjectForm(project) {
     this.projectForm = this.projectFormService.initProjectForm(project);
     this.selectedDate = new Date(project.start_date);
+  }
+ 
+
+  isAdmin() {
+    return this.userService.isLoggedInUser(this.authUser) && this.role_id == 1;
   }
 
   ngOnDestroy() {

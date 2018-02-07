@@ -4,15 +4,28 @@
     <form [formGroup]="projectForm">
       <div class="form-group">
         <div *ngIf="!isEditing">
+          <div *ngIf="isAdmin()">
+            <label>Team *</label>
+            <select class="form-control" formControlName="team_id">
+              <option *ngFor="let team of teams" [value]="team.id">{{team.name}}</option>
+            </select>
+          </div>
           <label for="usr">{{ 'PROJ_CREATE.CAMPAIGN_TITLE' | translate }} *</label>
           <input type="text" class="form-control" placeholder="Enter title" formControlName="title">
           <p *ngIf="projectForm.get('title').hasError('required') && (projectForm.get('title').touched || formSubmit)" class="value-err show">This is a mandatory field</p>
         </div>
         <div *ngIf="isEditing" class="no-edit">
+          <div *ngIf="isAdmin()">
+            <label>Team *</label>
+            <select class="form-control" formControlName="team_id">
+              <option *ngFor="let team of teams" [value]="team.id">{{team.name}}</option>
+            </select>
+          </div>
           <h2>{{ 'PROJ_CREATE.CAMPAIGN_TITLE' | translate }}</h2>
           {{project.title}}
         </div>
       </div>
+      
       <div class="form-group">
         <div *ngIf="!isEditing">
           <label for="comment">{{ 'PROJ_CREATE.CAMPAIGN_CATEGORY' | translate }} *</label>

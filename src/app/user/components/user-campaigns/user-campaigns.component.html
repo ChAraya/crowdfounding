@@ -4,12 +4,12 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Start Date</th>
-          <th class="center">End Date</th>
-          <th class="center">Name</th>
-          <th class="center">Target</th>
-          <th class="center">Funded</th>
-          <th class="center"></th>
+          <th>Fecha Inicio</th>
+          <th class="center">Fecha Termino</th>
+          <th class="center">Titulo</th>
+          <th class="center">Meta</th>
+          <th class="center">Recaudado</th>
+          <th class="center">Team</th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +19,7 @@
           <td class="center">{{project.title}}</td>
           <td class="center">{{ project?.currency | currencySymbol }}{{project.pledged_amount}}</td>
           <td class="center">{{ project?.currency | currencySymbol }}{{project.funded_amount}}</td>
+          <td class="center">{{ project.team_name}}</td>
           <td class="center">
             <button class="btn edit-btn" [routerLink]="['/projects', 'edit', project.id]">{{ 'USER_DASHBOARD.EDIT' | translate }}</button>
           </td>

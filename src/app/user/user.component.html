@@ -42,6 +42,9 @@
                   <li [ngClass]="{'active': selectedTab == 7}">
                     <a (click)="changeTab(7)"><i class="fa fa-calendar-o"></i> <small>{{ 'USER_DASHBOARD.COMING_SOON' | translate }}</small></a>
                   </li>
+                  <li *ngIf="isAdmin()" [ngClass]="{'active': selectedTab == 8}">
+                    <a (click)="changeTab(8)"><i class="fa fa-calendar-o"></i> <small>Create Team</small></a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -72,6 +75,9 @@
               </ng-template>
               <ng-template [ngSwitchCase]="'7'">
                 <app-coming-soon></app-coming-soon>
+              </ng-template>
+              <ng-template [ngSwitchCase]="'8'">
+                <app-create-team [user]="user"></app-create-team>
               </ng-template>
             </div>
 
