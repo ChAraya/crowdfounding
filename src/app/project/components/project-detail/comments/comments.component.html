@@ -69,7 +69,7 @@
             <div *ngIf="edited && comment.id == editedCommentId" class="edit-comment">
               <form  [formGroup]="commentEditForm">
                 <textarea formControlName="body" id="comment" rows="1"></textarea>
-                <button (click)="saveEditedComment()" class="edit-button">Save</button>
+                <button (click)="saveEditedComment()" class="edit-button">Guardar</button>
               </form>
             </div>
           </div>

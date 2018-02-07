@@ -4,12 +4,13 @@
     <table class="table">
       <thead>
         <tr>
-          <th>Fecha Inicio</th>
-          <th class="center">Fecha Termino</th>
-          <th class="center">Titulo</th>
-          <th class="center">Meta</th>
-          <th class="center">Recaudado</th>
+          <th>Fecha de Inicio</th>
+          <th class="center">Fecha de Término</th>
+          <th class="center">Nombre</th>
+          <th class="center">Objetivo</th>
+          <th class="center">Financiado</th>
           <th class="center">Team</th>
+          <th class="center"></th>
         </tr>
       </thead>
       <tbody>
@@ -26,7 +27,7 @@
         </tr>
       </tbody>
     </table>
-    <span class=""> <a class="btn" (click)="lgModal.show()">Send Notification</a> </span>
+    <span class=""> <a class="btn" (click)="lgModal.show()">Enviar Notificación</a> </span>
     <span *ngIf="isAuthUser()" style="float: right;"> <a [routerLink]="['/projects','new']" class="btn">{{ 'USER_DASHBOARD.ADD_CAMPAIGN' | translate }}</a> </span>
   </div>
 </div>
@@ -35,7 +36,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title pull-left">Send Notification</h4>
+        <h4 class="modal-title pull-left">Enviar Notificación</h4>
         <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -48,8 +49,8 @@
             </select>
           </div>
           <textarea rows="10" class="description" [(ngModel)]="description" placeholder="Add message"></textarea>
-          <p *ngIf="!projectId || !description" style="text-align: center;">Please select project and add some message to send notification to all project backers</p>
-          <button *ngIf="projectId && description" class="btn send"(click)="sendNotification()">send</button>
+          <p *ngIf="!projectId || !description" style="text-align: center;">Seleccione proyecto y agregue un mensaje para enviar notificaciones a todos los patrocinadores del proyecto</p>
+          <button *ngIf="projectId && description" class="btn send"(click)="sendNotification()">enviar</button>
         </div>
       </div>
     </div>

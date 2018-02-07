@@ -7,10 +7,10 @@
       <p class="space20">{{reward.description}}</p>
       <p *ngIf="isDeliveryRequired(i)" class="space30"><strong>{{ 'PROJ_DETAIL.ESTIMATED_DELIVERY' | translate }}<br>{{reward.delivery_date | date:'mediumDate'}}</strong></p>
       <p *ngIf="isRewardValid(i)" class="space30 error">{{printRewardCount(i)}}</p>
-      <p *ngIf="!isRewardValid(i)" class="space30 pledge_limit">Reward no longer available</p>
-      <p class="space3">{{reward.backers_count}} backers</p>
+      <p *ngIf="!isRewardValid(i)" class="space30 pledge_limit">Recompensa ya no disponible</p>
+      <p class="space3">{{reward.backers_count}} patrocinadores</p>
       <input *ngIf="isRewardValid(i)" type="text" class="form-control rewardtype" [(ngModel)]="amount" placeholder="10">
-      <p *ngIf="!isAmountValid" class="error">Please enter pledge amout more than {{reward.amount}}</p>
+      <p *ngIf="!isAmountValid" class="error">Ingrese el monto del compromiso {{reward.amount}}</p>
       <button *ngIf="(!isDeliveryRequired(i)) || (isDeliveryRequired(i) && ifAddressPresent())" type="button" class="linksbtn bgclr5cc5d3 space30" (click)="onContinue(i)">{{ 'PROJ_DETAIL.CONTINUE' | translate }}</button>
       <button *ngIf="isDeliveryRequired(i) && !ifAddressPresent()" type="button" class="linksbtn bgclr5cc5d3 space30" (click)="enterAddress(i)">{{ 'PROJ_DETAIL.CONTINUE' | translate }}</button>
     </div>
@@ -24,8 +24,8 @@
         <p><strong>{{reward.title}}</strong></p>
         <p class="space20">{{reward.description}}</p>
         <p class="space30"><strong>{{ 'PROJ_DETAIL.ESTIMATED_DELIVERY' | translate }}<br>{{reward.delivery_date | date:'mediumDate'}}</strong></p>
-        <p class="space30 pledge_limit">Reward no longer available</p>
-        <p class="space3">{{reward.backers_count}} backers</p>
+        <p class="space30 pledge_limit">Recompensa ya no disponible</p>
+        <p class="space3">{{reward.backers_count}} patrocinadores</p>
       </div>
     </div>
   </div>
@@ -35,7 +35,7 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title pull-left">Delivery Address</h4>
+        <h4 class="modal-title pull-left">Dirección de entrega</h4>
         <button type="button" class="close pull-right" (click)="lgModal.hide()" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -44,26 +44,26 @@
         <form [formGroup]="addressForm">
           <div formGroupName="address_attributes">
             <div class="input-group">
-              <p>Street Address</p>
+              <p>Dirección</p>
               <input type="text" formControlName="street_address" class="form-control">
             </div>
             <div class="input-group">
-              <p>City</p>
+              <p>Ciudad</p>
               <input type="text" formControlName="city" class="form-control">
             </div>
             <div class="input-group">
-              <p>Postcode</p>
+              <p>Código postal</p>
               <input type="text" formControlName="postcode" class="form-control">
             </div>
             <div class="input-group camp_select slate">
-              <p>Country</p>
+              <p>País</p>
               <select formControlName="country">
                 <option *ngFor="let country of countries" [value]="country">{{country}}</option>
               </select>
             </div>
           </div>
         </form>
-        <button class="save-address" (click)="saveAddress()" type="button">Save</button>
+        <button class="save-address" (click)="saveAddress()" type="button">Guardar</button>
       </div>
     </div>
   </div>

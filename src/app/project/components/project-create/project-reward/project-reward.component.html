@@ -1,5 +1,5 @@
 <div class="campaign_create">
-	<h1>Pouches</h1>
+	<h1>Recompensas</h1>
 	<div class="camp_create_box">
 		<div class="panel-group" id="accordionReward">
 			<form [formGroup]="rewardForm">
@@ -10,7 +10,7 @@
 								<span (click)="removeReward(i, reward.get('id').value)" class="fa fa-times pull-right "></span>
 								<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionReward" href="#collapseReward">
 									<h4 class="panel-title">
-										Section #{{i+1}}
+										Sección #{{i+1}}
 									</h4>
 								</a>
 							</div>
@@ -57,27 +57,27 @@
 										<p *ngIf="validateDeliveryDate(i)" class="value-err show">Pouch delivery date should be greater than campaign start date</p>
 									</div>
 									<div class="form-group">
-										<h2>Pouch Shipping Locations</h2>
-										<p>Does this pouch contain items that you need to ship?</p>
+										<h2>Ubicación de Envio de Recompensas</h2>
+										<p>¿Esta recompensa contiene artículos que debes enviar?</p>
 										<div class="col-xs-12 no-locations">
 											<input name="contain_shipping_locations" formControlName="contain_shipping_locations" type="radio" id="no" [value]="false">
 											<label>
-												No, this pouch does not contain items that need to be shipped.
+												No, esta recompensa no contiene artículos que necesitan ser enviados.
 											</label>
 										</div>
 										<div class="col-xs-12 yes-locations">
 											<input name="contain_shipping_locations" formControlName="contain_shipping_locations" type="radio" id="yes" [value]="true">
 											<label>
-												Yes, this pouch contains items that need to be shipped.
+												Sí, esta recompensa contiene artículos que deben enviarse.
 											</label>
 										</div>
 										<div *ngIf="reward.get('contain_shipping_locations').value">
 											<div class="row">
 												<div class="col-xs-6">
-													Shipping locations this perk ships to
+													Lugares de envío a los que este beneficio se envía
 												</div>
 												<div class="col-xs-6">
-													Shipping fee added during checkout
+													Gastos de envío añadidos durante el pago
 												</div>
 											</div>
 											<div formArrayName="shipping_locations_attributes" class="row">
@@ -85,7 +85,7 @@
 													<div formGroupName="{{li}}">
 														<div class="col-xs-6 camp_select slate">
 															<select formControlName="location">
-																<option value="anywhere">Rest of the world</option>
+																<option value="anywhere">Resto del mundo</option>
 																<option *ngFor="let country of countries" [value]="country">{{country}}</option>
 															</select>
 														</div>
@@ -97,7 +97,7 @@
 											</div>
 											<span (click)="addNewLocation(i)" class="add-location">
 												<i class="fa fa-plus-circle" aria-hidden="true"></i>
-												<span>Add Another Location</span>
+												<span>Agregar Otra Ubicacion</span>
 											</span>
 										</div>
 									</div>
