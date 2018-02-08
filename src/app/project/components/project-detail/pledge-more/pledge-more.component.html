@@ -15,7 +15,7 @@
       <button *ngIf="isDeliveryRequired(i) && !ifAddressPresent()" type="button" class="linksbtn bgclr5cc5d3 space30" (click)="enterAddress(i)">{{ 'PROJ_DETAIL.CONTINUE' | translate }}</button>
     </div>
   </div>
-  <div class="reward_heading"> All Gone!</div>
+  <div class="reward_heading"> No hay mas recompensas disponibles</div>
   <div *ngFor="let reward of project?.rewards;let i=index">
     <div *ngIf="!isRewardValid(i)" class="pledgemore_right">
       <div>

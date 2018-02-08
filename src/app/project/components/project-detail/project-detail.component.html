@@ -31,16 +31,16 @@
           <div class="col-md-12">
             <div class="project_web">
               <ul>
-                <li class="active"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp;&nbsp;Project We Love</a></li>
-                <li><a href="#"><i class="fa fa-compass" aria-hidden="true"></i>&nbsp;&nbsp;Web</a></li>
-                <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Riverside, CA</a></li>
+                <li class="active"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp;&nbsp;Favorito </a></li> <!-- añadir tralate a Favorito -->
+                <!-- <li><a href="#"><i class="fa fa-compass" aria-hidden="true"></i>&nbsp;&nbsp;Web</a></li> -->
+                <!-- <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Riverside, CA</a></li> -->
               </ul>
             </div>
           </div>
         </div>
-        <div class="row space10">
+        <!-- <div class="row space10">
           <app-report-project [projectId]="project.id"></app-report-project>
-        </div>
+        </div> -->
         <div class="row">
           <div class="col-md-12">
             <div class="mytabs">
@@ -74,15 +74,15 @@
             <app-already-pledged [project]="project"></app-already-pledged>
           </div>
           <div class="row">
-            <div class="col-md-12">
+            <!-- <div class="col-md-12">
               <button type="button" class="back_probtn">{{ 'PROJ_DETAIL.BACK_PROJECT' | translate }}</button>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-6 space30">
+            </div> -->
+            <!-- <div class="col-md-6 col-sm-6 col-xs-6 space30">
               <button type="button" class="linksbtn bgclr5cc5d3"><i class="fa fa-star" aria-hidden="true"></i>  {{ 'PROJ_DETAIL.REMIND_ME' | translate }}</button>
-            </div>
-            <div class="col-md-6 col-sm-6 col-xs-6 space30">
+            </div> -->
+            <!-- <div class="col-md-6 col-sm-6 col-xs-6 space30">
               <app-social-share></app-social-share>
-            </div>
+            </div> -->
             <div class="col-md-12 space20">
               <p class="clr42a7b3 fsize14">{{ 'PROJ_DETAIL.PROJECT_BACK_MSG1' | translate }} {{project?.end_date | date:'medium'}}.</p>
             </div>
