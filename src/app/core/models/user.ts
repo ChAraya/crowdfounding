@@ -16,8 +16,10 @@ export class User {
   twitter_url: string;
   instagram_url: string;
   google_plus_url: string;
+  team_id: number;
   total_backed_amount: number;
   is_stripe_connected: boolean;
+  can_edit: boolean;
   address: Address;
   projects: LiteProject[];
   project_backers: any;

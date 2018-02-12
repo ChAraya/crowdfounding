@@ -1,28 +1,37 @@
-<div class="campaign_create">
-  <h1>{{ 'PROJ_CREATE.CREATE_CAMPAIGN' | translate }}</h1>
+<div class="team_create">
+  <h1>{{ 'USER_DASHBOARD.TEAM_PAGE' | translate }}</h1>
   <div class="camp_create_box">
     <form [formGroup]="projectForm">
       <div class="form-group">
         <div *ngIf="!isEditing">
-          <label for="usr">{{ 'PROJ_CREATE.CAMPAIGN_TITLE' | translate }} *</label>
+          <label for="usr">{{ 'USER_DASHBOARD.TEAM_TITLE' | translate }} *</label>
           <input type="text" class="form-control" placeholder="Enter title" formControlName="name">
           <p *ngIf="projectForm.get('name').hasError('required') && (projectForm.get('name').touched || formSubmit)" class="value-err show">This is a mandatory field</p>
         </div>
       </div>
-      <h2>Logo</h2>
-			<div>
+      <div class="form-group">
+        <div *ngIf="!isEditing">
+          <label for="email">Email *</label>
+          <input type="text" class="form-control" placeholder="Enter email" formControlName="email">
+        </div>
+      </div>
+      <div class="form-group">
+        <div *ngIf="!isEditing">
+          <label for="web_url">Webpage</label>
+          <input type="text" class="form-control" placeholder="Enter email" formControlName="web_url">
+        </div>
+      </div>
+      <div>
 				<span class="image-div" *ngFor="let image_data of projectForm.get('images_data').value; let i = index">
 					<span (click)="removeImageData(i)" class="fa fa-times cross"></span>
 					<img class="reward-image" [src]="image_data" alt="img">
 				</span>
 			</div>
-      <h2>{{ 'PROJ_CREATE.CAMPAIGN_IMAGES' | translate }}</h2>
+      <h2>{{ 'USER_DASHBOARD.TEAM_LOGO' | translate }}</h2>
 			<app-image-upload #imageUpload (click)="uploadImage()" (image)="setImageData($event)">
 				<img src="assets/img/camera-img.png" alt="img">
 				<h4>{{ 'PROJ_CREATE.UPLOAD_IMAGE' | translate }}</h4>
 			</app-image-upload>
-      <br>
-      <textarea [froalaEditor] formControlName="description"></textarea>
       <br>
 			<div *ngIf="!isEditing" style="display:inline-block; min-height:290px;">
         <h2>{{ 'PROJ_CREATE.BEGIN_DATE' | translate }} *</h2>
@@ -32,7 +41,23 @@
         <h2>{{ 'PROJ_CREATE.BEGIN_DATE' | translate }}</h2>        
         {{project.start_date | date: 'longDate'}}
       </div>
+      <div>
+        <ng-select [items]="users"
+                   bindLabel="name"
+                   bindValue="id"
+                   placeholder="Selected Leader"
+                   [clearable]="false"
+                   [(ngModel)]="selectedUser"
+                   [ngModelOptions]="{standalone: true}"
+                   class="custom">
+        </ng-select>
+      </div>
+      <br>
+      <br>
       <div class="camp_link"> <a (click)="submitProject()" class="btnNext">{{ 'PROJ_CREATE.NEXT' | translate }}</a> </div>
+      
     </form>
+    <br>
+    <br>
   </div>
 </div>

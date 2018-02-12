@@ -1,6 +1,7 @@
 import { UserActions } from './actions/user.actions';
 import { UserService } from './services/user.service';
 import { TeamFormService } from './services/forms/team-form.service';
+import { TeamEditService } from './services/forms/team-edit.service';
 import { TeamHttpService } from './services/https/team-http.service';
 import { EffectsModule } from '@ngrx/effects';
 import { UserEffects } from './effects/user.effects';
@@ -18,6 +19,8 @@ import { ProjectBackersComponent } from './components/project-backers/project-ba
 import { UserCampaignsComponent } from './components/user-campaigns/user-campaigns.component';
 import { ComingSoonComponent } from './components/coming-soon/coming-soon.component';
 import { CreateTeamsComponent } from './components/create-team/create-team.component';
+import { CreatedTeamsComponent } from './components/created-teams/created-teams.component';
+import { EditarTeamsComponent } from './components/editar-team/editar-team.component';
 import { BasicInfoComponent } from './components/name-contacts-info/basic-info/basic-info.component';
 import { PaymentInfoComponent } from './components/name-contacts-info/payment-info/payment-info.component';
 import { EmailPasswordComponent } from './components/name-contacts-info/email-password/email-password.component';
@@ -25,6 +28,11 @@ import { SocialMediaLinksComponent } from './components/name-contacts-info/socia
 import { ProfilePicComponent } from './components/name-contacts-info/profile-pic/profile-pic.component';
 import { UserNotificationsComponent } from './components/user-notifications/user-notifications.component';
 import { TruncatePipe } from './../core/pipes/truncate';
+
+import { NgSelectModule } from '@ng-select/ng-select';
+
+
+
 
 @NgModule({
   imports: [
@@ -34,6 +42,7 @@ import { TruncatePipe } from './../core/pipes/truncate';
     EasyPieChartModule,
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
+    NgSelectModule,
   ],
   declarations: [
     UserComponent,
@@ -44,6 +53,8 @@ import { TruncatePipe } from './../core/pipes/truncate';
     UserCampaignsComponent,
     ComingSoonComponent,
     CreateTeamsComponent,
+    CreatedTeamsComponent,
+    EditarTeamsComponent,
     BasicInfoComponent,
     PaymentInfoComponent,
     EmailPasswordComponent,
@@ -56,6 +67,7 @@ import { TruncatePipe } from './../core/pipes/truncate';
     UserService,
     UserActions,
     TeamFormService,
+    TeamEditService,
     TeamHttpService
   ]
 })

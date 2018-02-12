@@ -1,0 +1,21 @@
+<div class="tab-pane">
+    <h2>Teams</h2>
+    <div class="comp_table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre Team</th>
+            <th class="center">Editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let team of teams">
+            <td>{{team.name}}</td>
+            <td class="center">
+              <button class="btn edit-btn" style="margin-top: 0 !important; padding: 5px 20px !important" (click)="changeTab(team.id);">{{ 'USER_DASHBOARD.EDIT' | translate }}</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>

@@ -29,6 +29,20 @@ export class UserCampaignsComponent implements OnInit {
     return this.userService.isLoggedInUser(this.user);
   }
 
+  isAdmin(){
+    return this.userService.isLoggedInUser(this.user) && this.user.role_name === 'admin';
+  }
+
+  canEdit(){
+    if(this.userService.isLoggedInUser(this.user) && this.user.role_name === 'admin'){
+      return true;
+    }else if(this.user.can_edit){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   sendNotification() {
     this.lgModal.hide();
     this.projectHttpServie.sendNotification(this.projectId, this.description).subscribe((res) => {

@@ -61,5 +61,14 @@ export class UserService {
     ).map((res: Response) => {});
   }
 
+  fetchAllUsers(){
+    return this.http.get(
+      `/api/users`
+    ).map((res: Response) => {
+      let json = res.json();
+      return json.users;
+    });
+  }
+
 
 }

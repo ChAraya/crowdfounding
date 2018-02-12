@@ -135,7 +135,11 @@ export class ProjectTitleComponent implements OnInit, OnDestroy {
   private fetchTeams() {
     this.projectHttpService.fetchAllTeams().subscribe((data) => {
       this.teams = data.teams;
-      (<FormControl>this.projectForm.controls['team_id']).setValue(this.teams[0].id);
+      if(this.project.team_id == null){
+        (<FormControl>this.projectForm.controls['team_id']).setValue(this.teams[0].id);
+      }else{
+        (<FormControl>this.projectForm.controls['team_id']).setValue(this.teams[this.project.team_id].id);
+      }
     });
   }
 

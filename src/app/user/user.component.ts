@@ -1,6 +1,6 @@
 import { UserService } from './services/user.service';
 import { getAuthUser } from './../core/reducers/auth.selector';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserActions } from './actions/user.actions';
 import { getUser } from './reducers/user.selectors';
 import { User } from './../core/models/user';
@@ -17,37 +17,59 @@ export class UserComponent implements OnInit {
 
   selectedTab = 1;
   user: User;
+  teamId: any;
   userId: number;
-
   constructor(
     private store: Store<AppState>,
     private userActions: UserActions,
     private route: ActivatedRoute,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) {
     this.route.params.subscribe((params) => {
       this.userId = params['id'];
       this.store.dispatch(this.userActions.loadUser(this.userId));
     });
-    this.route.fragment.subscribe((fragment: string) => {
-      if (fragment === 'notifications') {
-        this.selectedTab = 5;
-      }
-      if (fragment === 'quick-view') {
-        this.selectedTab = 2;
-      }
-    });
+    this.selectedTab = 1;
 
-    this.store.select(getUser).subscribe((user) => {
-      this.user = user;
-    });
+    // this.route.fragment.subscribe((fragment: string) => {
+    //   if (fragment === 'notifications') {
+        
+    //   }
+    //   if (fragment === 'quick-view') {
+    //     this.selectedTab = 2;
+    //   }
+
+      
+    // });
+
+    
+
+    
   }
 
   ngOnInit() {
+    this.store.select(getUser).subscribe((user) => {
+      this.user = user;      
+    });
+  }
+
+  ngAfterContentInit() {
+    //Called after ngOnInit when the component's or directive's content has been initialized.
+    //Add 'implements AfterContentInit' to the class.
+    
   }
 
   changeTab(tab) {
     this.selectedTab = tab;
+  }
+
+  changeTabChild(event){
+    this.selectedTab = event;
+  }
+
+  getTeamId(event){
+    this.teamId = event[0];
   }
 
   isCreator() {
@@ -60,6 +82,31 @@ export class UserComponent implements OnInit {
 
   isAuthUser() {
     return this.userService.isLoggedInUser(this.user);
+  }
+
+  isInTeam(){
+    if(this.isAdmin()){
+      return true;
+    }
+    if(this.user.team_id != 0){
+      return true;
+    }
+    return false;
+  }
+  
+
+  canCreate(){
+    if(this.isAdmin()){
+      return true;
+    }
+    if(this.user.can_edit){
+      return true;
+    }
+    return false;
+  }
+
+  createProject(){
+    this.router.navigate(['/projects/new']);
   }
 
 }

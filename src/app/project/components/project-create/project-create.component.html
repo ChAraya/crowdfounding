@@ -29,16 +29,16 @@
 								<a (click)="changeTab(4)">4. {{ 'PROJ_CREATE.FAQS' | translate }}
 								</a>
 							</li>
+							<!-- <li [ngClass]="{'active': selectedTab == 8}">
+								<a (click)="changeTab(8)">5. {{ 'PROJ_CREATE.KYC_INFO' | translate }}
+								</a>
+							</li> -->
 							<li [ngClass]="{'active': selectedTab == 5}">
-								<a (click)="changeTab(5)">5. {{ 'PROJ_CREATE.KYC_INFO' | translate }}
+								<a (click)="changeTab(5)">5. {{ 'PROJ_CREATE.REVIEW' | translate }} 
 								</a>
 							</li>
 							<li [ngClass]="{'active': selectedTab == 6}">
-								<a (click)="changeTab(6)">6. {{ 'PROJ_CREATE.REVIEW' | translate }} 
-								</a>
-							</li>
-							<li [ngClass]="{'active': selectedTab == 7}">
-								<a (click)="changeTab(7)">7. {{ 'PROJ_CREATE.EVENTS' | translate }} 
+								<a (click)="changeTab(6)">6. {{ 'PROJ_CREATE.EVENTS' | translate }} 
 								</a>
 							</li>
 						</ul>
@@ -63,13 +63,13 @@
 						<ng-template [ngSwitchCase]="'4'">
 							<app-project-faq [isEditing]="isEditing"></app-project-faq>
 						</ng-template>
-						<ng-template [ngSwitchCase]="'5'">
+						<!-- <ng-template [ngSwitchCase]="'8'">
 							<app-project-user-kyc-info></app-project-user-kyc-info>
-						</ng-template>
-						<ng-template [ngSwitchCase]="'6'">
+						</ng-template> -->
+						<ng-template [ngSwitchCase]="'5'">
 							<app-project-review [isEditing]="isEditing" (backToEditor)="changeTab(1)"></app-project-review> 
 						</ng-template>
-						<ng-template [ngSwitchCase]="'7'">
+						<ng-template [ngSwitchCase]="'6'">
 							<app-project-event></app-project-event> 
 						</ng-template>
 					</div>

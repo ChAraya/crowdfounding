@@ -172,7 +172,14 @@
 		"TOTAL_BACKERS": "Total de Patrocinadores",
 		"NOTIFICATION_MSG": "Da click y lee todas tus notificaciones",
 		"EDIT": "Editar",
-		"ADD_CAMPAIGN": "agregar una campaña"
+		"ADD_CAMPAIGN": "agregar una campaña",
+		"CREATE_CAMPAIGN": "Crear campaña",
+		"CREATE_TEAM": "Crear Team",
+		"VIEW": "Ver",
+		"TEAM_TITLE": "Nombre del Team",
+		"TEAM_LOGO": "Sube el logo del Team",
+		"TEAM_PAGE": "Crea un Team",
+		"EDIT_TEAM": "Editar Team"
 	},
 	"PROJ_CREATE": {
 		"CAMPAIGN_EDITOR": "editor de campaña",

@@ -20,7 +20,6 @@ export class TeamHttpService {
   }
 
   createTeam(team) {
-    console.log(team)
     return this.http.post(
       `/api/team`, { team: team }
     ).map((res: Response) => {
@@ -50,5 +49,28 @@ export class TeamHttpService {
     ).map((res: Response) => {});
   }
 
+  getTeams(){
+    return this.http.get(
+      '/api/teams'
+    ).map((res: Response) => {
+      return res.json();
+    })
+  }
+
+  getTeam(id: number){
+    return this.http.get(
+      `/api/team/${id}`
+    ).map((res: Response) => {
+      return res.json();
+    })
+  }
+
+  updateTeam(team){
+    return this.http.put(
+      `/api/team`, { team: team }
+    ).map((res: Response) => {
+      return res.json();
+    });
+  }
 
 }

@@ -10,7 +10,8 @@
           <th class="center">Objetivo</th>
           <th class="center">Financiado</th>
           <th class="center">Team</th>
-          <th class="center"></th>
+          <th class="center" *ngIf="canEdit()">Editar</th>
+          <th class="center">Ver</th>
         </tr>
       </thead>
       <tbody>
@@ -19,10 +20,15 @@
           <td class="center">28-04-2018</td>
           <td class="center">{{project.title}}</td>
           <td class="center">{{ project?.currency | currencySymbol }}{{project.pledged_amount}}</td>
-          <td class="center">{{ project?.currency | currencySymbol }}{{project.funded_amount}}</td>
+          <td class="center">{{ project?.currency | currencySymbol }}{{project.funded_amount}}</td> 
           <td class="center">{{ project.team_name}}</td>
+          <td class="center" *ngIf="canEdit()">
+            <div>
+                <button class="btn edit-btn" [routerLink]="['/projects', 'edit', project.id]">{{ 'USER_DASHBOARD.EDIT' | translate }}</button>
+            </div>
+          </td>
           <td class="center">
-            <button class="btn edit-btn" [routerLink]="['/projects', 'edit', project.id]">{{ 'USER_DASHBOARD.EDIT' | translate }}</button>
+              <button class="btn edit-btn" [routerLink]="['/projects', project.id]">{{ 'USER_DASHBOARD.VIEW' | translate }}</button>
           </td>
         </tr>
       </tbody>

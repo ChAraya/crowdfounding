@@ -36,15 +36,18 @@
                   <li *ngIf="isAuthUser()" [ngClass]="{'active': selectedTab == 5}">
                     <a (click)="changeTab(5)"><i class="fa fa-envelope-o"></i> {{ 'USER_DASHBOARD.NOTIFICATIONS' | translate }}</a>
                   </li>
-                  <li [ngClass]="{'active': selectedTab == 6}">
+                  <li *ngIf="isInTeam()" [ngClass]="{'active': selectedTab == 6}">
                     <a (click)="changeTab(6)"><i class="fa fa-bullhorn"></i> {{ 'USER_DASHBOARD.CAMPAIGNS' | translate }}</a>
                   </li>
-                  <li [ngClass]="{'active': selectedTab == 7}">
-                    <a (click)="changeTab(7)"><i class="fa fa-calendar-o"></i> <small>{{ 'USER_DASHBOARD.COMING_SOON' | translate }}</small></a>
+                  <li *ngIf="canCreate()" [ngClass]="{'active': selectedTab == 7}">
+                    <a (click)="createProject()"><i class="fa fa-pencil"></i> <small>{{ 'USER_DASHBOARD.CREATE_CAMPAIGN' | translate }}</small></a>
                   </li>
                   <li *ngIf="isAdmin()" [ngClass]="{'active': selectedTab == 8}">
-                    <a (click)="changeTab(8)"><i class="fa fa-calendar-o"></i> <small>Create Team</small></a>
+                    <a (click)="changeTab(8)"><i class="fa fa-users"></i> <small>{{ 'USER_DASHBOARD.CREATE_TEAM' | translate }}</small></a>
                   </li>
+                  <li *ngIf="isAdmin()" [ngClass]="{'active': selectedTab == 9}">
+                      <a (click)="changeTab(9)"><i class="fa fa-edit"></i> <small>{{ 'USER_DASHBOARD.EDIT_TEAM' | translate }}</small></a>
+                    </li>
                 </ul>
               </div>
             </div>
@@ -77,7 +80,13 @@
                 <app-coming-soon></app-coming-soon>
               </ng-template>
               <ng-template [ngSwitchCase]="'8'">
-                <app-create-team [user]="user"></app-create-team>
+                <app-create-team [user]="user" (changeView)=changeTabChild($event)></app-create-team>
+              </ng-template>
+              <ng-template [ngSwitchCase]="'9'">
+                <app-created-teams [user]="user" (changeView)=changeTabChild($event) (teamId)=getTeamId($event)></app-created-teams>
+              </ng-template>
+              <ng-template [ngSwitchCase]="'10'">
+                <app-editar-team [user]="user" [teamId]="teamId" (changeView)=ChangeTabChild($event) ></app-editar-team>
               </ng-template>
             </div>
 

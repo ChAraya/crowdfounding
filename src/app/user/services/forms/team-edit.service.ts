@@ -4,7 +4,7 @@ import { Picture } from './../../../core/models/picture';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class TeamFormService {
+export class TeamEditService {
 
   constructor(
     private fb: FormBuilder
@@ -12,14 +12,14 @@ export class TeamFormService {
 
   initTeamForm(team: any) {
     return this.fb.group({
-      'id': [''],
+      'id': [team.id],
       'type': ['team'],
-      'name': ['', Validators.required],
-      'email': [''],
-      'web_url': [''],
+      'name': [team.name, Validators.required],
+      'email': [team.email],
+      'web_url': [team.web_url],
       'images_data': this.fb.array([]),
       'start_date': [],
-      'representative': [],
+      'representative': [team.representative ? team.representative : '']
       // 'pictures_attributes': this.fb.array(picture_attributes_array)
     });
   }
