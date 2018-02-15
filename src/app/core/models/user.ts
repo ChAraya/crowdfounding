@@ -19,6 +19,7 @@ export class User {
   team_id: number;
   total_backed_amount: number;
   is_stripe_connected: boolean;
+  leader: boolean;
   can_edit: boolean;
   address: Address;
   projects: LiteProject[];

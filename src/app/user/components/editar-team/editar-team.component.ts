@@ -31,7 +31,7 @@ export class EditarTeamsComponent implements OnInit {
   @ViewChild('imageUpload') imageUpload: ImageUploadComponent;
   changeView = new EventEmitter<number>();
   selectedDate = new Date();
-
+  selectedUser: any;
   formSubmit = false;
   projectForm: FormGroup;
   categories = [];
@@ -59,7 +59,6 @@ export class EditarTeamsComponent implements OnInit {
 
   ngOnInit() {
     this.teams = this.teamId;
-    console.log(this.teams.representative);
     this.initProjectForm(this.teams);
     this.fetchUsers();
   }
@@ -86,6 +85,7 @@ export class EditarTeamsComponent implements OnInit {
     this.setStartDate();
     this.formSubmit = true;
     const project = this.projectForm.value;
+    project.representative = this.selectedUser;
     this.teamHttpService.updateTeam(project)
       .subscribe((res) => {
         let respuesta = res;
@@ -103,6 +103,7 @@ export class EditarTeamsComponent implements OnInit {
   private fetchUsers() {
     this.userService.fetchAllUsers().subscribe((data) => {
       this.users = data;
+      console.log(this.users)
       if(this.teams.representative == null){
         (<FormControl>this.projectForm.controls['representative']).setValue(this.users[0].id);
       }else{

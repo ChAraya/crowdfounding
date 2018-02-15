@@ -47,7 +47,10 @@
                   </li>
                   <li *ngIf="isAdmin()" [ngClass]="{'active': selectedTab == 9}">
                       <a (click)="changeTab(9)"><i class="fa fa-edit"></i> <small>{{ 'USER_DASHBOARD.EDIT_TEAM' | translate }}</small></a>
-                    </li>
+                  </li>
+                  <li *ngIf="isLeader()" [ngClass]="{'active': selectedTab == 11}">
+                    <a (click)="changeTab(11)"><i class="fa fa-edit"></i> <small>{{ 'USER_DASHBOARD.EDIT_TEAM' | translate }}</small></a>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -87,6 +90,9 @@
               </ng-template>
               <ng-template [ngSwitchCase]="'10'">
                 <app-editar-team [user]="user" [teamId]="teamId" (changeView)=ChangeTabChild($event) ></app-editar-team>
+              </ng-template>
+              <ng-template [ngSwitchCase]="'11'">
+                  <app-leader-settings [user]="user" (changeView)=ChangeTabChild($event) ></app-leader-settings>
               </ng-template>
             </div>
 

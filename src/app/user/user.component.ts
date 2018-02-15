@@ -93,6 +93,10 @@ export class UserComponent implements OnInit {
     }
     return false;
   }
+
+  isLeader(){
+    return this.user.leader ? true : false;
+  }
   
 
   canCreate(){

@@ -66,11 +66,19 @@ export class TeamHttpService {
   }
 
   updateTeam(team){
-    return this.http.put(
+    return this.http.post(
       `/api/team`, { team: team }
     ).map((res: Response) => {
       return res.json();
     });
+  }
+
+  getMembers(id: number){
+    return this.http.get(
+      `/api/teams/members/${id}`
+    ).map((res: Response) => {
+      return res.json();
+    })
   }
 
 }

@@ -21,6 +21,8 @@ import { ComingSoonComponent } from './components/coming-soon/coming-soon.compon
 import { CreateTeamsComponent } from './components/create-team/create-team.component';
 import { CreatedTeamsComponent } from './components/created-teams/created-teams.component';
 import { EditarTeamsComponent } from './components/editar-team/editar-team.component';
+import { LeaderSettingsComponent } from './components/leader-settings/leader-settings.component';
+import { TeamMembersComponent } from './components/leader-settings/team-members/team-members.component';
 import { BasicInfoComponent } from './components/name-contacts-info/basic-info/basic-info.component';
 import { PaymentInfoComponent } from './components/name-contacts-info/payment-info/payment-info.component';
 import { EmailPasswordComponent } from './components/name-contacts-info/email-password/email-password.component';
@@ -55,6 +57,8 @@ import { NgSelectModule } from '@ng-select/ng-select';
     CreateTeamsComponent,
     CreatedTeamsComponent,
     EditarTeamsComponent,
+    LeaderSettingsComponent,
+    TeamMembersComponent,
     BasicInfoComponent,
     PaymentInfoComponent,
     EmailPasswordComponent,
@@ -69,6 +73,9 @@ import { NgSelectModule } from '@ng-select/ng-select';
     TeamFormService,
     TeamEditService,
     TeamHttpService
+  ],
+  entryComponents: [
+    TeamMembersComponent
   ]
 })
 export class UserModule { }

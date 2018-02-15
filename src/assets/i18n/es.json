@@ -179,7 +179,8 @@
 		"TEAM_TITLE": "Nombre del Team",
 		"TEAM_LOGO": "Sube el logo del Team",
 		"TEAM_PAGE": "Crea un Team",
-		"EDIT_TEAM": "Editar Team"
+		"EDIT_TEAM": "Editar Team",
+		"TEAM_MEMBERS": "Miembros del Team"
 	},
 	"PROJ_CREATE": {
 		"CAMPAIGN_EDITOR": "editor de campaña",

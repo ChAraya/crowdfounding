@@ -68,6 +68,7 @@ export class AuthService {
         const message = 'Email' + data.error.email[0];
         this.toastyService.error(message);
       } else {
+
         const message = data.message;
         this.modalShow$.next(false);
         this.toastyService.success(message);
@@ -81,7 +82,7 @@ export class AuthService {
     ).subscribe((res: Response) => {
       const data = res.json();
       if (data.error) {
-        const message = data.error.user_authentication[0];
+        const message = data.message;
         this.toastyService.error(message);
       } else {
         this.store.dispatch(this.authActions.loginSuccess(data));
