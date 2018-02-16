@@ -30,11 +30,12 @@
         <div class="row space10">
           <div class="col-md-12">
             <div class="project_web">
-              <ul>
-                <li class="active"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp;&nbsp;Favorito </a></li> <!-- añadir tralate a Favorito -->
-                <!-- <li><a href="#"><i class="fa fa-compass" aria-hidden="true"></i>&nbsp;&nbsp;Web</a></li> -->
-                <!-- <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Riverside, CA</a></li> -->
-              </ul>
+              <p> INFORMACIÓN DEL PROYECTO</p>
+              <!-- <ul>
+                <li class="active"><a href="#"><i class="fa fa-heart" aria-hidden="true"></i>&nbsp;&nbsp;Favorito </a></li> añadir tralate a Favorito
+                <li><a href="#"><i class="fa fa-compass" aria-hidden="true"></i>&nbsp;&nbsp;Web</a></li>
+                <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Riverside, CA</a></li>
+              </ul> -->
             </div>
           </div>
         </div>
@@ -45,10 +46,10 @@
           <div class="col-md-12">
             <div class="mytabs">
               <ul class="tab">
-                <li [ngClass]="{'active': selectedTab == 1}"><a class="tablinks" (click)="changeTab(1)">{{ 'PROJ_DETAIL.CAMPAIGN' | translate }}</a></li>
-                <li [ngClass]="{'active': selectedTab == 2}"><a class="tablinks" (click)="changeTab(2)">{{ 'PROJ_DETAIL.UPDATES' | translate }}</a></li>
+                <li [ngClass]="{'active': selectedTab == 1}"><a class="tablinks" (click)="changeTab(1)">{{ 'PROJ_DETAIL.DESCRIP' | translate }}</a></li>
+                <!-- <li [ngClass]="{'active': selectedTab == 2}"><a class="tablinks" (click)="changeTab(2)">{{ 'PROJ_DETAIL.UPDATES' | translate }}</a></li>
                 <li [ngClass]="{'active': selectedTab == 3}"><a class="tablinks" (click)="changeTab(3)">{{ 'PROJ_DETAIL.DISSCUSION' | translate }}</a></li>
-                <li [ngClass]="{'active': selectedTab == 4}"><a class="tablinks" (click)="changeTab(4)">{{ 'PROJ_DETAIL.COMMUNITY' | translate }}</a></li>
+                <li [ngClass]="{'active': selectedTab == 4}"><a class="tablinks" (click)="changeTab(4)">{{ 'PROJ_DETAIL.COMMUNITY' | translate }}</a></li> -->
               </ul>
             </div>
             <div class="" [ngSwitch]="selectedTab">

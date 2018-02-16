@@ -10,12 +10,12 @@
     <div class="media">
       <div class="media-left">
         <a href="#">
-          <img class="media-object team_pic" src="{{project?.team?.image_url}}" alt="image">
+          <img class="media-object team_pic" src="{{project?.team?.logo_url}}" alt="image">
         </a>
       </div>
       <div class="media-body">
         <h4 class="media-heading">{{project?.team_name}}</h4>
-        <p class="space20">a nombre de {{project?.team_name}}</p>
+        <!-- <p class="space20">a nombre de {{project?.team_name}}</p> -->
         <p class="space15" style=font-size:1.8rem><span><i class="fa fa-map-marker" aria-hidden="true"></i> {{project?.team?.address?.state}}, {{project?.team?.address?.city}}</span></p>
         <p class="space15" style=font-size:1.8rem><span><i class="fa fa-tag" aria-hidden="true"></i>  {{project?.category_name}}</span></p>
         <p class="space15" style=font-size:1.8rem><span><i class="fa fa-globe" aria-hidden="true"></i>  {{project?.web_url}}</span></p>
