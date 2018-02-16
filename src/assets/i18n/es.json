@@ -137,7 +137,8 @@
 		"PLEDGED_MSG5": "de",
 		"PLEDGED_MSG6": "para completar la meta",
 		"PLEDGED_MSG7": "Creado",
-		"SAVE": "Guardar"
+		"SAVE": "Guardar",
+		"DESCRIP": "Descripción"
 	},
 	"USER_DASHBOARD": {
 		"DASHBOARD_TITLE": "Panel de Control",
