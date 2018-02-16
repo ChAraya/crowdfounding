@@ -17,7 +17,6 @@ import { User } from '../../../core/models/user';
 import { Subscription } from 'rxjs/Subscription';
 import { AuthUser } from '../../../core/models/auth-user';
 import { ToastyService } from 'ng2-toasty';
-import {SelectItem} from 'primeng/api';
 
 
 @Component({
