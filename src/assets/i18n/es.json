@@ -139,7 +139,8 @@
 		"PLEDGED_MSG7": "Creado",
 		"SAVE": "Guardar",
 		"CLEAN": "Limpiar",
-		"DELETE": "Eliminar"
+		"DELETE": "Eliminar",
+		"DESCRIP": "Descripción"
 	},
 	"USER_DASHBOARD": {
 		"DASHBOARD_TITLE": "Panel de Control",

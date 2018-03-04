@@ -1,4 +1,3 @@
-
 import { TeamFormService } from './../../services/forms/team-form.service';
 import { TeamHttpService } from './../../services/https/team-http.service';
 import { ImageUploadComponent } from './../../../shared/components/image-upload/image-upload.component';
@@ -17,7 +16,6 @@ import { User } from '../../../core/models/user';
 import { Subscription } from 'rxjs/Subscription';
 import { AuthUser } from '../../../core/models/auth-user';
 import { ToastyService } from 'ng2-toasty';
-import {SelectItem} from 'primeng/api';
 
 
 @Component({
@@ -54,8 +52,7 @@ export class CreateTeamsComponent implements OnInit {
       this.authUser = user;
       this.role_id = user.role_id;
       console.log("asdsad", user);      
-    });
-    
+    }); 
   }
 
   ngOnInit() {
