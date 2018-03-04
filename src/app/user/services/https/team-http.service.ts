@@ -81,4 +81,20 @@ export class TeamHttpService {
     })
   }
 
+  newMember(member){
+    return this.http.post(
+      '/api/teams/members', { member: member }
+    ).map((res: Response) => {
+      return res.json();
+    })
+  }
+
+  deleteMember(member){
+    return this.http.post(
+      '/api/teams/dMember', { member: member }
+    ).map((res: Response) => {
+      return res.json();
+    })
+  }
+
 }

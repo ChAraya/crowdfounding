@@ -6,7 +6,7 @@ import { AppState } from './../../../app.state';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { Project } from './../../../core/models/project';
-import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, ViewChild, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, ViewChild, ComponentFactoryResolver, ViewContainerRef, SimpleChange } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { UserService } from '../../../user/services/user.service';
 import { getAuthUser } from '../../../core/reducers/auth.selector';
@@ -41,7 +41,11 @@ export class LeaderSettingsComponent implements OnInit {
   authUser: AuthUser;
   role_id: any;
   members: any;
-
+  privilegio: any;
+  Privil: any[] = [
+    { id: 0, data: 'Solo ver' },
+    { id: 1, data: 'Editar'}
+  ];
   constructor(
     private store: Store<AppState>,
     private fb: FormBuilder,
@@ -63,7 +67,6 @@ export class LeaderSettingsComponent implements OnInit {
     this.addComponent();    
   }
 
-
   isAuthUser() {
     return this.userService.isLoggedInUser(this.user);
   }
@@ -79,23 +82,49 @@ export class LeaderSettingsComponent implements OnInit {
     //this.teamId.emit(id)    
   }
 
+  loadMembers(event){
+    this.teamHttpService.newMember(event).subscribe((res) => {
+      let respuesta = res;
+      if (respuesta.error) {
+        this.toastyService.error(respuesta.message);
+      }else{
+        this.toastyService.success(respuesta.message);
+      }
+      this.getMembers();
+    });
+  }
+
   getMembers(){
     this.teamHttpService.getMembers(this.user.team_id).subscribe((data) => {
       this.members = data.members;
     })
   }
 
-  addComponent(){
-    
-    var comp = this._cfr.resolveComponentFactory(TeamMembersComponent);
+  addComponent(){    
+    var comp = this._cfr.resolveComponentFactory(TeamMembersComponent);    
     var expComponent = this.container.createComponent(comp);
+    let myPost: TeamMembersComponent = <TeamMembersComponent>expComponent.instance;
+    myPost.team = this.user.team_id;
+    myPost.changeView.subscribe(msg => this.loadMembers(msg));
     expComponent.instance._ref = expComponent;
   }
 
-  removeObject(){
-   
+  removeObject(event){
+    event.team = this.user.team_id
+    this.teamHttpService.deleteMember(event).subscribe((res) => {
+      let respuesta = res;
+      if (respuesta.error) {
+        this.toastyService.error(respuesta.message);
+      }else{
+        this.toastyService.success(respuesta.message);
+      }
+      this.getMembers();
+    });
   }
   
-  save(){
+  save(event){
+    event.team = this.user.team_id;
+    this.loadMembers(event);
+
   }
 }

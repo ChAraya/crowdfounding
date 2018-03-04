@@ -48,8 +48,11 @@
                   <li *ngIf="isAdmin()" [ngClass]="{'active': selectedTab == 9}">
                       <a (click)="changeTab(9)"><i class="fa fa-edit"></i> <small>{{ 'USER_DASHBOARD.EDIT_TEAM' | translate }}</small></a>
                   </li>
+                  <li *ngIf="isLeader()" [ngClass]="{'active': selectedTab == 10}">
+                    <a (click)="changeTab(10)"><i class="fa fa-edit"></i> <small>{{ 'USER_DASHBOARD.EDIT_TEAM' | translate }}</small></a>
+                  </li>
                   <li *ngIf="isLeader()" [ngClass]="{'active': selectedTab == 11}">
-                    <a (click)="changeTab(11)"><i class="fa fa-edit"></i> <small>{{ 'USER_DASHBOARD.EDIT_TEAM' | translate }}</small></a>
+                    <a (click)="changeTab(11)"><i class="fa fa-edit"></i> <small>{{ 'USER_DASHBOARD.TEAM_MEMBERS' | translate }}</small></a>
                   </li>
                 </ul>
               </div>

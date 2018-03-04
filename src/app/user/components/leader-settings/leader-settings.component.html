@@ -1,4 +1,6 @@
-<h4>Add/Remove experience</h4>
+<div class="tab-pane">
+    <h2>{{ 'USER_DASHBOARD.MEMBERS' | translate }}</h2>
+</div>
   <div class="row" *ngFor="let member of members">
     <div class="horizontal-group">
         <div class="col-sm-4">
@@ -10,22 +12,24 @@
         </div>
 
         <div class="col-sm-2">
-            <input type="text" name='exp'
-                   placeholder="Years"
-                   class="form-control" >
+            <select #selectElem class="form-control" [(ngModel)]="member.editor" [ngModelOptions]="{standalone: true}">
+                <option *ngFor="let priv of Privil" [value]="priv.id">
+                    {{priv.data}}
+                </option>
+            </select>
         </div>
 
         <div class="col-sm-6">
             <button type="submit" class="btn btn-primary"
-                  (click)="save()" > Save</button>
+                  (click)="save(member)" > {{'PROJ_DETAIL.SAVE' | translate }}</button>
             <button type="button" class="btn btn-default"
-                  (click)="removeObject()" > Remove</button>
+                  (click)="removeObject(member)" > {{'PROJ_DETAIL.DELETE' | translate }}</button>
         </div>
     </div>
   </div>
-<div #parent></div>
+<div #parent title="member" [id]="user.team_id" (changeView)=loadMembers($event)></div>
 <div>
-  <button type="button" 
+  <!-- <button type="button" 
         (click)="addComponent()"
-        class="btn btn-default">Add Experience </button>
+        class="btn btn-default">Add Experience </button> -->
 </div>

@@ -145,11 +145,12 @@ export class ProjectTitleComponent implements OnInit, OnDestroy {
 
   private  initProjectForm(project) {
     this.projectForm = this.projectFormService.initProjectForm(project);
-    this.selectedDate = new Date(project.start_date);
+    project.start_date ? this.selectedDate = new Date(project.start_date) : this.selectedDate = new Date();
   }
  
 
   isAdmin() {
+    console.log(this.role_id);
     return this.userService.isLoggedInUser(this.authUser) && this.role_id == 1;
   }
 

@@ -37,7 +37,7 @@ export class ProjectFormService {
       'category_id': [project.category_id, Validators.required],
       'images_data': this.fb.array([]),
       'video_url': [project.video_url, this.validateURL],
-      'pledged_amount': [project.pledged_amount, Validators.required],
+      'pledged_amount': [project.pledged_amount, Validators.compose([Validators.required, this.validateAmount])],
       'funding_model': [project.funding_model || 'flexi', Validators.required],
       'start_date': [],
       'currency': [project.currency || 'USD', Validators.required],
@@ -49,6 +49,10 @@ export class ProjectFormService {
 
   private validateNumber(c: FormControl) {
     return c.value > 0 && c.value <= 60 ? null : { validateNumber: true };
+  };
+
+  private validateAmount(c: FormControl) {
+    return c.value > 0 && c.value <= 999999999999 ? null : { validateNumber: true };
   };
 
   private validateURL(c: FormControl) {

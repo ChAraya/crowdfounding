@@ -137,7 +137,9 @@
 		"PLEDGED_MSG5": "de",
 		"PLEDGED_MSG6": "para completar la meta",
 		"PLEDGED_MSG7": "Creado",
-		"SAVE": "Guardar"
+		"SAVE": "Guardar",
+		"CLEAN": "Limpiar",
+		"DELETE": "Eliminar"
 	},
 	"USER_DASHBOARD": {
 		"DASHBOARD_TITLE": "Panel de Control",
@@ -180,7 +182,8 @@
 		"TEAM_LOGO": "Sube el logo del Team",
 		"TEAM_PAGE": "Crea un Team",
 		"EDIT_TEAM": "Editar Team",
-		"TEAM_MEMBERS": "Miembros del Team"
+		"TEAM_MEMBERS": "Miembros del Team",
+		"MEMBERS": "Añadir/Quitar Miembros al Team"
 	},
 	"PROJ_CREATE": {
 		"CAMPAIGN_EDITOR": "editor de campaña",

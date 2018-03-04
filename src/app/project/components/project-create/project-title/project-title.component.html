@@ -97,6 +97,7 @@
               <div class="form-group">
                 <input type="text" class="form-control" placeholder="$ 500" formControlName="pledged_amount">
                 <p *ngIf="projectForm.get('pledged_amount').hasError('required') && (projectForm.get('pledged_amount').touched || formSubmit)" class="value-err show">This is a mandatory field</p>
+                <p *ngIf="projectForm.get('pledged_amount').hasError('validateAmount') && (projectForm.get('pledged_amount').touched || formSubmit)" class="value-err show">Debe ser un valor numerico</p>
               </div>
             </div>
             <div class="col-xs-6">

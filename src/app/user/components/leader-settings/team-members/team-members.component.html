@@ -9,17 +9,18 @@
             </div>
 
             <div class="col-sm-2">
-                <input type="text" name='exp'
-                       placeholder="Years"
-                       [(ngModel)]= "exp"
-                       class="form-control" >
+                <select #selectElem class="form-control" [(ngModel)]="privilegio" [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let priv of Privil" [value]="priv.id">
+                        {{priv.data}}
+                    </option>
+                </select>
             </div>
 
             <div class="col-sm-6">
                 <button type="submit" class="btn btn-primary"
-                      (click)="save()" > Save</button>
+                      (click)="save()" > {{'PROJ_DETAIL.SAVE' | translate }}</button>
                 <button type="button" class="btn btn-default"
-                      (click)="removeObject()" > Remove</button>
+                      (click)="removeObject()" >{{'PROJ_DETAIL.CLEAN' | translate }}</button>
             </div>
         </div>
     </div>

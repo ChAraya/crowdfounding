@@ -7,6 +7,7 @@ import { User } from './../core/models/user';
 import { AppState } from './../app.state';
 import { Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
+import { TeamHttpService } from 'app/user/services/https/team-http.service';
 
 @Component({
   selector: 'app-user',
@@ -24,6 +25,7 @@ export class UserComponent implements OnInit {
     private userActions: UserActions,
     private route: ActivatedRoute,
     private userService: UserService,
+    private teamHttpService: TeamHttpService,
     private router: Router
   ) {
     this.route.params.subscribe((params) => {
@@ -61,7 +63,15 @@ export class UserComponent implements OnInit {
   }
 
   changeTab(tab) {
-    this.selectedTab = tab;
+    if(this.isLeader()){
+      this.teamHttpService.getTeam(this.user.team_id).subscribe((data) => {
+        this.teamId = data.teams[0];
+        this.selectedTab = tab;
+      });
+    }else{
+      this.selectedTab = tab;
+    }
+    
   }
 
   changeTabChild(event){

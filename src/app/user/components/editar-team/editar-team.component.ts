@@ -59,8 +59,13 @@ export class EditarTeamsComponent implements OnInit {
 
   ngOnInit() {
     this.teams = this.teamId;
+    console.log(this.teams);
     this.initProjectForm(this.teams);
-    this.fetchUsers();
+    if(this.user.leader){
+      this.getMembers();
+    }else{
+      this.fetchUsers()
+    };
   }
 
   isAuthUser() {
@@ -69,6 +74,10 @@ export class EditarTeamsComponent implements OnInit {
 
   isAdmin(){
     return this.userService.isLoggedInUser(this.user) && this.user.role_name === 'admin';
+  }
+
+  isLeader(){
+    return this.user.leader ? true : false;
   }
 
   private initProjectForm(team) {
@@ -110,6 +119,15 @@ export class EditarTeamsComponent implements OnInit {
         (<FormControl>this.projectForm.controls['representative']).setValue(this.teams.representative);
       }
     });
+  }
+
+  private getMembers(){
+    console.log(this.user.team_id)
+    this.teamHttpService.getMembers(this.user.team_id).subscribe((data) => {
+      this.users = data.members;
+      this.selectedUser = this.users[0].leader;
+      (<FormControl>this.projectForm.controls['representative']).setValue(this.users[0].leader);
+    })
   }
   
 
