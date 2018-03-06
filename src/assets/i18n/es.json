@@ -53,7 +53,10 @@
 		"TRENDING_PROJECT": "Proyectos Populares",
 		"VIEW_ALL": "Ver Todo",
 		"VIDEO_INTRODUCTION": "Ve Un Video Sobre Nosotros",
-		"CUSTOMER_FEEDBACK": "Que Dicen Nuestros Clientes"
+		"CUSTOMER_FEEDBACK": "Que Dicen Nuestros Clientes",
+		"INNOVACION_SOCIAL": "Innovación Social",
+		"INDUSTRIA":"Industria",
+		"TECNOLOGIA":"Tecnologia"
 	},
 	"LOGIN_DIALOG": {
 		"LOGIN": "Ingresar",
