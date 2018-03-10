@@ -8,6 +8,7 @@ import { Project } from './../core/models/project';
 import { ToastyConfig, ToastyService } from 'ng2-toasty';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { AppService } from 'app/app.service';
 
 @Component({
   selector: 'app-home',
@@ -19,23 +20,34 @@ export class HomeComponent implements OnInit, OnDestroy {
   projectsSub$: Subscription;
   projects: Project[];
   message = '';
+  confirm_email = '';
 
   constructor(private route: ActivatedRoute,
     private toastyService: ToastyService,
     private toastyConfig: ToastyConfig,
     private store: Store<AppState>,
     private projectActions: ProjectActions,
-    private dateService: DateService
+    private dateService: DateService,
+    private confirm: AppService
   ) {
     this.toastyConfig.theme = 'bootstrap';
     this.route.queryParams.subscribe((params) => this.message = params['message']);
+    this.route.queryParams.subscribe((params) => this.confirm_email = params['confirm']);
     this.projectsSub$ = this.store.select(getAllProjects).subscribe((projects => this.projects = projects));
   }
 
   ngOnInit() {
     this.store.dispatch(this.projectActions.fetchAllProjects());
     this.loadScript();
-
+    if(this.confirm_email){
+      this.confirm.confirmEmail(this.confirm_email).subscribe((response) => {
+        if(response.success){
+          this.toastyService.success(response.message);    
+        }else{
+          this.toastyService.error(response.message);    
+        }
+      })
+    }
     if (this.message) {
       this.toastyService.success(this.message);
     }

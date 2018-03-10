@@ -109,7 +109,7 @@
             </div>
           </div>
         </div>
-      <div *ngIf="!isEditing && !isAdmin()" class="camp_flexi">
+      <!-- <div *ngIf="!isEditing && !isAdmin()" class="camp_flexi">
         <h2>{{ 'PROJ_CREATE.FUNDING_MODEL' | translate }} *</h2>
         <div class="col-xs-6" tooltip="{{ 'PROJ_CREATE.FLEXI_TOOLTIP' | translate }}" placement="top">
           <div class="radio">
@@ -150,7 +150,7 @@
               </label>
             </div>
           </div>
-        </div>
+        </div> -->
 			<div *ngIf="!isEditing && !isAdmin()" style="display:inline-block; min-height:290px;">
         <h2>{{ 'PROJ_CREATE.BEGIN_DATE' | translate }} *</h2>
 				<datepicker [(ngModel)]="selectedDate" [ngModelOptions]="{standalone: true}"></datepicker>

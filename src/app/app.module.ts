@@ -34,6 +34,7 @@ import 'rxjs/add/operator/finally';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/observable/throw';
 import { StripeOauthRedirectComponent } from './stripe-oauth-redirect/stripe-oauth-redirect.component';
+import { AppService } from 'app/app.service';
 
 export function HttpLoaderFactory(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -72,7 +73,7 @@ export function HttpLoaderFactory(http: Http) {
     HttpModule,
     ToastyModule.forRoot()
   ],
-  providers: [ ],
+  providers: [ AppService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

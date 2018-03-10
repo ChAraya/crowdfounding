@@ -38,7 +38,7 @@ export class ProjectFormService {
       'images_data': this.fb.array([]),
       'video_url': [project.video_url, this.validateURL],
       'pledged_amount': [project.pledged_amount, Validators.compose([Validators.required, this.validateAmount])],
-      'funding_model': [project.funding_model || 'flexi', Validators.required],
+      'funding_model': ['flexi'],
       'start_date': [],
       'currency': [project.currency || 'USD', Validators.required],
       'duration': [project.duration, Validators.compose([Validators.required, this.validateNumber])],
