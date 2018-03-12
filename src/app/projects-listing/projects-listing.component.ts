@@ -35,7 +35,11 @@ export class ProjectsListingComponent implements OnInit, OnDestroy {
     console.log(this.category.replace("_"," "));
     this.categorySub$ = this.store.select(getAllProjects)
     .map((projects: Project[]) => {
-      return projects.filter((project) => project.category_name === this.category.replace("_"," "));
+      if(this.category = 'Todo'){
+        return projects;
+      }else{
+        return projects.filter((project) => project.category_name === this.category.replace("_"," "));
+      }
     }).subscribe((projects) => {
       this.projects = projects;
       this.trendingProject = this.projects[0];
