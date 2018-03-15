@@ -36,6 +36,7 @@
           <li><a [routerLink]="['/categories','Innovación_social']">{{ 'HOME.INNOVACION_SOCIAL' | translate}}</a> </li>
           <li><a [routerLink]="['/categories','Industria']">{{ 'HOME.INDUSTRIA' | translate}}</a></li>
           <li><a [routerLink]="['/categories','Tecnología']">{{ 'HOME.TECNOLOGIA' | translate}}</a></li>
+          <li><a [routerLink]="['/categories','Todo']"> {{ 'HOME.ALL_CATEGORIES' | translate}}</a> </li>
         </ul>
       </div>
     </div>
@@ -47,7 +48,7 @@
   <div class="comicbok12_div" data-stellar-background-ratio="0.8">
     <div class="container">
       <h1>{{category}}</h1>
-      <p>{{category}} can make your <strong>life Excited and Pretty</strong></p>
+      <p>{{category}} puedes hacer que tu <strong>vida sea mas emocionante</strong></p>
       <div class="comicbok12_overlay">
         <ol class="breadcrumb">
           <li><a [routerLink]="['/']">{{ 'PROJ_CATEGORY.HOME' | translate }}</a></li>
@@ -112,19 +113,19 @@
           <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-6 space15">
               <h2>{{trendingProject.percent_funded | number:'1.0-0'}}%<br>
-                funded </h2>
+                Financiado </h2>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 space15">
               <h2>{{ project?.currency | currencySymbol }} {{trendingProject.pledged_amount}}<br>
-                plegded</h2>
+                Comprometido</h2>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 space15">
               <h2>{{trendingProject.total_backers}}<br>
-                backers</h2>
+                Patrocinadores</h2>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-6 space15">
               <h2>{{daysToGo(trendingProject.end_date)}}<br>
-                days to go</h2>
+                Días para terminar</h2>
             </div>
           </div>
         </div>
@@ -142,7 +143,7 @@
 <section id="tranding_sec11">
   <div class="container">
     <div class="heading-bar text-center">
-      <h2>{{category}} Campaigns</h2>
+      <h2>{{category}} Campañas</h2>
     </div>
     <div class="row">
       <div *ngFor="let project of projects | slice:1 " class="col-md-4 col-sm-4 col-xs-12 space15">
@@ -154,31 +155,34 @@
           </a>
           <div class="details1">
             <a [routerLink]="['/projects', trendingProject.id]"><h5>{{project.title}}</h5></a>
-            <p>Seth Ickerman <a href="#"><span class="onlinetxt active">Online</span></a></p>
+            <!--<p>Seth Ickerman <a href="#"><span class="onlinetxt active">Online</span></a></p>
             <p class="space15">A live action space opera by SETH ICKERMAN &<br class="hidden-xs">
               CARPENTER BRUT. A female ghost challenges two space hunters into a galactic chase...
+            </p>-->
+            <p>{{project.user_name}} <a href="#"><span class="onlinetxt active">Online</span></a></p>
+            <p class="space15">{{project.story}}}
             </p>
             <div class="row space15">
               <div class="col-md-9">
                 <div class="row">
                   <div class="col-md-3 col-sm-6 col-xs-6 space15">
                     <p class="fsize11">{{project.percent_funded | number:'1.0-0'}}%<br>
-                      funded 
+                      Financiado 
                     </p>
                   </div>
                   <div class="col-md-3 col-sm-6 col-xs-6 space15">
                     <p class="fsize11">{{ project?.currency | currencySymbol }} {{project.pledged_amount}}<br>
-                      plegded
+                      Comprometido
                     </p>
                   </div>
                   <div class="col-md-3 col-sm-6 col-xs-6 space15">
                     <p class="fsize11">{{project.total_backers}}<br>
-                      backers
+                      Patrocinadores
                     </p>
                   </div>
                   <div class="col-md-3 col-sm-6 col-xs-6 space15">
                     <p class="fsize11">{{daysToGo(project.end_date)}}<br>
-                      days to go
+                      Días para terminar
                     </p>
                   </div>
                 </div>
