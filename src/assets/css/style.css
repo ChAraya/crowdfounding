@@ -943,11 +943,11 @@ hr.small {
 }
 .bg-img-1 {
 	/*background: url(../img/bnr-bg.jpg) center center no-repeat;*/
-	background: url(../img/emprende.jpg) center center no-repeat;
+	background: url(../img/slider01.jpg) center center no-repeat;
 }
 .bg-img-2 {
 	/*background: url(../img/bnr-bg-1.jpg) center center no-repeat;*/
-	background: url(../img/emprende2.jpg) center center no-repeat;
+	background: url(../img/slider02.jpg) center center no-repeat;
 }
 #banner .text-bnr p {
 	color: #000;/*#fff;*/
@@ -1293,7 +1293,7 @@ footer li a:hover {
 /*=============================== about us ==========================*/
 #banner_about {
 	/*background: url(../img/img8.png) no-repeat;*/
-	background: url(../img/emprende.jpg) no-repeat;
+	background: url(../img/nosotros.jpg) no-repeat;
 	background-position: center;
 	background-size: cover;
 	min-height: 480px;
