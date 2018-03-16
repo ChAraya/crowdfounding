@@ -29,15 +29,22 @@ export class ProjectsListingComponent implements OnInit, OnDestroy {
   ) {
     this.routeSub$ = this.route.params.subscribe((params) => {
       this.category = params['category'];
+      this.category = this.category.replace("_"," ")
       this.store.dispatch(this.projectActions.fetchCategoryProjects(this.category));
     });
-
+    console.log(this.category.replace("_"," "));
     this.categorySub$ = this.store.select(getAllProjects)
     .map((projects: Project[]) => {
-      return projects.filter((project) => project.category_name === this.category);
+      if(this.category.replace("_"," ") == 'Todo'){
+        return projects;
+      }else{
+        console.log(this.category.replace("_"," "));
+        return projects.filter((project) => project.category_name === this.category.replace("_"," "));
+      }
     }).subscribe((projects) => {
       this.projects = projects;
       this.trendingProject = this.projects[0];
+      console.log(this.projects);
     });
 
   }
