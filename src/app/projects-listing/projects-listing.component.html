@@ -49,13 +49,13 @@
     <div class="container">
       <h1>{{category}}</h1>
       <p>{{category}} puedes hacer que tu <strong>vida sea mas emocionante</strong></p>
-      <div class="comicbok12_overlay">
+      <!--<div class="comicbok12_overlay">
         <ol class="breadcrumb">
           <li><a [routerLink]="['/']">{{ 'PROJ_CATEGORY.HOME' | translate }}</a></li>
           <li><a [routerLink]="['/categories', 'Art']">{{ 'PROJ_CATEGORY.CATEGORIES' | translate }}</a></li>
           <li><a [routerLink]="['/categories',category]">{{category}}</a></li>
         </ol>
-      </div>
+      </div> -->
     </div>
   </div>
 </section>
@@ -91,8 +91,9 @@
           <div class="spacing15">
             <a [routerLink]="['/projects', trendingProject.id]"><h3>{{trendingProject.title}}</h3></a>
             <p>by {{trendingProject.user_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="whiteclr"><img src="assets/img/icon2.png" alt="icon">&nbsp; Online</a></p>
-            <p  class="space15">Dreidel is now a tabletop game of skill, played competitively and socially by spinners of all ages. No Gelt, No Glory!</p>
-            <p class="space15"><span><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Newyork, United States of America</span><span class="padleft50"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;&nbsp;{{trendingProject.category_name}}</span></p>
+            <!--<p  class="space15">Dreidel is now a tabletop game of skill, played competitively and socially by spinners of all ages. No Gelt, No Glory!</p>-->
+            <p  class="space15" [innerHTML]="trendingProject.story"></p>
+            <p class="space15"><!--<span><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Newyork, United States of America</span>--><span class="padleft50"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;&nbsp;{{trendingProject.category_name}}</span></p>
             <div class="progress space10">
               <div class="progress-bar" role="progressbar" aria-valuenow="10"
                 aria-valuemin="0" aria-valuemax="100" style="width:10%"> <span class="sr-only"></span> </div>
@@ -111,19 +112,19 @@
       <div class="row">
         <div class="col-md-8 padleft50">
           <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-6 space15">
+            <div class="col-md-4 col-sm-6 col-xs-6 space15">
               <h2>{{trendingProject.percent_funded | number:'1.0-0'}}%<br>
                 Financiado </h2>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 space15">
+            <div class="col-md-4 col-sm-6 col-xs-6 space15">
               <h2>{{ project?.currency | currencySymbol }} {{trendingProject.pledged_amount}}<br>
                 Comprometido</h2>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 space15">
+            <div class="col-md-4 col-sm-6 col-xs-6 space15">
               <h2>{{trendingProject.total_backers}}<br>
                 Patrocinadores</h2>
             </div>
-            <div class="col-md-3 col-sm-6 col-xs-6 space15">
+            <div class="col-md-4 col-sm-6 col-xs-6 space15">
               <h2>{{daysToGo(trendingProject.end_date)}}<br>
                 Días para terminar</h2>
             </div>
@@ -146,7 +147,7 @@
       <h2>{{category}} Campañas</h2>
     </div>
     <div class="row">
-      <div *ngFor="let project of projects | slice:1 " class="col-md-4 col-sm-4 col-xs-12 space15">
+      <div *ngFor="let project of projects | slice:1 " class="col-md-4 col-sm-6 col-xs-12 space15">
         <div class="sec_detail"> 
           <a [routerLink]="['/projects', trendingProject.id]">
             <div class="no-image">
@@ -160,36 +161,37 @@
               CARPENTER BRUT. A female ghost challenges two space hunters into a galactic chase...
             </p>-->
             <p>{{project.user_name}} <a href="#"><span class="onlinetxt active">Online</span></a></p>
-            <p class="space15">{{project.story}}}
-            </p>
+            <!--<p class="space15">{{project.story}}}
+            </p>-->
+            <p class="space15" [innerHTML]="project.story"></p>
             <div class="row space15">
-              <div class="col-md-9">
+              <div class="col-md-12">
                 <div class="row">
-                  <div class="col-md-3 col-sm-6 col-xs-6 space15">
+                  <div class="col-md-6 col-sm-6 col-xs-6 space15">
                     <p class="fsize11">{{project.percent_funded | number:'1.0-0'}}%<br>
                       Financiado 
                     </p>
                   </div>
-                  <div class="col-md-3 col-sm-6 col-xs-6 space15">
+                  <div class="col-md-6 col-sm-6 col-xs-6 space15">
                     <p class="fsize11">{{ project?.currency | currencySymbol }} {{project.pledged_amount}}<br>
                       Comprometido
                     </p>
                   </div>
-                  <div class="col-md-3 col-sm-6 col-xs-6 space15">
+                  <div class="col-md-6 col-sm-6 col-xs-6 space15">
                     <p class="fsize11">{{project.total_backers}}<br>
                       Patrocinadores
                     </p>
                   </div>
-                  <div class="col-md-3 col-sm-6 col-xs-6 space15">
+                  <div class="col-md-6 col-sm-6 col-xs-6 space15">
                     <p class="fsize11">{{daysToGo(project.end_date)}}<br>
                       Días para terminar
                     </p>
                   </div>
                 </div>
               </div>
-              <div class="col-md-3">
+              <!--<div class="col-md-3">
                 <a><img src="assets/img/funded.png" alt="icon"></a> 
-              </div>
+              </div>-->
             </div>
           </div>
         </div>

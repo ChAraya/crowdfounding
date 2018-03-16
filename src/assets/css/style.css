@@ -949,6 +949,14 @@ hr.small {
 	/*background: url(../img/bnr-bg-1.jpg) center center no-repeat;*/
 	background: url(../img/slider02.jpg) center center no-repeat;
 }
+.bg-img-3 {
+	/*background: url(../img/bnr-bg.jpg) center center no-repeat;*/
+	background: url(../img/slider03.jpg) center center no-repeat;
+}
+.bg-img-4 {
+	/*background: url(../img/bnr-bg-1.jpg) center center no-repeat;*/
+	background: url(../img/slider04.jpg) center center no-repeat;
+}
 #banner .text-bnr p {
 	color: #000;/*#fff;*/
 	font-size: 18px;

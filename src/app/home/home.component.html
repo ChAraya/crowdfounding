@@ -20,6 +20,24 @@
           </div>
         </div>
       </div>
+      <div class="bg-img-3" data-stellar-background-ratio="0.5">
+        <div class="position-center-center">
+          <div class="text-bnr">
+            <h1>{{ 'HOME.BANNER_TITLE' | translate}}</h1>
+            <p>{{ 'HOME.BANNER_PARA_1' | translate}}</p>
+            <a [routerLink]="['/projects','new']" class="btn">{{ 'HOME.CREATE_DREAM' | translate}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="bg-img-4" data-stellar-background-ratio="0.5">
+        <div class="position-center-center">
+          <div class="text-bnr">
+            <h1>{{ 'HOME.BANNER_TITLE' | translate}}</h1>
+            <p>{{ 'HOME.BANNER_PARA_1' | translate}}</p>
+            <a [routerLink]="['/projects','new']" class="btn">{{ 'HOME.CREATE_DREAM' | translate}}</a>
+          </div>
+        </div>
+      </div>
     </div>
     <nav class="slides-navigation"> <a href="#" class="next"><i class="flaticon-arrows-1"></i></a> <a href="#" class="prev"><i class="flaticon-arrows"></i></a> </nav>
   </div>
@@ -51,7 +69,7 @@
   <div class="container">
     <div class="heading-block">
       <h2>{{ 'HOME.TRENDING_PROJECT' | translate}}</h2>
-      <a [routerLink]="['/categories','Art']">{{ 'HOME.VIEW_ALL' | translate}}</a> </div>
+      <a [routerLink]="['/categories','Todo']">{{ 'HOME.VIEW_ALL' | translate}}</a> </div>
     <div class="row"> 
       <div *ngFor="let project of projects" class="col-md-4 project">
         <article>
@@ -83,14 +101,14 @@
   </div>
 </section>
 
-<!-- Video Section -->
+<!-- Video Section --
 <section class="video-bnr" data-stellar-background-ratio="0.8">
   <div class="container">
     <div class="video-text"> <a href="#." class="video-icon"><i class="fa fa-play"></i></a>
       <h2>{{ 'HOME.VIDEO_INTRODUCTION' | translate}}</h2>
     </div>
   </div>
-</section>
+</section>-->
 <!--
 <!-- Testimonial --
 <section class="testimonial">
