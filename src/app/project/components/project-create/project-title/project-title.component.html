@@ -25,6 +25,26 @@
           <p *ngIf="projectForm.get('title').hasError('required') && (projectForm.get('title').touched || formSubmit)" class="value-err show">This is a mandatory field</p>
         </div>
       </div>
+
+      <div class="form-group">
+        <div *ngIf="!isEditing && !isAdmin()">
+          <label>{{ 'PROJ_CREATE.DESC' | translate }} *</label>
+          <textarea row="2" col="20" class="form-control" placeholder="Enter description" #desc formControlName="desc"></textarea>
+              <small class="form-text text-muted"><code>{{desc.value.length}}</code> of <code>300</code> characters</small>
+          <p *ngIf="projectForm.get('desc').hasError('required') && (projectForm.get('desc').touched || formSubmit)" class="value-err show">This is a mandatory field</p>
+          <p *ngIf="projectForm.get('desc').hasError('validateDesc') || formSubmit)" class="value-err show">Debe tener menos de 300 caracteres</p>
+        </div>
+        <div *ngIf="isEditing && !isAdmin()" class="no-edit">
+          <h2>{{ 'PROJ_CREATE.DESC' | translate }}</h2>
+          {{project.desc}}
+        </div>
+        <div *ngIf="isAdmin()">
+          <label>{{ 'PROJ_CREATE.DESC' | translate }} *</label>
+          <textarea row="2" col="20" class="form-control" placeholder="Enter description" #desc formControlName="desc"></textarea>
+          <small class="form-text text-muted"><code>{{desc.value.length}}</code> of <code>300</code> characters</small>
+          <p *ngIf="projectForm.get('desc').hasError('required') && (projectForm.get('desc').touched || formSubmit)" class="value-err show">This is a mandatory field</p>
+        </div>
+      </div>
       
       <div class="form-group">
         <div *ngIf="!isEditing && !isAdmin()">

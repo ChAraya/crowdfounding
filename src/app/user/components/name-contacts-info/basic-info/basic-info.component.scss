@@ -14,3 +14,41 @@
 .fa {
 	cursor: pointer;
 }
+.img-responsive{
+	height: 128px;
+	width: 128px;
+	border-radius: 50%;
+	padding: 5px;
+	border: 1px solid #e4e4e4;
+}
+
+.img-responsive-edit{
+	height: 128px;
+	width: 128px;
+	border-radius: 50%;
+	padding: 5px;
+	border: 1px solid #e4e4e4;
+	cursor: pointer;
+}
+
+.custom-label {
+	font-weight: 400;
+	color: #999;
+	margin-right: 15px;
+	min-width: 185px;
+}
+
+.info-row {
+	margin: 0 0 15px;
+}
+
+.custom-detail{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.custom-detail p{
+	font-size: 16px;
+    color: #333;
+    margin: 0;
+}

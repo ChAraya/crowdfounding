@@ -14,6 +14,7 @@ export class UserActions {
   }
 
   loadUserSuccess(user: User) {
+    console.log("load user", user);
     return {
       type: UserActions.LOAD_USER_SUCCESS,
       payload: user
@@ -27,14 +28,15 @@ export class UserActions {
     };
   }
 
-  updateUserProfilePic(image: string) {
+  updateUserProfilePic(image: string, id: string) {
     return {
       type: UserActions.UPDATE_USER_PROFILE_PIC,
-      payload: image
+      payload: { image, id }
     };
   }
 
   updateUserSuccess(user: User) {
+    console.log("update user", user);
     return {
       type: UserActions.UPDATE_USER_SUCCESS,
       payload: user

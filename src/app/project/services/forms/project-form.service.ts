@@ -34,6 +34,7 @@ export class ProjectFormService {
       'id': [project.id],
       'type': ['project'],
       'title': [project.title, Validators.required],
+      'desc': [project.desc,  Validators.compose([Validators.required, this.validateDesc])],
       'category_id': [project.category_id, Validators.required],
       'images_data': this.fb.array([]),
       'video_url': [project.video_url, this.validateURL],
@@ -48,6 +49,10 @@ export class ProjectFormService {
   }
 
   private validateNumber(c: FormControl) {
+    return c.value > 0 && c.value <= 60 ? null : { validateNumber: true };
+  };
+
+  private validateDesc(c: FormControl) {
     return c.value > 0 && c.value <= 60 ? null : { validateNumber: true };
   };
 

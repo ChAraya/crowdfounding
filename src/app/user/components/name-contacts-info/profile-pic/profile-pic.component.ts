@@ -27,7 +27,7 @@ export class ProfilePicComponent implements OnInit {
 
   updateProfileImage(image) {
     const id = this.user.id;
-    this.store.dispatch(this.userActions.updateUserProfilePic(image));
+    this.store.dispatch(this.userActions.updateUserProfilePic(image, id));
   }
 
   isAuthUser() {

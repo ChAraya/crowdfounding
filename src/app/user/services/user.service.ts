@@ -31,20 +31,23 @@ export class UserService {
     });
   }
 
-  updateUserProfilePic(image) {
-    return this.http.post(
-      `/api/v1/users/update_profile_pic`, { image_data: image }
+  updateUserProfilePic(payload) {
+    return this.http.put(
+      `/api/users/upf/${payload.id}`, { image_data: payload.image }
     ).map((res: Response) => {
-      return res.json();
+      let json = res.json();
+      return json.users;
     });
   }
 
   updateUser(user) {
     const id = user.id;
     return this.http.put(
-      `/api/v1/users/${id}`, { user: user }
+      `/api/users/${id}`, { user: user }
     ).map((res: Response) => {
-      return res.json();
+      let json = res.json();
+      console.log(json);
+      return json.user;
     });
   }
 

@@ -1,3 +1,4 @@
+import { ImageUploadComponent } from './../../../../shared/components/image-upload/image-upload.component';
 import { UserService } from './../../../services/user.service';
 import { Address } from './../../../../core/models/address';
 import { UserActions } from './../../../actions/user.actions';
@@ -5,7 +6,7 @@ import { AppState } from './../../../../app.state';
 import { Store } from '@ngrx/store';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { User } from './../../../../core/models/user';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-basic-info',
@@ -15,6 +16,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BasicInfoComponent implements OnInit {
 
   @Input() user: User;
+  @ViewChild('imageUpload') imageUpload: ImageUploadComponent;
+
   basicInfoForm: FormGroup;
   edited: boolean;
   countries = [
@@ -65,4 +68,12 @@ export class BasicInfoComponent implements OnInit {
     return this.userService.isLoggedInUser(this.user);
   }
 
+  updateProfileImage(image) {
+    this.store.dispatch(this.userActions.updateUserProfilePic(image, this.user.id));
+  }
+
+  onUploadImage() {
+    this.imageUpload.showImageBrowseDlg();
+  }
+  
 }

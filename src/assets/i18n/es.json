@@ -249,6 +249,7 @@
 		"REVIEW_AND_LAUNCH": "Revisar y Lanzar",
 		"REVIEW_AND_UPDATE": "Revisar y Actualizar",
 		"LAUNCH": "Lanzar",
+		"DESC": "Descripción",
 		"REVIEW_NOTE": "Nota: No podrá editar Título, Duración, Monto de la Meta, Moneda, Fecha de inicio y Categoría después del envío. Asegúrese de haber verificado todos los campos"
 	}
 }

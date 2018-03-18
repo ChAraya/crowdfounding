@@ -1,4 +1,4 @@
-<div class="col-md-6 basic_info">
+<div class="col-xs-12 basic_info">
   <article>
     <div class="head-info">
       <h6>información</h6>
@@ -7,56 +7,109 @@
         <button *ngIf="edited" (click)="saveBasicInfo()" class="save-button">Guardar</button>
       </div>
     </div>
-    <div *ngIf="!edited">
-      <h2>{{user?.name}}</h2>
-      <p>Nombre y Apellido</p>
-      <h2>{{user?.phone_no}}</h2>
-      <p>Número de Teléfono</p>
-      <h3 *ngIf="user?.address?.street_address">{{user?.address?.street_address}}</h3>
-      <h3 *ngIf="!(user?.address?.street_address)">No Presente</h3>
-      <p>Dirección</p>
-      <h3 *ngIf="user?.address?.city">{{user?.address?.city}}</h3>
-      <h3 *ngIf="!(user?.address?.city)">No Presente</h3>
-      <p>Ciudad</p>
-      <h3 *ngIf="user?.address?.postcode">{{user?.address?.postcode}}</h3>
-      <h3 *ngIf="!(user?.address?.postcode)">No Presente</h3>
-      <p>Código Postal</p>
-      <h3 *ngIf="user?.address?.country">{{user?.address?.country}}</h3>
-      <h3 *ngIf="!(user?.address?.country)">No Presente</h3>
-      <p>Pais</p>
+    <div *ngIf="!edited" style="float: left; width: 100%; padding: 30px;">
+      <div class="row">
+        <div class="col-md-3">
+            <div class="text-center"> <img [src]="user?.image_url" class="img-responsive" alt="img"> </div>
+        </div>
+        <div class="col-md-9">
+          <div class="row info-row">
+            <label class="custom-label">Nombre y Apellido</label>
+              <div class="custom-detail">
+                <p>{{user?.name}}</p>
+              </div>              
+          </div>
+          <div class="row info-row">
+              <label class="custom-label">Número de Teléfono</label>
+              <div class="custom-detail">
+                  <p>{{user?.phone_no}}</p>
+              </div>              
+          </div>
+          <div class="row info-row">
+              <label class="custom-label">Dirección</label>
+              <div class="custom-detail">
+                  <p *ngIf="user?.address?.street_address">{{user?.address?.street_address}}</p>
+                  <p *ngIf="!(user?.address?.street_address)">Sin Asignar</p>
+              </div>              
+          </div>
+          <div class="row info-row">
+              <label class="custom-label">Ciudad</label>
+              <div class="custom-detail">
+                  <p *ngIf="user?.address?.city">{{user?.address?.city}}</p>
+                  <p *ngIf="!(user?.address?.city)">Sin Asignar</p>
+              </div>              
+          </div>
+          <div class="row info-row">
+              <label class="custom-label">Código Postal</label>
+              <div class="custom-detail">
+                  <p *ngIf="user?.address?.postcode">{{user?.address?.postcode}}</p>
+                  <p *ngIf="!(user?.address?.postcode)">Sin Asignar</p>
+              </div>              
+          </div>
+          <div class="row info-row">
+              <label class="custom-label">Pais</label>
+              <div class="custom-detail">
+                  <p *ngIf="user?.address?.country">{{user?.address?.country}}</p>
+                  <p *ngIf="!(user?.address?.country)">Sin Asignar</p>
+              </div>              
+          </div>
+        </div>
+      </div>     
     </div>
-    <div *ngIf="edited">
-      <form [formGroup]="basicInfoForm">
-        <div class="input-group">
-          <input type="text" formControlName="name" class="form-control" >
-          <p>Nombre y Apellido</p>
-        </div>
-        <div class="input-group">
-          <input type="text" formControlName="phone_no" class="form-control" >
-          <p>Número de Teléfono</p>
-        </div>
-        <div formGroupName="address_attributes">
-          <div class="input-group">
-            <input type="text" formControlName="street_address" class="form-control">
-            <p>Dirección</p>
-          </div>
-          <div class="input-group">
-            <input type="text" formControlName="city" class="form-control">
-            <p>Ciudad</p>
-          </div>
-          <div class="input-group">
-            <input type="text" formControlName="postcode" class="form-control">
-            <p>Código Postal</p>
-          </div>
-          <div class="input-group camp_select slate">
-            <select formControlName="country">
-              <option *ngFor="let country of countries" [value]="country">{{country}}</option>
-            </select>
-            <p>Pais</p>
-          </div>
-        </div>
-      </form>
-    </div>
-
+      <div *ngIf="edited" style="float: left; width: 100%; padding: 30px;">
+          <div class="row">
+              <div class="col-md-3">
+                <div class="text-center">
+                  <app-image-upload #imageUpload *ngIf="isAuthUser()" (image)="updateProfileImage($event)">
+                    <img [src]="user?.image_url" (click)="onUploadImage()" class="img-responsive-edit" alt="img">
+                  </app-image-upload>
+                </div>
+              </div>
+              <form [formGroup]="basicInfoForm">
+                <div class="col-md-9">
+                  <div class="row info-row">
+                    <label class="custom-label">Nombre y Apellido</label>
+                      <div class="custom-detail input-group form-group">
+                        <input type="text" formControlName="name" class="form-control" >
+                      </div>              
+                  </div>
+                  <div class="row info-row">
+                      <label class="custom-label">Número de Teléfono</label>
+                      <div class="custom-detail input-group form-group">
+                          <input type="text" formControlName="phone_no" class="form-control" >
+                      </div>
+                  </div>
+                  <div formGroupName="address_attributes">
+                    <div class="row info-row">
+                        <label class="custom-label">Dirección</label>
+                        <div class="custom-detail input-group form-group">
+                            <input type="text" formControlName="street_address" class="form-control">
+                        </div>              
+                    </div>
+                    <div class="row info-row">
+                        <label class="custom-label">Ciudad</label>
+                        <div class="custom-detail input-group form-group">
+                            <input type="text" formControlName="city" class="form-control">
+                        </div>              
+                    </div>
+                    <div class="row info-row">
+                        <label class="custom-label">Código Postal</label>
+                        <div class="custom-detail input-group form-group">
+                            <input type="text" formControlName="postcode" class="form-control">
+                        </div>              
+                    </div>
+                    <div class="row info-row">
+                        <label class="custom-label">Pais</label>
+                        <div class="custom-detail input-group form-group">
+                            <select formControlName="country">
+                                <option *ngFor="let country of countries" [value]="country">{{country}}</option>
+                              </select>
+                        </div>              
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>    
+      </div>
   </article>
 </div>
