@@ -90,9 +90,10 @@
         <div class="col-md-8 padright50">
           <div class="spacing15">
             <a [routerLink]="['/projects', trendingProject.id]"><h3>{{trendingProject.title}}</h3></a>
-            <p>by {{trendingProject.user_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="whiteclr"><img src="assets/img/icon2.png" alt="icon">&nbsp; Online</a></p>
+            <!--<p>by {{trendingProject.user_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="whiteclr"><img src="assets/img/icon2.png" alt="icon">&nbsp; Online</a></p>-->
+            <p>by {{trendingProject.user_name}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
             <!--<p  class="space15">Dreidel is now a tabletop game of skill, played competitively and socially by spinners of all ages. No Gelt, No Glory!</p>-->
-            <p  class="space15" [innerHTML]="trendingProject.story"></p>
+            <p  class="space15" [innerHTML]="trendingProject.desc"></p>
             <p class="space15"><!--<span><i class="fa fa-map-marker" aria-hidden="true"></i>&nbsp;&nbsp;Newyork, United States of America</span>--><span class="padleft50"><i class="fa fa-tag" aria-hidden="true"></i>&nbsp;&nbsp;{{trendingProject.category_name}}</span></p>
             <div class="progress space10">
               <div class="progress-bar" role="progressbar" aria-valuenow="10"
@@ -160,10 +161,11 @@
             <p class="space15">A live action space opera by SETH ICKERMAN &<br class="hidden-xs">
               CARPENTER BRUT. A female ghost challenges two space hunters into a galactic chase...
             </p>-->
-            <p>{{project.user_name}} <a href="#"><span class="onlinetxt active">Online</span></a></p>
+            <!--<p>{{project.user_name}} <a href="#"><span class="onlinetxt active">Online</span></a></p>-->
+            <p>{{project.user_name}}</p>
             <!--<p class="space15">{{project.story}}}
             </p>-->
-            <p class="space15" [innerHTML]="project.story"></p>
+            <p class="space15" [innerHTML]="project.desc"></p>
             <div class="row space15">
               <div class="col-md-12">
                 <div class="row">
