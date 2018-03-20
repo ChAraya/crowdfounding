@@ -1,5 +1,45 @@
-.en {
-	background: url(../../../assets/img/icon1.png) no-repeat;
+// .en {
+// 	background: url(../../../assets/img/icon1.png) no-repeat;
+// }
+
+#redes{
+	background: #00B8B3;
+	color: #fff;
+	padding: 10px;
+}
+
+#footer-acreditacion {
+	background: #23405B;
+	padding: 35px;
+	color: #fff;
+}
+
+#footer-izq {
+	width: 30%;
+	float: left;
+}
+
+#footer-der {
+	float: right;
+	width: 50%;
+}
+
+#footer-izq img {
+	width: 100%;
+	height: auto;
+}
+
+.dir-izq {
+	float: left;
+}
+
+.dir-der {
+	float: right;
+}
+
+#footer-acreditacion p, #footer-acreditacion a {
+	color: #fff !important;
+	font-size: 0.9em;
 }
 
 // .de {

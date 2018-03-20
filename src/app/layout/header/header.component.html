@@ -17,11 +17,12 @@
             <li><a class="btn zoom"><i class="flaticon-search"></i></a></li>
           </ul>
           <ul *ngIf="authStatus" class="nav navbar-nav navbar-right">
-            <li>
+              <li><a [routerLink]="['/about-us']">{{'HEADER.ABOUT_US' | translate}}</a></li>
+            <!-- <li>
               <a [routerLink]="['users', authUser.id]" fragment='notifications' class="btn notifi"><i class="flaticon-notification"></i> 
                 <span *ngIf="authUser.notifications_count > 0">{{authUser.notifications_count}}</span>
               </a>
-            </li>
+            </li> -->
             <li class="dropdown active">
               <a href="#" class="dropdown-toggle btn" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                 <i class="flaticon-user"></i>
@@ -31,7 +32,7 @@
               </a>
               <ul class="dropdown-menu">
                 <li><a [routerLink]="['users', authUser.id]" fragment='quick-view'>{{'HEADER.DASHBOARD' | translate}}</a></li>
-                <li><a [routerLink]="['users', authUser.id]">{{'HEADER.SETTINGS' | translate}}</a></li>
+                <!-- <li><a [routerLink]="['users', authUser.id]">{{'HEADER.SETTINGS' | translate}}</a></li> -->
               </ul>
             </li>            
             <li><a (click)="onLogout()" class="btn btn-up">{{'HEADER.LOGOUT' | translate}}</a></li>
