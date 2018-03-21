@@ -7,7 +7,15 @@
 	color: #fff;
 	padding: 10px;
 }
-
+.dir-der {
+	float: right;
+}
+.dir-der li {
+	margin: 0 5px;
+}
+.dir-der ul li {
+	display: inline;
+}
 #footer-acreditacion {
 	background: #23405B;
 	padding: 35px;
@@ -42,6 +50,9 @@
 	font-size: 0.9em;
 }
 
+.clear, #layer3 {
+	clear: both;
+}
 // .de {
 // 	background: url(../img/icon1.png) no-repeat;
 // }
