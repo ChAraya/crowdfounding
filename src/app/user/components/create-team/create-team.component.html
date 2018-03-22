@@ -3,20 +3,20 @@
   <div class="camp_create_box">
     <form [formGroup]="projectForm">
       <div class="form-group">
-        <div *ngIf="!isEditing">
+        <div >
           <label for="usr">{{ 'USER_DASHBOARD.TEAM_TITLE' | translate }} *</label>
           <input type="text" class="form-control" placeholder="Enter title" formControlName="name">
           <p *ngIf="projectForm.get('name').hasError('required') && (projectForm.get('name').touched || formSubmit)" class="value-err show">This is a mandatory field</p>
         </div>
       </div>
       <div class="form-group">
-        <div *ngIf="!isEditing">
+        <div >
           <label for="email">Email *</label>
           <input type="text" class="form-control" placeholder="Enter email" formControlName="email">
         </div>
       </div>
       <div class="form-group">
-        <div *ngIf="!isEditing">
+        <div >
           <label for="web_url">Webpage</label>
           <input type="text" class="form-control" placeholder="Enter email" formControlName="web_url">
         </div>
@@ -33,11 +33,11 @@
 				<h4>{{ 'PROJ_CREATE.UPLOAD_IMAGE' | translate }}</h4>
 			</app-image-upload>
       <br>
-			<div *ngIf="!isEditing" style="display:inline-block; min-height:290px;">
+			<div style="display:inline-block; min-height:290px;">
         <h2>{{ 'PROJ_CREATE.BEGIN_DATE' | translate }} *</h2>
 				<datepicker [(ngModel)]="selectedDate" [ngModelOptions]="{standalone: true}"></datepicker>
 			</div>
-      <div *ngIf="isEditing" class="no-edit padding-bottom">
+      <div  class="no-edit padding-bottom">
         <h2>{{ 'PROJ_CREATE.BEGIN_DATE' | translate }}</h2>        
         {{project.start_date | date: 'longDate'}}
       </div>

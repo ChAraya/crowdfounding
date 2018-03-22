@@ -130,6 +130,14 @@ export class EditarTeamsComponent implements OnInit {
     })
   }
   
+  setImageData(image) {
+    (<FormArray>this.projectForm.get('images_data')).push(
+      this.fb.control(image)
+    );
+  }
 
+  uploadImage() {
+    this.imageUpload.showImageBrowseDlg();
+  }
 
 }

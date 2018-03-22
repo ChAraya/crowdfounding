@@ -9,7 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AlreadyPledgedComponent implements OnInit {
 
-  @Input() project: Project;
+  @Input() project: any;
 
   constructor(private dateService: DateService) { }
 

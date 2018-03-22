@@ -39,6 +39,7 @@ export class CreateTeamsComponent implements OnInit {
   selectedUser: any;
   changeView = new EventEmitter<number>();
   role_id: any;
+  project : any;
   constructor(
     private store: Store<AppState>,
     private fb: FormBuilder,
@@ -94,10 +95,10 @@ export class CreateTeamsComponent implements OnInit {
   submitProject() {
     this.setStartDate();
     this.formSubmit = true;
-    const project = this.projectForm.value;
-    project.representative = this.selectedUser;
-    console.log(project);
-    this.teamHttpService.createTeam(project)
+    this.project = this.projectForm.value;
+    this.project.representative = this.selectedUser;
+    console.log(this.project);
+    this.teamHttpService.createTeam(this.project)
       .subscribe((res) => {
         let respuesta = res;
         console.log(respuesta);

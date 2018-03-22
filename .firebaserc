@@ -1,6 +1,7 @@
 {
   "projects": {
     "default": "crd-test",
-    "croudpouch": "crd-test-65d3d"
+    "croudpouch": "crd-test-65d3d",
+    "usqai": "usqai-a1d10"
   }
 }
