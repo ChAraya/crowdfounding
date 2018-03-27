@@ -8,7 +8,7 @@ export const environment = {
   token_auth_config: {
     apiBase: 'http://localhost:3000'
   },
-  API_ENDPOINT: 'http://http://ec2-18-188-7-66.us-east-2.compute.amazonaws.com:3000',
+  API_ENDPOINT: 'http://localhost:3000',  //'http://ec2-18-188-7-66.us-east-2.compute.amazonaws.com:80',
   UI_ENDPOINT: 'http://localhost:4200',
   AppName: 'Emprendo por mi Región'
 };

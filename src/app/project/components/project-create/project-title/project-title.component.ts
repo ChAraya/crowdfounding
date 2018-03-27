@@ -8,7 +8,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs/Observable';
 import { Project } from './../../../../core/models/project';
 import { Component, OnInit, OnDestroy, Input, Output, EventEmitter, ViewChild } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, FormArray, ValidationErrors } from '@angular/forms';
 import { UserService } from '../../../../user/services/user.service';
 import { getAuthUser } from './../../../../core/reducers/auth.selector';
 import { ActivatedRoute } from '@angular/router';
@@ -112,7 +112,17 @@ export class ProjectTitleComponent implements OnInit, OnDestroy {
     this.formSubmit = true;
     const project = this.projectForm.value;
     //console.log(project);
+    Object.keys(this.projectForm.controls).forEach(key => {
+  
+      const controlErrors: ValidationErrors = this.projectForm.get(key).errors;
+      if (controlErrors != null) {
+            Object.keys(controlErrors).forEach(keyError => {
+              console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+            });
+          }
+        });
     if (this.projectForm.valid) {
+      console.log(project);
       if (!this.isEditing) {
         this.store.dispatch(this.actions.saveDraft(project));
       } else {
@@ -120,6 +130,17 @@ export class ProjectTitleComponent implements OnInit, OnDestroy {
       }
     }
   }
+  getFormValidationErrors() {
+    Object.keys(this.projectForm.controls).forEach(key => {
+  
+    const controlErrors: ValidationErrors = this.projectForm.get(key).errors;
+    if (controlErrors != null) {
+          Object.keys(controlErrors).forEach(keyError => {
+            console.log('Key control: ' + key + ', keyError: ' + keyError + ', err value: ', controlErrors[keyError]);
+          });
+        }
+      });
+    }
 
   private setStartDate() {
     this.projectForm.controls['start_date'].setValue(this.selectedDate);
