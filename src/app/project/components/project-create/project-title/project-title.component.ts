@@ -126,6 +126,7 @@ export class ProjectTitleComponent implements OnInit, OnDestroy {
       if (!this.isEditing) {
         this.store.dispatch(this.actions.saveDraft(project));
       } else {
+        console.log('aca');
         this.store.dispatch(this.actions.updateProject(project));
       }
     }
