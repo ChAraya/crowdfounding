@@ -19,7 +19,8 @@ export class TeamEditService {
       'web_url': [team.web_url],
       'images_data': this.fb.array([]),
       'start_date': [],
-      'representative': [team.representative ? team.representative : '']
+      'representative': [team.representative ? team.representative : ''],
+      'logo_url':[team.logo]
       // 'pictures_attributes': this.fb.array(picture_attributes_array)
     });
   }

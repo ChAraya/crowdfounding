@@ -113,9 +113,10 @@ export class UserComponent implements OnInit {
     if(this.isAdmin()){
       return true;
     }
+    /* por ahora solo admin que pueda crear
     if(this.user.can_edit){
       return true;
-    }
+    }*/
     return false;
   }
 

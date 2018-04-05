@@ -37,10 +37,10 @@
         <h2>{{ 'PROJ_CREATE.BEGIN_DATE' | translate }} *</h2>
 				<datepicker [(ngModel)]="selectedDate" [ngModelOptions]="{standalone: true}"></datepicker>
 			</div>
-      <div  class="no-edit padding-bottom">
-        <h2>{{ 'PROJ_CREATE.BEGIN_DATE' | translate }}</h2>        
+     <!-- <div  class="no-edit padding-bottom">
+        <h2>Fecha de Inicio</h2>        
         {{project.start_date | date: 'longDate'}}
-      </div>
+      </div>-->
       <div>
         <ng-select [items]="users"
                    bindLabel="name"
