@@ -12,3 +12,55 @@ li {
 .img-responsive{
 	height: 7vh;
 }
+
+#redes{
+	color: #fff;
+	padding: 50px 0px;//30px;
+	padding-left: 19px;
+}
+.dir-der {
+	float: left;
+}
+.dir-der li {
+	margin: 0 5px;
+}
+.dir-der ul li {
+	display: inline;
+}
+#footer-acreditacion {
+	background: #23405B;
+	padding: 35px;
+	color: #fff;
+}
+
+#footer-izq {
+	width: 30%;
+	float: left;
+}
+
+#footer-der {
+	float: right;
+	width: 50%;
+}
+
+#footer-izq img {
+	width: 100%;
+	height: auto;
+}
+
+.dir-izq {
+	float: left;
+}
+
+.dir-der {
+	//float: right;
+}
+
+#footer-acreditacion p, #footer-acreditacion a {
+	color: #fff !important;
+	font-size: 0.9em;
+}
+
+.clear, #layer3 {
+	clear: both;
+}
