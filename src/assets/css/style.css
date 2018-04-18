@@ -451,7 +451,7 @@ section {
 	border-left: 3px solid #fff;
 }
 .categories li {
-	width: 20%;
+	width: 25%;/*20%;*/
 	float: left;
 	text-align: center;
 }
@@ -899,7 +899,7 @@ hr.small {
 #myheader .btn {
 	margin-left: 15px;
 	color: #fff !important;
-	background: #3f3f3f;
+	background: #E5097F;/*#3f3f3f;*/
 	padding: 0px;
 	height: 50px;
 	line-height: 50px !important;
@@ -936,7 +936,7 @@ hr.small {
 	font-size: 60px;
 	font-family: 'Raleway', sans-serif;
 	line-height: 66px;
-	color: #000;/*#fff;*/
+	color: #F4F6F7;/*#000;/*#fff;*/
 	font-weight: 400;
 	margin: 0px;
 	margin-bottom: 30px;
@@ -944,18 +944,22 @@ hr.small {
 .bg-img-1 {
 	/*background: url(../img/bnr-bg.jpg) center center no-repeat;*/
 	background: url(../img/slider01.jpg) center center no-repeat;
+	filter: brightness(0.8);
 }
 .bg-img-2 {
 	/*background: url(../img/bnr-bg-1.jpg) center center no-repeat;*/
 	background: url(../img/slider02.jpg) center center no-repeat;
+	filter: brightness(0.8);
 }
 .bg-img-3 {
 	/*background: url(../img/bnr-bg.jpg) center center no-repeat;*/
 	background: url(../img/slider03.jpg) center center no-repeat;
+	filter: brightness(0.8);
 }
 .bg-img-4 {
 	/*background: url(../img/bnr-bg-1.jpg) center center no-repeat;*/
 	background: url(../img/slider04.jpg) center center no-repeat;
+	filter: brightness(0.8);
 }
 #banner .text-bnr p {
 	color: #000;/*#fff;*/
@@ -2859,7 +2863,7 @@ ul.buttonslist {
 }
 .bx-wrapper .bx-caption {
 	left: 0;
-	background: #666\9;
+	background: #666;/*9;*/
 	background: rgba(80, 80, 80, 0.75);
 	width: 100%;
 }

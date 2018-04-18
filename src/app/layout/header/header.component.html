@@ -17,14 +17,19 @@
         <div class="dir-der">
           <a href="http://www.twitter.com/Usqai_UCN" target="_blank"><img src="http://www.usqai.cl/img/twitter.png" width="40" height="40" alt=""></a>
         </div>
-    </div>
+      </div>
+      <div id="redes" class="mylogo">
+        <div class="dir-der">
+          <a href="https://www.instagram.com/usqai_ucn/" target="_blank"><img src="http://www.usqai.cl/img/instagram.png" width="40" height="40" alt=""></a>
+        </div>
+      </div>
       <nav class="navbar navbar-default">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <i class="fa fa-navicon"></i> </button>
         </div>
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul *ngIf="!authStatus" class="nav navbar-nav navbar-right">
-            <li><a [routerLink]="['/about-us']">{{'HEADER.ABOUT_US' | translate}}</a></li>
+            <li><a class="btn" [routerLink]="['/about-us']">{{'HEADER.ABOUT_US' | translate}}</a></li>
           <!--  <li><a>{{'HEADER.BLOG' | translate}}</a></li> -->
           <!--  <li><a [routerLink]="['/categories', 'Art']">{{'HEADER.EXPLORE' | translate}}</a></li> -->
             <li><a (click)="showModal('login')" class="btn" data-toggle="modal" data-target="#myModal1"><i class="flaticon-login"></i> {{'HEADER.LOGIN' | translate}}</a></li>
