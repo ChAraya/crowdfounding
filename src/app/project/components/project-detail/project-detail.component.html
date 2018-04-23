@@ -94,10 +94,8 @@
               <div class="support_reward">
                 <h3>{{ 'PROJ_DETAIL.PROJECT_BACK_MSG3' | translate }}</h3>
                 <input type="text" class="form-control rewardtype" [(ngModel)]="amount" placeholder="10">
-                <button
-                        
-                        type="button" class="linksbtn bgclr5cc5d3 space30">{{ 'PROJ_DETAIL.CONTINUE' | translate }}
-                </button>
+                <p *ngIf="!isAmountValid" class="error">Ingrese el monto del compromiso</p>
+                <button type="button" class="linksbtn bgclr5cc5d3 space30">{{ 'PROJ_DETAIL.CONTINUE' | translate }} </button>
                 <!-- <button [routerLink]="['/projects', project.id, 'payment']" 
                         [queryParams]="{amount: amount, shippingAmount: 0, currency: project.currency}"
                         type="button" class="linksbtn bgclr5cc5d3 space30">{{ 'PROJ_DETAIL.CONTINUE' | translate }}

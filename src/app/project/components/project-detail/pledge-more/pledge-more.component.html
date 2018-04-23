@@ -9,10 +9,10 @@
       <p *ngIf="isRewardValid(i)" class="space30 error">{{printRewardCount(i)}}</p>
       <p *ngIf="!isRewardValid(i)" class="space30 pledge_limit">Recompensa ya no disponible</p>
       <p class="space3">{{reward.backers_count}} patrocinadores</p>
-      <input *ngIf="isRewardValid(i)" type="text" class="form-control rewardtype" [(ngModel)]="amount" placeholder="10">
-      <p *ngIf="!isAmountValid" class="error">Ingrese el monto del compromiso {{reward.amount}}</p>
-      <button *ngIf="(!isDeliveryRequired(i)) || (isDeliveryRequired(i) && ifAddressPresent())" type="button" class="linksbtn bgclr5cc5d3 space30" (click)="onContinue(i)">{{ 'PROJ_DETAIL.CONTINUE' | translate }}</button>
-      <button *ngIf="isDeliveryRequired(i) && !ifAddressPresent()" type="button" class="linksbtn bgclr5cc5d3 space30" (click)="enterAddress(i)">{{ 'PROJ_DETAIL.CONTINUE' | translate }}</button>
+      <!-- <p *ngIf="!isAmountValid" class="error">Ingrese el monto del compromiso {{reward.amount}}</p> -->
+      <!-- <input *ngIf="isRewardValid(i)" type="text" class="form-control rewardtype" [(ngModel)]="amount" placeholder="10"> -->
+     <!-- <button *ngIf="(!isDeliveryRequired(i)) || (isDeliveryRequired(i) && ifAddressPresent())" type="button" class="linksbtn bgclr5cc5d3 space30" (click)="onContinue(i)">{{ 'PROJ_DETAIL.CONTINUE' | translate }}</button> -->
+      <!-- <button *ngIf="isDeliveryRequired(i) && !ifAddressPresent()" type="button" class="linksbtn bgclr5cc5d3 space30" (click)="enterAddress(i)">{{ 'PROJ_DETAIL.CONTINUE' | translate }}</button> -->
     </div>
   </div>
   <!-- <div class="reward_heading"> No hay mas recompensas disponibles</div> -->
