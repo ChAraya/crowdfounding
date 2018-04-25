@@ -66,7 +66,7 @@ export class ProjectReviewComponent implements OnInit, OnDestroy, AfterViewInit 
       this.projectHttpService.launchProject(this.project.id).subscribe((status) => {
         if (status) {
           this.router.navigate(['/']);
-          this.toastyService.success('Your Project is Pending for Approval, We Will notify you once your project is approved');
+          //this.toastyService.success('Your Project is Pending for Approval, We Will notify you once your project is approved');
         } else {
           this.toastyService.error('Something went wrong!');
         }
