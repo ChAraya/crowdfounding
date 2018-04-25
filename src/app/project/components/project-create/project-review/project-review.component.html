@@ -56,11 +56,10 @@
 			</ul>
 		</div>
 		<div class="camp_link">
-			<a *ngIf="!isEditing" (click)="lgModal.show()" class="btnNext pull-right" style="width:48%">{{ 'PROJ_CREATE.REVIEW_AND_LAUNCH' | translate }}</a>
+			<!-- <a *ngIf="!isEditing" (click)="lgModal.show()" class="btnNext pull-right" style="width:48%">{{ 'PROJ_CREATE.REVIEW_AND_LAUNCH' | translate }}</a> -->
+			<a (click)="lgModal.show()" class="btnNext pull-right" style="width:48%">{{ 'PROJ_CREATE.REVIEW_AND_LAUNCH' | traslate }}</a>
 			<a *ngIf="isEditing" (click)="onUpdate()" class="btnNext pull-right" style="width:48%">{{ 'PROJ_CREATE.REVIEW_AND_UPDATE' | translate }}</a>
-			<a (click)="onBackToEditor()" class="camp_btn btn-default" style="width:48%">
-				{{ 'PROJ_CREATE.BACK_TO_EDITOR' | translate }}
-			</a>
+			<a (click)="onBackToEditor()" class="camp_btn btn-default" style="width:48%"> {{ 'PROJ_CREATE.BACK_TO_EDITOR' | translate }}</a>
 		</div>
 	</div>
 </div>
