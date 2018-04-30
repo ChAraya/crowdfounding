@@ -61,4 +61,8 @@ export class ProjectsListingComponent implements OnInit, OnDestroy {
     this.routeSub$.unsubscribe();
   }
 
+  CortarDiscripcion(id){
+    
+  }
+
 }

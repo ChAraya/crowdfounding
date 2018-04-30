@@ -620,11 +620,12 @@ footer .links ul {
 .projects article .text-part {
 	padding: 15px 25px;
 	padding-bottom: 0px;
+	height: 11rem;
 }
 .projects article .text-part p {
 	color: #8a8a8a;
 	line-height: 22px;
-	font-size: 13px;
+	font-size: 12px;
 	margin-top: 15px;
 }
 .projects article ul {
@@ -2347,6 +2348,10 @@ span.blue_dot .fa {
 }
 #tranding_sec11 .details1 {
 	padding: 15px;
+}
+#tranding_sec11 .details1 > p{
+	height: 3rem;
+	font-size: 12px;
 }
 .heading-bar h2 {
 	margin-bottom: 30px;
