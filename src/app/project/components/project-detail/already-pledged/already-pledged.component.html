@@ -37,7 +37,8 @@
           {{ 'PROJ_DETAIL.PLEDGED_MSG3' | translate }}</p>
       </li>
       <li>
-        <p>{{daysToGo()}}
+        <!--<p>{{daysToGo()}}-->
+          <p>{{project?.remaining_duration}}
           {{ 'PROJ_DETAIL.PLEDGED_MSG4' | translate }}</p>
       </li>
     </ul>
