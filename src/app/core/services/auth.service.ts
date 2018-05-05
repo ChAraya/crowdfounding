@@ -87,7 +87,7 @@ export class AuthService {
       } else {
         this.store.dispatch(this.authActions.loginSuccess(data));
         this.modalShow$.next(false);
-        this.toastyService.success('Login Success');
+        this.toastyService.success('Ingreso Correcto');
         this.setTokenInLocalStorage(data.authorization);
       }
     });
