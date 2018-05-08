@@ -99,4 +99,11 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
     this.metaService.addTag({name: 'title',  content: this.project.title});
   }
 
+  guardarRegistro(name:string, lname:string, fono:string, email:string, monto:number){
+    console.log(name);
+    console.log(lname);
+    console.log(fono);
+    console.log(email);
+    console.log(monto);
+  }
 }

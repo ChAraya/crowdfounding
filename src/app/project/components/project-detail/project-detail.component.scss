@@ -13,6 +13,7 @@
 
 #mypro_body {
 	padding: 20px 0;
+	width: auto;
 }
 
 .thumbnails {
@@ -42,4 +43,14 @@
 
 .project_web p{
 	text-align: center;
+}
+
+input.info{
+	width: 100% !important;
+	margin-bottom: 2px;
+	margin-top: 2px;
+}
+
+p.tittleinfo{
+	margin: 1px 1px;
 }
