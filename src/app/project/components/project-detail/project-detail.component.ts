@@ -13,6 +13,7 @@ import { Store } from '@ngrx/store';
 import { Component, OnInit, OnDestroy, NgZone } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl, Meta } from '@angular/platform-browser';
 
+
 @Component({
   selector: 'app-project-detail',
   templateUrl: './project-detail.component.html',
@@ -28,6 +29,12 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
   safeEmbedUrl: SafeResourceUrl;
   carouselIndex = 0;
 
+  //variables
+  nombre: string;
+  telefono: string;
+  correo: string;
+  aporte: string;
+
   constructor(
     private store: Store<AppState>,
     private commentActions: CommentActions,
@@ -38,6 +45,7 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
     private zone: NgZone,
     private dateService: DateService,
     private metaService: Meta,
+    private toastyService: ToastyService,
     ) {
     this.routeSub$ = this.route.params.subscribe((params) => {
       const id = params['id'];
@@ -99,11 +107,33 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
     this.metaService.addTag({name: 'title',  content: this.project.title});
   }
 
-  guardarRegistro(name:string, lname:string, fono:string, email:string, monto:number){
-    console.log(name);
-    console.log(lname);
-    console.log(fono);
-    console.log(email);
-    console.log(monto);
+  guardarRegistro(name:string, lname:string, fono:string, email:string, monto:string){
+    this.nombre = name + lname; 
+    this.telefono = fono;
+    this.correo = email;
+    this.aporte = monto;
+    this.contribution();
+  }
+
+
+  contribution() {
+    console.log(this.nombre)
+    console.log(this.telefono);
+    console.log(this.correo);
+    console.log(this.aporte); 
+
+    let aux = {nombre:this.nombre, telefono:this.telefono, correo:this.correo,aporte:this.aporte}
+
+    this.projectHttpService.contribution(aux)
+      .subscribe((res) => {
+        let respuesta = res;
+        console.log(respuesta);
+      if (!respuesta.status) {
+        this.toastyService.error('Error en el ingreso');
+      }else{
+        this.toastyService.success('Gracias por tu aporte!');
+      }
+    });;
+
   }
 }

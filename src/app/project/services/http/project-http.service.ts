@@ -159,4 +159,16 @@ export class ProjectHttpService {
     });
   }
 
+  contribution(params) {
+     console.log("entre al contribution, paso 1 http service") 
+    return this.http.post(
+      '/api/contribute',
+      params
+    ).map((res) => {
+      let project = res.json();
+      project = project.project;
+      return project;
+    });
+  }
+
 }
