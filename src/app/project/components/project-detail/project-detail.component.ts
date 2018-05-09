@@ -30,6 +30,7 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
   carouselIndex = 0;
 
   //variables
+  proyecto: number;
   nombre: string;
   telefono: string;
   correo: string;
@@ -112,12 +113,13 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
     this.metaService.addTag({name: 'title',  content: this.project.title});
   }
 
-  guardarRegistro(name:string, lname:string, fono:string, email:string, monto:string){
+  guardarRegistro(name:string, lname:string, fono:string, email:string, monto:string, idproyecto:number){
     this.fonook = true;
     this.emailok = true;
     this.montook = true;
     this.nameok = true;
     this.lnameok = true;
+    this.proyecto = idproyecto;
 
     if (name != ''){
       this.nombre = name
@@ -171,12 +173,11 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
 
 
   contribution() {
-    let aux = {nombre:this.nombre, telefono:this.telefono, correo:this.correo,aporte:this.aporte}
+    let aux = {nombre:this.nombre, telefono:this.telefono, correo:this.correo,aporte:this.aporte,proyecto:this.proyecto}
 
     this.projectHttpService.contribution(aux)
       .subscribe((res) => {
         let respuesta = res;
-        console.log(respuesta);
       if (!respuesta.status) {
         this.toastyService.error('Error en el ingreso');
       }else{
@@ -190,7 +191,6 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
     var trigger = email,
     regexp = new RegExp('^(([^<>()[\\]\\.,;:\\s@\\"]+(\\.[^<>()[\\]\\.,;:\\s@\\"]+)*)|(\\".+\\"))@(([^<>()[\\]\\.,;:\\s@\\"]+\\.)+[^<>()[\\]\\.,;:\\s@\\"]{2,})$'),
     test = regexp.test(trigger);
-    console.log("email: " + test);
     return test;
   }
 
@@ -198,7 +198,6 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
     var trigger = fono,
     regexp = new RegExp('^[1-9][0-9]\\d{6}$'),
     test = regexp.test(fono);
-    console.log("fono: " + regexp.test(fono))
     return regexp.test(fono);
   }
 }
