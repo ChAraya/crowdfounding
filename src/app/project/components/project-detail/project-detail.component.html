@@ -108,6 +108,7 @@
                         <div class="modal-content">
                           <div class="modal-header">
                             <h4 class="modal-title" id="FormModalLabel">Formulario de Aporte</h4>
+                            <h5 class="modal-title" id="FormModalLabel">Proyecto: {{project?.title}}</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
@@ -121,7 +122,7 @@
                             </div>
                            <div class="phone">
                                 <p class=tittleInfo>Telefono Contacto: </p>
-                                <input #fono type = "text" class=info required>
+                                <input #fono type = "text" class=info required>                                
                             </div>
                             <div class="email">
                               <p class=tittleInfo>eMail: </p>
@@ -134,7 +135,7 @@
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <button type="button" class="btn btn-primary" (click)="guardarRegistro(nombre.value, apellido.value, fono.value, email.value, monto.value);nombre.value='';apellido.value='';fono.value='';email.value='';monto.value=''" data-dismiss="modal">Enviar Datos</button>
+                            <button type="button" class="btn btn-primary" (click)="guardarRegistro(nombre.value, apellido.value, fono.value, email.value, monto.value);nombre.value='';apellido.value='';fono.value='';email.value='';monto.value=''" >Enviar Datos</button>
                           </div>
                         </div>
                       </div>

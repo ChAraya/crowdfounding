@@ -34,6 +34,11 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
   telefono: string;
   correo: string;
   aporte: string;
+  fonook: boolean;
+  emailok: boolean;
+  montook: boolean;
+  nameok: boolean;
+  lnameok: boolean;
 
   constructor(
     private store: Store<AppState>,
@@ -108,20 +113,64 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
   }
 
   guardarRegistro(name:string, lname:string, fono:string, email:string, monto:string){
-    this.nombre = name + lname; 
-    this.telefono = fono;
-    this.correo = email;
-    this.aporte = monto;
-    this.contribution();
+    this.fonook = true;
+    this.emailok = true;
+    this.montook = true;
+    this.nameok = true;
+    this.lnameok = true;
+
+    if (name != ''){
+      this.nombre = name
+    }else{
+      this.nameok=false;
+    }
+
+    if (lname != ''){
+      this.nombre = this.nombre + ' ' + lname;
+    }else{
+      this.lnameok = false;
+    }
+    
+    if (+fono && this.verificartelefono(fono)==true){
+      this.telefono = '+569'+fono;
+    }else{
+      this.fonook=false;
+    }
+    if (this.verificaremail(email) == true){
+      this.correo = email;
+    }else{
+      this.emailok=false;
+    }
+    if (+monto>=1){
+      this.aporte = monto;
+    }else{
+      this.montook=false;
+    }
+
+    if (this.fonook==true && this.emailok==true && this.montook==true && this.nameok==true && this.lnameok==true){
+      this.contribution();
+      this.toastyService.success('Aporte recibido con éxito');
+    }else{
+      if (this.nameok==false) {
+        this.toastyService.error('Nombre no válido');
+      }
+      if (this.lnameok==false) {
+        this.toastyService.error('Apellidos no válidos');
+      }
+      if (this.fonook==false) {
+        this.toastyService.error('Ingresar Teléfono Válido');
+      }
+      if (this.emailok==false) {
+        this.toastyService.error('Ingresar Correo Electrónico Válido');
+      }
+      if (this.montook==false) {
+        this.toastyService.error('Ingresar Monto Válido');
+      }
+    }
   }
 
 
   contribution() {
-    console.log(this.nombre)
-    console.log(this.telefono);
-    console.log(this.correo);
-    console.log(this.aporte); 
-
     let aux = {nombre:this.nombre, telefono:this.telefono, correo:this.correo,aporte:this.aporte}
 
     this.projectHttpService.contribution(aux)
@@ -135,5 +184,21 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
       }
     });;
 
+  }
+  
+  verificaremail(email:string){
+    var trigger = email,
+    regexp = new RegExp('^(([^<>()[\\]\\.,;:\\s@\\"]+(\\.[^<>()[\\]\\.,;:\\s@\\"]+)*)|(\\".+\\"))@(([^<>()[\\]\\.,;:\\s@\\"]+\\.)+[^<>()[\\]\\.,;:\\s@\\"]{2,})$'),
+    test = regexp.test(trigger);
+    console.log("email: " + test);
+    return test;
+  }
+
+  verificartelefono(fono:string){
+    var trigger = fono,
+    regexp = new RegExp('^[1-9][0-9]\\d{6}$'),
+    test = regexp.test(fono);
+    console.log("fono: " + regexp.test(fono))
+    return regexp.test(fono);
   }
 }
