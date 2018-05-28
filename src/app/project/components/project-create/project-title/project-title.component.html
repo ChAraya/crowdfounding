@@ -40,9 +40,10 @@
         </div>
         <div *ngIf="isAdmin()">
           <label>{{ 'PROJ_CREATE.DESC' | translate }} *</label>
-          <textarea row="2" col="20" class="form-control" placeholder="Enter description" #desc formControlName="desc"></textarea>
+          <textarea row="2" col="20" class="form-control" maxlength="300" placeholder="Enter description" #desc formControlName="desc"></textarea>
           <small class="form-text text-muted"><code>{{desc.value.length}}</code> of <code>300</code> characters</small>
-        <!--  <p *ngIf="projectForm.get('desc').hasError('required') && (projectForm.get('desc').touched || formSubmit)" class="value-err show">This is a mandatory field</p>-->
+          <p *ngIf="projectForm.get('desc').hasError('required') && (projectForm.get('desc').touched || formSubmit)" class="value-err show">This is a mandatory field</p>
+        <!--  <p *ngIf="projectForm.get('desc').hasError('validateDesc') || formSubmit" class="value-err show">Debe tener menos de 300 caracteres</p> -->
         </div>
       </div>
       
@@ -84,7 +85,7 @@
       <p>{{ 'PROJ_CREATE.VIDEO_MSG' | translate }}</p>
       <div class="form-group">
         <input type="text" class="form-control" placeholder="https:\\.." formControlName="video_url">
-        <p *ngIf="projectForm.get('video_url').hasError('validateURL') && projectForm.get('video_url').touched" class="value-err show">Video Url is invalid</p>
+        <p *ngIf="projectForm.get('video_url').hasError('validateURL') && projectForm.get('video_url').touched" class="value-err show">URL del Video es invalido</p>
       </div>
       <div *ngIf="!isEditing && !isAdmin()">
         <h2>{{ 'PROJ_CREATE.CAMPAIGN_GOAL' | translate }} *</h2>
@@ -187,7 +188,7 @@
         <h2>{{ 'PROJ_CREATE.BEGIN_DURATION' | translate }} *</h2>
         <input type="number" placeholder="Duration" min="1" max="60" class="form-control" formControlName="duration">
         <p *ngIf="projectForm.get('duration').hasError('required') && (projectForm.get('duration').touched || formSubmit)" class="value-err show">This is a mandatory field</p>
-        <p *ngIf="projectForm.get('duration').hasError('validateNumber') && (projectForm.get('duration').touched || formSubmit)" class="value-err show">Duration must between 1 and 60 days</p>
+        <p *ngIf="projectForm.get('duration').hasError('validateNumber') && (projectForm.get('duration').touched || formSubmit)" class="value-err show">Duración debe ser entre 1 y 45 días</p>
       </div>
       <div *ngIf="isEditing && !isAdmin()" class="no-edit padding-bottom">
         <h2>{{ 'PROJ_CREATE.BEGIN_DURATION' | translate }}</h2>        
@@ -197,7 +198,7 @@
           <h2>{{ 'PROJ_CREATE.BEGIN_DURATION' | translate }} *</h2>
           <input type="number" placeholder="Duration" min="1" max="60" class="form-control" formControlName="duration">
           <p *ngIf="projectForm.get('duration').hasError('required') && (projectForm.get('duration').touched || formSubmit)" class="value-err show">This is a mandatory field</p>
-          <p *ngIf="projectForm.get('duration').hasError('validateNumber') && (projectForm.get('duration').touched || formSubmit)" class="value-err show">Duration must between 1 and 60 days</p>
+          <p *ngIf="projectForm.get('duration').hasError('validateNumber') && (projectForm.get('duration').touched || formSubmit)" class="value-err show">Duración debe ser entre 1 y 45 días</p>
         </div>
       <div class="camp_link"> <a (click)="submitProject()" class="btnNext">{{ 'PROJ_CREATE.NEXT' | translate }}</a> </div>
     </form>
