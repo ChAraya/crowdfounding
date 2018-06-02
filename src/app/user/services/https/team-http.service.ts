@@ -97,4 +97,28 @@ export class TeamHttpService {
     })
   }
 
+  getBackers(id){
+    return this.http.get(
+      `/api/project/backers/${id}`
+    ).map((res: Response) => {
+      return res.json();
+    })
+  }
+
+  getAllBackers(){
+    return this.http.get(
+      `/api/project/backers`
+    ).map((res: Response) => {
+      return res.json();
+    })
+  }
+
+  getBackedProjects(){
+    return this.http.get(
+      '/api/backedProjects'
+    ).map((res: Response) => {
+      return res.json();
+    })
+  }
+
 }

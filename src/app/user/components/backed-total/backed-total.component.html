@@ -1,0 +1,26 @@
+<div class="tab-pane">
+    <h2>Proyectos</h2>
+    <div class="comp_table">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Nombre del proyecto</th>
+            <th class="center">Ver</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let project of backed">
+            <td>{{project.title}}</td>
+            <td class="center">
+              <button class="btn edit-btn" style="margin-top: 0 !important; padding: 5px 20px !important" (click)="changeTab(project.id);">{{ 'USER_DASHBOARD.VIEW' | translate }}</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <ngx-datatable
+        class="material"
+        [rows]="rows"
+        [columns]="columns">
+      </ngx-datatable>
+    </div>
+  </div>

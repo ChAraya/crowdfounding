@@ -30,7 +30,10 @@
                   <li *ngIf="isCreator()" [ngClass]="{'active': selectedTab == 3}">
                     <a (click)="changeTab(3)"><i class="fa fa-heart"></i> {{ 'USER_DASHBOARD.BACKERS' | translate }} </a>
                   </li>
-                  <li [ngClass]="{'active': selectedTab == 4}">
+                  <li *ngIf="isAdmin()" [ngClass]="{'active': selectedTab == 12}">
+                    <a (click)="changeTab(12)"><i class="fa fa-podcast"></i> {{ 'USER_DASHBOARD.BACKED_PROJECT' | translate }}</a>
+                  </li>
+                  <li *ngIf="!isAdmin()" [ngClass]="{'active': selectedTab == 4}">
                     <a (click)="changeTab(4)"><i class="fa fa-podcast"></i> {{ 'USER_DASHBOARD.BACKED_PROJECT' | translate }}</a>
                   </li>
                 <!--  <li *ngIf="isAuthUser()" [ngClass]="{'active': selectedTab == 5}">
@@ -96,6 +99,9 @@
               </ng-template>
               <ng-template [ngSwitchCase]="'11'">
                   <app-leader-settings [user]="user" (changeView)=ChangeTabChild($event) ></app-leader-settings>
+              </ng-template>
+              <ng-template [ngSwitchCase]="'12'">
+                <app-backed-total [user]="user" (changeView)=ChangeTabChild($event) ></app-backed-total>
               </ng-template>
             </div>
 

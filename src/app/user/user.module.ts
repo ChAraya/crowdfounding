@@ -29,9 +29,11 @@ import { EmailPasswordComponent } from './components/name-contacts-info/email-pa
 import { SocialMediaLinksComponent } from './components/name-contacts-info/social-media-links/social-media-links.component';
 import { ProfilePicComponent } from './components/name-contacts-info/profile-pic/profile-pic.component';
 import { UserNotificationsComponent } from './components/user-notifications/user-notifications.component';
+import { BackedTotalComponent } from './components/backed-total/backed-total.component';
 import { TruncatePipe } from './../core/pipes/truncate';
 
 import { NgSelectModule } from '@ng-select/ng-select';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 
 
 
@@ -41,6 +43,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     RouterModule.forChild(routes),
     EffectsModule.run(UserEffects),
     SharedModule,
+    NgxDatatableModule,
     EasyPieChartModule,
     FroalaEditorModule.forRoot(),
     FroalaViewModule.forRoot(),
@@ -64,6 +67,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
     EmailPasswordComponent,
     SocialMediaLinksComponent,
     ProfilePicComponent,
+    BackedTotalComponent,
     UserNotificationsComponent,
     TruncatePipe
   ],
