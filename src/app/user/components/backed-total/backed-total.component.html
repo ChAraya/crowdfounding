@@ -12,15 +12,31 @@
           <tr *ngFor="let project of backed">
             <td>{{project.title}}</td>
             <td class="center">
-              <button class="btn edit-btn" style="margin-top: 0 !important; padding: 5px 20px !important" (click)="changeTab(project.id);">{{ 'USER_DASHBOARD.VIEW' | translate }}</button>
+              <button class="btn edit-btn" style="margin-top: 0 !important; padding: 5px 20px !important" (click)="openModal(project.id);">{{ 'USER_DASHBOARD.VIEW' | translate }}</button>
             </td>
           </tr>
         </tbody>
       </table>
-      <ngx-datatable
-        class="material"
-        [rows]="rows"
-        [columns]="columns">
-      </ngx-datatable>
+    </div>
+  </div>
+
+  <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+
+        <div class="modal-body">
+          <ngx-datatable
+            class="material"
+            [rows]="rows"
+            [columns]="columns">
+          </ngx-datatable>
+          <br>
+          <br>
+          <div class="camp_link">
+            <a (click)="download()" class="btnNext pull-right" style="width:48%">{{ 'USER_DASHBOARD.DOWNLOAD' | translate }}</a>
+          </div>
+          <br>
+        </div>
+      </div>
     </div>
   </div>

@@ -189,7 +189,8 @@
 		"TEAM_PAGE": "Crea un Team",
 		"EDIT_TEAM": "Editar Team",
 		"TEAM_MEMBERS": "Miembros del Team",
-		"MEMBERS": "Añadir/Quitar Miembros al Team"
+		"MEMBERS": "Añadir/Quitar Miembros al Team",
+		"DOWNLOAD": "Descargar"
 	},
 	"PROJ_CREATE": {
 		"CAMPAIGN_EDITOR": "editor de campaña",
