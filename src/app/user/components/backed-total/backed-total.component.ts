@@ -135,7 +135,7 @@ export class BackedTotalComponent implements OnInit {
     //console.log('convert to array called');
      var array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
      var str = '';
-     var row = 'S.No,';
+     var row = 'N°,';
 
      for (var index in headerList) { //objArray[0]
          //Now convert each value to string and comma-separated
