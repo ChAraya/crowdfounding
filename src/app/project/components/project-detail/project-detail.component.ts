@@ -151,7 +151,8 @@ export class ProjectDetailComponent implements OnInit, OnDestroy {
 
     if (this.fonook==true && this.emailok==true && this.montook==true && this.nameok==true && this.lnameok==true){
       this.contribution();
-      this.toastyService.success('Aporte registrado con éxito, el equipo USQAI se pondre en contacto contigo, Gracias!');
+      this.toastyService.success('Aporte registrado con éxito, Gracias!');
+      this.toastyService.success('El equipo USQAI se pondre en contacto contigo');
     }else{
       if (this.nameok==false) {
         this.toastyService.error('Nombre no válido');
